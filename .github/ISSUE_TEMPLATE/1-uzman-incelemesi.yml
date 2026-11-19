@@ -1,0 +1,34 @@
+name: Uzman incelemesi
+description: Bir rehber bölümünü uzman olarak inceledin; düzeltme ya da onay bildir.
+title: "[Uzman] "
+labels: ["uzman-incelemesi"]
+body:
+  - type: dropdown
+    id: bolum
+    attributes:
+      label: Hangi rehber bölümü?
+      options: ["Şimdi ne yapmalıyım", "Deprem", "Su", "İlk yardım", "Sesli kanama rehberi", "Isınma", "İletişim", "Gıda", "Yenilebilir bitkiler", "Halk ilaçları", "Diğer"]
+    validations: { required: true }
+  - type: input
+    id: unvan
+    attributes:
+      label: Uzmanlık alanın ve unvanın
+      placeholder: "Örn. Acil tıp uzmanı / İlk yardım eğitmeni"
+    validations: { required: true }
+  - type: textarea
+    id: duzeltme
+    attributes:
+      label: Düzeltilmesi gereken cümleler
+      description: Cümleyi aynen yaz, altına neden yanlış ya da eksik olduğunu ve varsa kaynağını ekle.
+    validations: { required: true }
+  - type: dropdown
+    id: sonuc
+    attributes:
+      label: Genel değerlendirme
+      options: ["Düzeltmelerle onaylanabilir", "Önemli sorunlar var, yeniden yazılmalı", "Olduğu gibi onaylıyorum"]
+  - type: checkboxes
+    id: ad
+    attributes:
+      label: Onay kaydı
+      options:
+        - label: Onay verirsem adımın ve unvanımın onay kaydında herkese açık görüneceğini biliyorum.
