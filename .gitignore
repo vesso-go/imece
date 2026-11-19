@@ -1,0 +1,8 @@
+# İndirilen içerik, kişisel ayarlar ve çalışma dosyaları depoya girmez
+veri/
+python/
+ayarlar.json
+*.log
+__pycache__/
+*.pyc
+*.yarim
