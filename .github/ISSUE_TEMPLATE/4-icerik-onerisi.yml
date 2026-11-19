@@ -1,0 +1,20 @@
+name: İçerik önerisi
+description: İmece'ye eklenebilecek açık lisanslı bir Türkçe kaynak öner.
+title: "[İçerik] "
+labels: ["icerik-onerisi"]
+body:
+  - type: input
+    id: adres
+    attributes:
+      label: Kaynağın adresi
+    validations: { required: true }
+  - type: input
+    id: lisans
+    attributes:
+      label: Lisansı
+      placeholder: "Örn. CC BY-SA 4.0, kamu malı"
+    validations: { required: true }
+  - type: textarea
+    id: neden
+    attributes:
+      label: Neden faydalı?
