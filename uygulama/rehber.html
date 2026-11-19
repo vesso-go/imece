@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İmece Rehber</title>
+<style>
+:root{--bg:#d9d0b4;--kagit:#ebe4cc;--kagit2:#e1d8bc;--yazi:#1e1f17;--soluk:#5a5a45;--cizgi:#9b9372;--haki:#4b5320;--kirmizi:#9e2a1c;--sari:#b8901c;--seritc:#1e1f17;--ters:#f1ecd6}
+@media (prefers-color-scheme:dark){:root:not([data-tema]){--bg:#171912;--kagit:#20231a;--kagit2:#272b20;--yazi:#d8d2b8;--soluk:#8f8c73;--cizgi:#3d4230;--haki:#7d8a3f;--kirmizi:#d2553f;--sari:#c9a227;--seritc:#0e0f0a;--ters:#111}}
+:root[data-tema="koyu"]{--bg:#171912;--kagit:#20231a;--kagit2:#272b20;--yazi:#d8d2b8;--soluk:#8f8c73;--cizgi:#3d4230;--haki:#7d8a3f;--kirmizi:#d2553f;--sari:#c9a227;--seritc:#0e0f0a;--ters:#111}
+:root[data-tema="gece"]{--bg:#0a0000;--kagit:#140302;--kagit2:#1c0504;--yazi:#e0503a;--soluk:#9a3426;--cizgi:#3c0d08;--haki:#b83a26;--kirmizi:#ff6a4f;--sari:#c4402a;--seritc:#0a0000;--ters:#000}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--yazi);font:18px/1.5 "Segoe UI",Roboto,Arial,sans-serif}
+.mono{font-family:"Courier New",Consolas,monospace}
+.serit{height:10px;background:repeating-linear-gradient(-45deg,var(--sari) 0 14px,var(--seritc) 14px 28px)}
+.ust{max-width:760px;margin:auto;padding:12px 16px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-bottom:3px double var(--yazi)}
+.ust a{color:var(--yazi);text-decoration:none;font:700 13px "Courier New",monospace;letter-spacing:1px;text-transform:uppercase}
+.ust b{font:900 20px Impact,"Arial Black",sans-serif;letter-spacing:1px;text-transform:uppercase}
+.ust b span{color:var(--kirmizi)}
+.arac{display:flex;gap:6px;flex-wrap:wrap}
+.arac button{border:2px solid var(--yazi);background:var(--kagit);color:var(--yazi);font:700 12px "Courier New",monospace;letter-spacing:1px;padding:8px 10px;cursor:pointer;text-transform:uppercase;min-height:40px}
+.arac button.acik{background:var(--haki);color:var(--ters);border-color:var(--haki)}
+main{max-width:760px;margin:auto;padding:16px}
+.iz{font:700 12px "Courier New",monospace;letter-spacing:1px;color:var(--soluk);text-transform:uppercase;margin-bottom:10px;line-height:1.8}
+.iz{overflow-wrap:anywhere}
+.kart{background:var(--kagit);border:2px solid var(--yazi);box-shadow:4px 4px 0 var(--cizgi);padding:18px}
+.kod{font:700 12px "Courier New",monospace;letter-spacing:2px;color:var(--kirmizi)}
+h1{font:900 34px/1.05 Impact,"Arial Narrow Bold","Arial Black",sans-serif;text-transform:uppercase;letter-spacing:1px;margin:4px 0 6px}
+.metin{font-size:19px;font-weight:600;margin:0 0 12px}
+ol.adim{list-style:none;padding:0;margin:0 0 6px;counter-reset:a}
+ol.adim li{counter-increment:a;display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px dashed var(--cizgi)}
+ol.adim li::before{content:counter(a);flex:none;width:30px;height:30px;border:2px solid var(--yazi);display:grid;place-items:center;font:700 15px "Courier New",monospace}
+ol.adim li.tik{opacity:.45}
+ol.adim li.tik::before{content:"✓";background:var(--haki);color:var(--ters);border-color:var(--haki)}
+ol.adim li{cursor:pointer}
+.u{border:2px solid var(--yazi);padding:10px 12px;margin:10px 0;background:var(--kagit2)}
+.u::before{display:block;font:900 12px "Courier New",monospace;letter-spacing:3px;margin-bottom:3px}
+.u.tehlike{border-color:var(--kirmizi);background:var(--kirmizi);color:#fff}
+.u.tehlike::before{content:"⛔ TEHLİKE"}
+.u.dikkat{border-color:var(--kirmizi);background:repeating-linear-gradient(-45deg,transparent 0 10px,rgba(158,42,28,.08) 10px 20px),var(--kagit2)}
+.u.dikkat::before{content:"▲ DİKKAT";color:var(--kirmizi)}
+.u.not::before{content:"■ NOT";color:var(--haki)}
+:root[data-tema="gece"] .u.tehlike{color:#000}
+.sayac{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border:2px solid var(--yazi);padding:12px;margin:12px 0;background:var(--kagit2)}
+.sayac .zaman{font:700 44px/1 "Courier New",monospace;font-variant-numeric:tabular-nums}
+.sayac button{border:2px solid var(--yazi);background:var(--haki);color:var(--ters);font:800 14px "Courier New",monospace;letter-spacing:1px;padding:12px 16px;cursor:pointer;text-transform:uppercase}
+.secim{display:grid;gap:10px;margin-top:16px}
+.secim button{width:100%;text-align:left;border:2px solid var(--yazi);background:var(--yazi);color:var(--kagit);font:800 20px/1.2 "Segoe UI",Arial,sans-serif;padding:18px 16px;cursor:pointer;display:flex;justify-content:space-between;gap:10px;min-height:64px}
+.secim button:nth-child(2){background:var(--kagit);color:var(--yazi)}
+.secim button:nth-child(n+3){background:var(--kagit);color:var(--yazi)}
+.secim button:focus-visible,.arac button:focus-visible{outline:3px solid var(--kirmizi);outline-offset:2px}
+.alt{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.alt button{flex:1;border:2px solid var(--yazi);background:transparent;color:var(--yazi);font:700 13px "Courier New",monospace;letter-spacing:1px;padding:12px;cursor:pointer;text-transform:uppercase;min-height:48px}
+.kaynak{font-size:12px;color:var(--soluk);margin-top:16px}
+.acil{background:var(--kirmizi);color:#fff;font-weight:800;padding:8px 12px;margin-bottom:12px;border:2px solid var(--yazi);display:flex;gap:10px;align-items:center}
+.acil b{font:900 24px Impact,"Arial Black",sans-serif}
+:root[data-tema="gece"] .acil{color:#000}
+.bilgi{font:700 11px "Courier New",monospace;color:var(--soluk);letter-spacing:1px;margin-top:8px}
+@media (prefers-reduced-motion:no-preference){.kart{animation:gel .18s ease-out}@keyframes gel{from{transform:translateY(6px);opacity:.6}}}
+</style>
+</head>
+<body>
+<div class="serit"></div>
+<div class="ust">
+  <a href="index.html#ilkyardim">← Portal</a>
+  <b><span>İmece</span> · Rehber</b>
+  <div class="arac">
+    <button id="b-ses" title="Her adımı sesli okur">🔊 Eller serbest</button>
+    <button id="b-oku" title="Bu adımı bir kez oku">Oku</button>
+    <button id="b-tema" title="Gündüz / Koyu / Gece">Tema</button>
+  </div>
+</div>
+<main>
+  <div class="acil"><b>112</b><span>Hayati tehlike varsa önce ara ya da arat.</span></div>
+  <div class="iz" id="iz"></div>
+  <div class="kart" id="kart"></div>
+  <div class="alt"><button id="b-geri">← Geri</button><button id="b-bas">Baştan</button></div>
+  <div class="kaynak" id="kaynak"></div>
+</main>
+<script src="rehber-kaynak.js"></script>
+<script>
+(function(){
+  var ad=(new URLSearchParams(location.search).get('r')||'kanama').replace(/[^a-z0-9_-]/gi,'');
+  var s=document.createElement('script');s.src='rehberler/'+ad+'.js';s.onload=basla;
+  s.onerror=function(){document.getElementById('kart').innerHTML='<h1>Rehber bulunamadı</h1><p>rehberler/'+ad+'.js yok.</p>'};
+  document.head.appendChild(s);
+
+  var R,yol=[],sesAcik=false,sayacT=null,sesNesne=null;
+  try{sesAcik=localStorage.getItem('imece-ses')==='1'}catch(e){}
+  var kok=document.documentElement,temalar=[null,'gunduz','koyu','gece'],ti=0;
+  try{var t=localStorage.getItem('tema');if(t){kok.setAttribute('data-tema',t);ti=temalar.indexOf(t)}}catch(e){}
+  document.getElementById('b-tema').onclick=function(){ti=(ti+1)%temalar.length;var t=temalar[ti];
+    if(t)kok.setAttribute('data-tema',t);else kok.removeAttribute('data-tema');try{t?localStorage.setItem('tema',t):localStorage.removeItem('tema')}catch(e){}};
+  function sesBtn(){document.getElementById('b-ses').classList.toggle('acik',sesAcik)}
+  document.getElementById('b-ses').onclick=function(){sesAcik=!sesAcik;sesBtn();try{localStorage.setItem('imece-ses',sesAcik?'1':'0')}catch(e){};if(sesAcik)oku();else sus()};
+  document.getElementById('b-oku').onclick=function(){oku()};
+  document.getElementById('b-geri').onclick=function(){if(yol.length>1){yol.pop();ciz(true)}};
+  document.getElementById('b-bas').onclick=function(){yol=[R.baslangic];ciz()};
+
+  function e(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+  // Ses: önce önceden üretilmiş dosya (ses/<rehber>/<düğüm>.wav), yoksa cihazın Türkçe sesi.
+  var ttsNo=0;
+  function sus(){ttsNo++;try{speechSynthesis.cancel()}catch(x){} if(sesNesne){sesNesne.pause();sesNesne=null}}
+  function konus(metin,dosya){
+    sus();
+    if(dosya){var a=new Audio(dosya);sesNesne=a;a.onerror=function(){sesNesne=null;tts(metin)};a.play().catch(function(){tts(metin)});return}
+    tts(metin);
+  }
+  // Yalnızca cihazda yüklü Türkçe ses kullanılır. Tarayıcının internet sesi metni dışarıya gönderir ve internetsiz
+  // çalışmaz; başka dilin sesi de Türkçe talimatı anlaşılmaz okur. İkisi de olmasın: ses yoksa düğme bunu söyler.
+  function tts(metin,tekrar){
+    try{var no=tekrar||++ttsNo,hepsi=speechSynthesis.getVoices();
+      if(!hepsi.length&&!tekrar){var oldu=false,f=function(){if(oldu)return;oldu=true;if(no===ttsNo)tts(metin,no)};
+        speechSynthesis.addEventListener('voiceschanged',f);setTimeout(f,1500);return}
+      var v=hepsi.filter(function(v){return /^tr/i.test(v.lang)&&v.localService!==false})[0];
+      if(!v){var b=document.getElementById('b-ses');b.textContent='🔇 Bu cihazda Türkçe ses yok';b.title='Windows: Ayarlar → Saat ve dil → Konuşma → Ses ekle → Türkçe';return}
+      var u=new SpeechSynthesisUtterance(metin);u.lang='tr-TR';u.rate=0.95;u.voice=v;
+      speechSynthesis.speak(u)}catch(x){}
+  }
+  function oku(){var id=yol[yol.length-1],d=R.dugumler[id];konus(d.ses||d.metin,'ses/'+R.id+'/'+id+'.wav')}
+
+  function basla(){R=window.REHBER;yol=[R.baslangic];sesBtn();
+    kaynakCiz();ciz()}
+  // Rehberin kaynak ve onay durumu (veri: rehber-kaynak.js). Onay, rehber dosyasının onaylandığı günkü özetine bağlıdır;
+  // özet doğrulanamazsa (dosya değişmişse ya da tarayıcı hesaplayamıyorsa) rehber "onaylı" gösterilmez.
+  function kaynakCiz(onayGecerli){
+    var el=document.getElementById('kaynak'),b=((window.REHBER_KAYNAK||{}).bolumler||{})[R.id]||{durum:'taslak'},o=b.onay,h;
+    function tr(t){var p=String(t||'').split('-');return p.length===3?p[2]+'.'+p[1]+'.'+p[0]:String(t||'')}
+    if(o&&onayGecerli===true)h='<b>UZMAN ONAYLI:</b> '+e(o.ad)+(o.unvan?' ('+e(o.unvan)+')':'')+', '+e(tr(o.tarih))+'. Eğitimin yerini tutmaz.';
+    else if(b.durum==='kaynakli')h='<b>KAYNAKLI · UZMAN ONAYI BEKLİYOR.</b> Bu rehber aşağıdaki kaynaklara dayanarak yazıldı (son gözden geçirme: '+e(tr(b.gozden))+'). Henüz bir uzman onaylamadı; eğitimin yerini tutmaz.';
+    else h='<b>TASLAK · KAYNAK VE UZMAN ONAYI BEKLİYOR.</b> Kaynakları ve uzman onayı eklenene kadar tek başına güvenme.';
+    if(o&&onayGecerli===false)h+=' <b>Önceki onay geçersiz:</b> rehberin metni onaylandığı hâlinden farklı.';
+    if(b.kaynaklar&&b.kaynaklar.length)h+='<ol>'+b.kaynaklar.map(function(k){return '<li value="'+(+k.no)+'">'+e(k.kurum)+'. '+e(k.baslik)+(k.yil?' ('+e(k.yil)+')':'')+'. '+e(k.adres)+' · Erişim: '+e(tr(k.erisim))+'</li>'}).join('')+'</ol>';
+    el.innerHTML='Sürüm '+e(R.surum)+' · '+h;
+    if(o&&onayGecerli===undefined&&window.crypto&&crypto.subtle&&window.fetch)
+      fetch('rehberler/'+R.id+'.js',{cache:'no-store'}).then(function(r){return r.arrayBuffer()}).then(function(v){return crypto.subtle.digest('SHA-256',v)})
+        .then(function(d){var x=[].map.call(new Uint8Array(d),function(c){return ('0'+c.toString(16)).slice(-2)}).join('');kaynakCiz(x===o.ozet)}).catch(function(){})}
+
+  function ciz(geri){
+    clearInterval(sayacT);sayacT=null;
+    var id=yol[yol.length-1],d=R.dugumler[id];
+    document.getElementById('iz').innerHTML=yol.map(function(k,i){return '<span>'+(i?' › ':'')+e(R.dugumler[k].baslik)+'</span>'}).join('');
+    var h='<div class="kod">'+e(R.baslik.toUpperCase())+' · ADIM '+yol.length+'</div><h1>'+e(d.baslik)+'</h1><p class="metin">'+e(d.metin)+'</p>';
+    (d.uyarilar||[]).filter(function(u){return u.seviye==='tehlike'}).forEach(function(u){h+='<div class="u tehlike">'+e(u.metin)+'</div>'});
+    if(d.adimlar)h+='<ol class="adim">'+d.adimlar.map(function(a){return '<li>'+e(a)+'</li>'}).join('')+'</ol><div class="bilgi">Yaptığın adıma dokun, işaretlensin.</div>';
+    if(d.sayac)h+='<div class="sayac"><div class="zaman" id="zaman">'+fmt(d.sayac.saniye)+'</div><button id="b-say">▶ Sayacı başlat</button><span class="bilgi">Sesli modda her '+(d.sayac.aralik/60)+' dakikada bir söyler.</span></div>';
+    (d.uyarilar||[]).filter(function(u){return u.seviye!=='tehlike'}).forEach(function(u){h+='<div class="u '+u.seviye+'">'+e(u.metin)+'</div>'});
+    if(d.secenekler)h+='<div class="secim">'+d.secenekler.map(function(s,i){return '<button data-git="'+e(s.git)+'"><span>'+e(s.etiket)+'</span><span>›</span></button>'}).join('')+'</div>';
+    if(d.kn&&d.kn.length)h+='<div class="kaynak" id="dugum-kn">Kaynak: '+d.kn.map(function(n){return '['+(+n)+']'}).join(' ')+' (liste sayfanın altında)</div>';
+    if(d.son)h+='<div class="u not">Rehberin sonu. Yardım gelene kadar yaralının yanında kal.</div>';
+    var k=document.getElementById('kart');k.innerHTML=h;
+    [].forEach.call(k.querySelectorAll('ol.adim li'),function(li){li.onclick=function(){li.classList.toggle('tik')}});
+    [].forEach.call(k.querySelectorAll('.secim button'),function(b){b.onclick=function(){yol.push(b.dataset.git);ciz();window.scrollTo(0,0)}});
+    if(d.sayac){document.getElementById('b-say').onclick=function(){sayacBasla(d.sayac,this)};}
+    if(sesAcik)oku(); else sus();
+  }
+  function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+  function sayacBasla(c,btn){
+    if(sayacT){clearInterval(sayacT);sayacT=null;btn.textContent='▶ Devam';return}
+    btn.textContent='❚❚ Durdur';
+    var kalan=+(btn.dataset.kalan||c.saniye),gecen=c.saniye-kalan,z=document.getElementById('zaman');
+    sayacT=setInterval(function(){kalan--;gecen++;btn.dataset.kalan=kalan;z.textContent=fmt(Math.max(kalan,0));
+      if(gecen%c.aralik===0&&kalan>0&&sesAcik)tts(c.ses.replace('{dk}',gecen/60));
+      if(kalan<=0){clearInterval(sayacT);sayacT=null;btn.textContent='Süre doldu';if(sesAcik)tts(c.bitis||'Süre doldu. Duruma göre sonraki adımı seç.')}
+    },1000);
+  }
+})();
+</script>
+</body>
+</html>

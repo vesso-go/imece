@@ -1,0 +1,81 @@
+İMECE 0.19 — çevrimdışı bilgi ve afet hazırlık uygulaması
+
+AÇMAK
+  Windows : Imece-Ac dosyasına çift tıkla. Uygulama tarayıcıda açılır.
+            Hiçbir şey kurmak gerekmez: İmece'nin çalışması için gereken Python,
+            "python" klasöründe hazır gelir (64 bit Windows 10 ya da 11).
+            Siyah pencere açık kalmaz. Windows ilk açışta "bu dosya internetten
+            indirildi" diye sorabilir; İmece'yi güvendiğin yerden aldıysan "Çalıştır" de.
+  macOS   : Imece-Ac.command dosyasına çift tıkla (Python 3.14 kurulu olmalı).
+            macOS ilk açışta "geliştiricisi doğrulanamadı" diyebilir; dosyaya sağ tıklayıp "Aç" de.
+  Linux, Raspberry Pi : imece-ac.sh dosyasını çalıştır ya da: python3 imece.py   (Python 3.14 ister)
+            (macOS ve Linux açılış dosyaları henüz o sistemlerde denenmedi.)
+
+KAPATMAK
+  Uygulamanın sağ üstündeki "İmece'yi kapat" düğmesine bas.
+  Tarayıcı sekmesini kapatmak İmece'yi kapatmaz; indirmeler arkada sürer.
+
+DİL / LANGUAGE
+  Sağ üstteki TR | EN düğmesi arayüzün dilini değiştirir.
+  The TR | EN button at the top right switches the interface language. The emergency
+  guides stay in Turkish: they are tied to cited sources and await expert review.
+
+HER ŞEY UYGULAMANIN İÇİNDE
+  Kütüphane : İndirdiğin kitaplar ve tüm kitaplarda arama.
+              Arama maddelerin hem adına hem yazısının içine bakar. Yazının içinde
+              arama için her kitaba bir kere dizin hazırlanır; arka planda, kendiliğinden
+              olur. Hazır olana kadar o kitapta yalnızca madde adlarında aranır.
+              Bir kitapta "Aç" deyince o kitabın giriş ekranı gelir: kaç madde olduğu,
+              kitap içinde arama, A–Z dizin, bölümler, rastgele madde.
+              Okurken "+ Sekme" bulunduğun sayfayı açık bırakıp yeni sekme açar; "Not" o sayfaya
+              not yazdırır (notların Kütüphane'de "Notlarım"da durur); "Tam ekran" ve
+              "İleri" düğmeleri de var.
+              Madde okurken üstteki düğmeler: "Bul" sayfanın içinde kelime arar (Ctrl+F),
+              "İçindekiler" sayfanın bölümlerini listeler, "Sesli oku" sayfayı okur.
+              Sesli okuma cihazın kendi sesini kullanır; Türkçe ses yüklü değilse
+              nasıl ekleneceğini söyler (Ayarlar → Sesli rehber).
+              Elinde hazır bir kitap dosyası (.zim) varsa Kütüphane'nin altındaki
+              "Bilgisayardan kitap ekle" ile ekle; dosyayı elle bir klasöre koyma.
+              Bir kitabı silmek için kitabı aç; giriş ekranının en altında "Kitabı sil" var.
+  Rehberler : Şimdi ne yapmalıyım, Deprem, Su, İlk yardım, Isınma, İletişim, Gıda,
+              Yenilebilir bitkiler, Halk ilaçları ve sesli kanama rehberi.
+              Her bölümün başında durumu yazar. Şu an hepsi "KAYNAKLI · UZMAN ONAYI
+              BEKLİYOR": her bilgi altta sayılan kaynaklara dayanır, ama metni henüz bir
+              uzman okuyup onaylamadı. Eğitimin ve sağlık görevlisinin yerini tutmaz.
+  A–Z Dizin : Kitap seç, harf harf gez.
+  Sanat     : İndirdiğin resim galerileri. Bir esere basınca büyür; ressamı, tarihi, kaynağı yazar.
+  Müzik     : İndirilen müzikleri çal.
+  Oyunlar   : Satranç, sudoku, mangala. İnternet istemez.
+  Paketler  : Dil seç (Türkçe / İngilizce), Mini / Standart / Tam ya da tek tek indir.
+              İndirme yarıda kalırsa "Devam et" ile kaldığı yerden sürer.
+              İnen her kitabın sağlam olup olmadığı denetlenir; bozuk inen eklenmez,
+              baştan indirilir. Bir kitabın hâlâ sağlam olduğunu görmek için kitabı aç;
+              künyenin altında "Dosyayı denetle" var.
+              "Katalogdaki her şey" o dildeki tüm içerikleri listeler; türüne göre süzülür.
+              "Başka bir İmece'den kitap al": yakındaki bir bilgisayarda İmece açıksa ve
+              paylaşımı açtıysa, oradaki kitapları internet olmadan buraya kopyalar.
+  Ayarlar   : Flash diske kur (hazır Python da kopyalanır; flash başka bilgisayarda
+              da kurulumsuz açılır). "Kitapların durduğu yer": bilgisayarda yer azaldıysa
+              kitapları, müziği ve notları başka bir diske taşı (diski listeden seç; İmece
+              kopyalar, sağlamasını denetler, eskisini siler). O disk takılı değilken
+              kütüphane boş görünür; diski takıp İmece'yi yeniden açınca geri gelir.
+              Tam metin aramayı
+              aç ya da kapat (dizinler kitabın üçte biri ile yarısı kadar yer tutar).
+              "Aynı ağdaki cihazlarla paylaş": aynı Wi-Fi'daki telefon ve bilgisayarlar
+              kütüphaneyi okuyabilsin. Açınca yazılacak adresi ve kare kodunu gösterir. Öbür cihazlar
+              yalnızca okur; indirme, silme ve ayarlar bu bilgisayarda kalır.
+              İmece kapanınca paylaşım da kapanır.
+
+KLASÖRLER
+  uygulama/    → İmece'nin kendisi. Dokunma.
+  python/      → İmece'yi çalıştıran Python. python.org'un resmi paketi, hiçbir dosyası
+                 değiştirilmedi; lisansı içindeki LICENSE.txt dosyasında. Dokunma.
+                 (Yalnızca "windows" paketinde bulunur.)
+  veri/        → İndirilen kitaplar, müzik ve kitap dizinleri (ilk açılışta oluşur).
+                 Elle dokunman gerekmez: ekleme ve silme uygulamanın içinden yapılır.
+  belgeler/    → Devir notu, test raporu, yol haritası.
+  gelistirme/  → Test ve paketleme betikleri (kullanmak için gerekmez).
+
+SORUN OLURSA
+  İmece açılmazsa bir ileti kutusu nedenini söyler. Ayrıntılar İmece klasöründeki
+  imece-gunluk.log dosyasına yazılır.

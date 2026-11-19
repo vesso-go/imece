@@ -1,0 +1,70 @@
+1
+00:00:00,637 --> 00:00:03,280
+Yola çıkmadan önce çantana bir pusula koydun.
+
+2
+00:00:04,030 --> 00:00:06,934
+Peki, yanında hangi kitabı götürmek istersin?
+
+3
+00:00:08,318 --> 00:00:10,718
+Biz İmece’de resimli Vikipedi’yi seçtik.
+
+4
+00:00:11,059 --> 00:00:12,219
+Şimdi kamptayız.
+
+5
+00:00:12,560 --> 00:00:17,598
+İnternet yok ama ‘pusula’ sözcüğünü indirilen
+kitaplarda arayıp ilgili maddeyi açabiliyoruz.
+
+6
+00:00:18,600 --> 00:00:22,760
+İmece’de deprem, su ve ilk yardım için Türkçe
+rehberler de var.
+
+7
+00:00:23,510 --> 00:00:25,617
+Her bölümün kaynaklarını görebilirsin.
+
+8
+00:00:26,367 --> 00:00:28,372
+Rehberler uzman onayı bekliyor.
+
+9
+00:00:30,528 --> 00:00:31,848
+Biraz da resme bakalım.
+
+10
+00:00:32,585 --> 00:00:34,428
+Bu tablo Osman Hamdi Bey’in.
+
+11
+00:00:35,165 --> 00:00:39,125
+Ekranda eserin tarihini ve hangi kaynaktan
+geldiğini de okuyabiliyoruz.
+
+12
+00:00:40,283 --> 00:00:45,776
+Arkadaşın da okumak isterse aynı Wi-Fi ağına
+bağlanıp bilgisayardaki kare kodu okutabilir.
+
+13
+00:00:46,146 --> 00:00:48,466
+Kitap telefonun tarayıcısında açılır.
+
+14
+00:00:48,836 --> 00:00:50,676
+Android uygulaması henüz yok.
+
+15
+00:00:51,455 --> 00:00:54,354
+İmece’ye bir bölüm okuyarak da katkı
+verebilirsin.
+
+16
+00:00:54,838 --> 00:00:59,337
+Rehberleri inceleyecek uzmanlar ve kütüphaneyi
+deneyecek kullanıcılar arıyoruz.
+

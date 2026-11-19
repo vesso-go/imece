@@ -1,0 +1,1 @@
+İmece’yle küçük bir hazırlık provası yapabilirsin. İnternet varken bir kitap indir, bağlantıyı kapat ve kitabı yeniden aç. Böylece bir kesinti sırasında hangi kitaba nereden ulaşacağını önceden görürsün.

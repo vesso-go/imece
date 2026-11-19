@@ -1,0 +1,79 @@
+15 kısa Türkçe gönderi
+
+Afet hazırlığı
+
+1. İmece’yle küçük bir hazırlık provası yapabilirsin. İnternet varken bir kitap indir, bağlantıyı kapat ve kitabı yeniden aç. Böylece bir kesinti sırasında hangi kitaba nereden ulaşacağını önceden görürsün.
+
+2. “Bu bilgi nereden geliyor?” İmece’nin deprem ve su rehberlerini okurken bölümün sonuna bak. Metnin dayandığı kaynaklar orada. Rehberler uzman onayı bekliyor.
+
+3. Afet çantana bir flash bellek koyacaksan önce içindekileri açmayı dene. İmece’de Ayarlar’dan “Flash diske kur”u seç. Ardından belleği bir Windows bilgisayara takıp Imece-Ac’ye çift tıkla.
+
+4. Evde birlikte küçük bir hazırlık yapabilirsiniz. İmece’de su, ısınma ve iletişim başlıklarını bulun. Herkes merak ettiği bir bölümü seçip metnin altındaki kaynağa göz atsın. Türkçe rehberler uzman onayı bekliyor.
+
+5. İmece’de kanama konusunu adım adım dinleyebileceğin bir rehber var. Rehber uzman onayı bekliyor ve ilk yardım eğitiminin yerini tutmuyor. Türkiye’de acil durumda 112’yi ara.
+
+İnternetsiz kütüphane
+
+6. Dağ evinde okurken bir sözcüğe takıldın. Yola çıkmadan Vikisözlük’ü İmece’ye indirdiysen sözlüğün bilgisayarında. Sözcüğün anlamına bakıp kitabına dönebilirsin.
+
+7. Bir sözcüğü dün hangi kitapta okumuştun? İmece’de bütün kitapları tek tek açman gerekmiyor. Bir kez ara, indirdiğin kitapların metinlerinde sözcüğün geçtiği yerleri bul.
+
+8. İmece’de bir tablonun da künyesi var. Osman Hamdi Bey’in bir eserini önceden indir, sonra çevrimdışı incele. Ressamı, eserin tarihi ve kaynağı hemen altında.
+
+9. Kütüphanende neye yer açacağın sana kalmış. İmece’de yalnızca istediğin kitabı indirebilir ya da hazır bir paket seçebilirsin. Bağlantı yarıda kesilirse indirme kaldığı yerden sürer.
+
+10. Aradığın kitap yan masadaki bilgisayarda olabilir. İki bilgisayarda da İmece açıksa aynı yerel ağda kitabı birinden diğerine kopyalayabilirsin. Bunun için internet gerekmez.
+
+Gönüllü çağrısı
+
+11. İlk yardım eğitmeni misin? İmece’nin sesli kanama rehberi uzman onayı bekliyor. Bir adımı dinleyip ilk kez duyan birinin yanlış anlayabileceği bir ifadeyi işaretler misin?
+
+12. Hekimsen İmece’nin ilk yardım bölümünden tek bir paragraf seçip altındaki kaynakla karşılaştırabilir misin? Düzeltilmesi gereken cümleyi ve gerekçesini paylaşman, uzman onayı bekleyen metnin gözden geçirilmesine yardımcı olur.
+
+13. Afet uzmanıysan İmece’nin deprem rehberini okumaya davetlisin. Bir bölüm seç, adımların sırasına ve dayandığı kaynaklara bak. Önerdiğin düzeltmeyi ilgili cümleyle birlikte paylaş.
+
+14. İmece’yi ilk kez kullanacak bir Windows 10 kullanıcısı arıyoruz. ZIP’i açıp Imece-Ac’ye çift tıklar mısın? Bir kitabı açana kadar hangi adımda durup düşündüğünü yazman yeterli.
+
+15. Telefonundan İmece’yi denemek ister misin? Android uygulaması henüz yok. Bilgisayarda İmece’nin kütüphane paylaşımını aç, aynı Wi-Fi’daki telefondan kare kodu okut. Bir kitabın açılıp açılmadığını ve kullandığın tarayıcıyı paylaş.
+
+60 saniyelik tanıtım videosu
+
+00:00–00:08
+
+Görüntü  Bir kamp çantası, masada bir pusula ve açık bir dizüstü bilgisayar. İmleç, İmece’nin Paketler bölümünde.
+
+Seslendirme  Yola çıkmadan önce çantana bir pusula koydun. Peki, yanında hangi kitabı götürmek istersin?
+
+00:08–00:18
+
+Görüntü  Evde resimli Vikipedi’nin indirmesi tamamlanır. Kampta aynı bilgisayarda internet bağlantısı kapalıyken “pusula” aranır ve bir madde açılır.
+
+Seslendirme  Biz İmece’de resimli Vikipedi’yi seçtik. Şimdi kamptayız. İnternet yok ama ‘pusula’ sözcüğünü indirilen kitaplarda arayıp ilgili maddeyi açabiliyoruz.
+
+00:18–00:30
+
+Görüntü  Bir Türkçe afet rehberi açılır. Önce “Uzman onayı bekliyor” uyarısı, sonra bölümün sonundaki kaynaklar okunacak kadar uzun gösterilir.
+
+Seslendirme  İmece’de deprem, su ve ilk yardım için Türkçe rehberler de var. Her bölümün kaynaklarını görebilirsin. Rehberler uzman onayı bekliyor.
+
+00:30–00:40
+
+Görüntü  Sanat bölümünde önceden indirilmiş, kamu malı bir Osman Hamdi Bey tablosu açılır. Kamera bir ayrıntıdan eserin künyesine geçer.
+
+Seslendirme  Biraz da resme bakalım. Bu tablo Osman Hamdi Bey’in. Ekranda eserin tarihini ve hangi kaynaktan geldiğini de okuyabiliyoruz.
+
+00:40–00:51
+
+Görüntü  Bilgisayarda kütüphane paylaşımı açılır. Aynı Wi-Fi ağına bağlı telefon kare kodu okutur. Kitap açıldığında tarayıcının adres çubuğu görünür.
+
+Seslendirme  Arkadaşın da okumak isterse aynı Wi-Fi ağına bağlanıp bilgisayardaki kare kodu okutabilir. Kitap telefonun tarayıcısında açılır. Android uygulaması henüz yok.
+
+00:51–01:00
+
+Görüntü  Kitabı okuyan iki kişiden sade bir kapanış kartına geçilir. Ekranda “İMECE” ve “Bir rehberi incele · Bir kitabı açmayı dene” yazıları kalır.
+
+Seslendirme  İmece’ye bir bölüm okuyarak da katkı verebilirsin. Rehberleri inceleyecek uzmanlar ve kütüphaneyi deneyecek kullanıcılar arıyoruz.
+
+Yayın kuralları
+
+Dosyalarda yazmayan hiçbir özellik ekleme. “Uzman onaylı”, “Android uygulaması var”, “Play Store'da” deme; rehberlerin uzman onayı beklediğini ve Android uygulamasının henüz olmadığını açıkça yaz. Rakipler hakkında dosyadaki tablonun dışına çıkma ve logolarını kullanma.

@@ -1,0 +1,1476 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İmece Arşiv</title>
+<style>
+:root{--bg:#d9d0b4;--kagit:#ebe4cc;--kagit2:#e1d8bc;--yazi:#1e1f17;--soluk:#5a5a45;--cizgi:#9b9372;--haki:#4b5320;--haki2:#3a4119;--kirmizi:#9e2a1c;--sari:#c9a227;--seritc:#1e1f17}
+@media (prefers-color-scheme:dark){:root:not([data-tema]){--bg:#171912;--kagit:#20231a;--kagit2:#272b20;--yazi:#d8d2b8;--soluk:#8f8c73;--cizgi:#3d4230;--haki:#7d8a3f;--haki2:#5f6b2c;--kirmizi:#d2553f;--sari:#c9a227;--seritc:#0e0f0a}}
+:root[data-tema="koyu"]{--bg:#171912;--kagit:#20231a;--kagit2:#272b20;--yazi:#d8d2b8;--soluk:#8f8c73;--cizgi:#3d4230;--haki:#7d8a3f;--haki2:#5f6b2c;--kirmizi:#d2553f;--sari:#c9a227;--seritc:#0e0f0a}
+:root[data-tema="gece"]{--bg:#0a0000;--kagit:#140302;--kagit2:#1c0504;--yazi:#e0503a;--soluk:#9a3426;--cizgi:#3c0d08;--haki:#b83a26;--haki2:#7a2216;--kirmizi:#ff6a4f;--sari:#c4402a;--seritc:#0a0000}
+:root[data-tema="gunduz"]{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--yazi);font:17px/1.55 "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+ background-image:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.018) 3px 4px)}
+.mono,.kod,nav button,.etiket,th,.alt-ust,footer{font-family:"Courier New",Consolas,"Liberation Mono",monospace}
+.serit{height:10px;background:repeating-linear-gradient(-45deg,var(--sari) 0 14px,var(--seritc) 14px 28px)}
+header{max-width:980px;margin:auto;padding:18px 16px 14px;display:flex;gap:16px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;border-bottom:3px double var(--yazi)}
+.alt-ust{font-size:12px;letter-spacing:2px;color:var(--soluk);text-transform:uppercase}
+h1{margin:4px 0 2px;font:900 30px/1.05 Impact,"Arial Narrow Bold","Franklin Gothic Medium","Arial Black",sans-serif;letter-spacing:1px;text-transform:uppercase}
+h1 span{color:var(--kirmizi)}
+.alt{color:var(--soluk);font-size:14px}
+.damga{border:3px solid var(--kirmizi);color:var(--kirmizi);font:800 13px/1 "Courier New",monospace;letter-spacing:2px;padding:6px 10px;transform:rotate(-4deg);text-transform:uppercase;opacity:.85}
+.tema{display:flex;border:2px solid var(--yazi)}
+.tema button{border:0;background:transparent;color:var(--yazi);font:700 12px "Courier New",monospace;letter-spacing:1px;padding:6px 9px;cursor:pointer;text-transform:uppercase}
+.tema button.aktif{background:var(--yazi);color:var(--kagit)}
+.kapat-btn{border:2px solid var(--yazi);background:transparent;color:var(--yazi);font:700 12px "Courier New",monospace;letter-spacing:1px;padding:6px 9px;cursor:pointer;text-transform:uppercase}
+.ag-rozet{border:2px solid var(--kirmizi);color:var(--kirmizi);font:700 12px "Courier New",monospace;letter-spacing:1px;padding:6px 9px;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.ag-adres{font:800 22px "Courier New",monospace;border:3px solid var(--yazi);padding:12px;margin:8px 0;background:var(--kagit2);overflow-wrap:anywhere;user-select:all}
+.kapat-btn:hover{background:var(--kirmizi);border-color:var(--kirmizi);color:#fff}
+#kapandi{position:fixed;inset:0;z-index:100;background:var(--kagit);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+#kapandi[hidden]{display:none}
+.acil{max-width:980px;margin:14px auto 0;padding:0 16px}
+.acil div{background:var(--kirmizi);color:#fff;padding:12px 16px;font-weight:700;display:flex;gap:12px;align-items:center;border:2px solid var(--yazi)}
+.acil b{font:900 30px/1 Impact,"Arial Black",sans-serif;letter-spacing:1px}
+:root[data-tema="gece"] .acil div{color:#000}
+nav{position:sticky;top:0;background:var(--bg);z-index:5;border-bottom:2px solid var(--yazi);margin-top:14px}
+nav .ic{max-width:980px;margin:auto;display:flex;flex-wrap:wrap;gap:0;padding:0 16px}
+nav button{flex:1 1 auto;border:0;border-right:1px solid var(--cizgi);border-bottom:1px solid var(--cizgi);background:transparent;color:var(--yazi);padding:11px 13px;font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;min-height:44px}
+nav button i{font-style:normal;color:var(--soluk);margin-right:6px}
+nav button.aktif{background:var(--haki);color:#f1ecd6}
+nav button.aktif i{color:#cfc79f}
+:root[data-tema="gece"] nav button.aktif{color:#000}
+main{max-width:980px;margin:auto;padding:20px 16px}
+section{display:none}section.aktif{display:block}
+h2{margin:0 0 16px;font:900 28px/1.1 Impact,"Arial Narrow Bold","Arial Black",sans-serif;letter-spacing:1px;text-transform:uppercase;display:flex;gap:12px;align-items:baseline;border-bottom:2px solid var(--yazi);padding-bottom:8px}
+h2 .no{white-space:nowrap;flex:none;align-self:center;font:700 14px "Courier New",monospace;color:#f1ecd6;background:var(--haki);padding:3px 8px;letter-spacing:1px}
+:root[data-tema="gece"] h2 .no{color:#000}
+h3{margin:0 0 10px;font:800 15px/1.3 "Segoe UI",Arial,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--haki2)}
+:root[data-tema="gece"] h3{color:var(--yazi)}
+@media (prefers-color-scheme:dark){:root:not([data-tema]) h3{color:var(--haki)}}
+:root[data-tema="koyu"] h3{color:var(--haki)}
+.kart{background:var(--kagit);border:2px solid var(--yazi);padding:16px 18px;margin:0 0 16px;position:relative;box-shadow:4px 4px 0 var(--cizgi)}
+ol,ul{padding-left:24px;margin:6px 0}li{margin:6px 0}
+ol li::marker{font:700 15px "Courier New",monospace;color:var(--kirmizi)}
+ul li::marker{color:var(--haki)}
+.uyari,.iyi{padding:12px 14px 12px 14px;margin:12px 0;border:2px solid var(--yazi);background:var(--kagit2)}
+.uyari{border-color:var(--kirmizi);background:repeating-linear-gradient(-45deg,transparent 0 10px,rgba(158,42,28,.06) 10px 20px),var(--kagit2)}
+.uyari::before,.iyi::before{display:block;font:900 12px "Courier New",monospace;letter-spacing:3px;margin-bottom:4px}
+.uyari::before{content:"▲ UYARI";color:var(--kirmizi)}
+.iyi::before{content:"■ NOT";color:var(--haki)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+.tablo{overflow-x:auto}
+th,td{border:1px solid var(--cizgi);padding:8px 8px;text-align:left;vertical-align:top}
+th{background:var(--yazi);color:var(--kagit);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;border-color:var(--yazi)}
+tr:nth-child(odd) td{background:rgba(0,0,0,.025)}
+td:first-child{font-weight:700}
+.etiket{display:inline-block;white-space:nowrap;font-size:11px;padding:2px 7px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border:1.5px solid currentColor}
+.e-guclu{color:var(--haki2);background:transparent}.e-orta{color:#8a6d1f}.e-zayif{color:var(--soluk)}.e-zarar{color:#fff;background:var(--kirmizi);border-color:var(--kirmizi)}
+:root[data-tema="gece"] .e-guclu,:root[data-tema="gece"] .e-orta{color:var(--yazi)}
+@media (prefers-color-scheme:dark){:root:not([data-tema]) .e-guclu{color:var(--haki)}:root:not([data-tema]) .e-orta{color:var(--sari)}}
+:root[data-tema="koyu"] .e-guclu{color:var(--haki)}:root[data-tema="koyu"] .e-orta{color:var(--sari)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.grid .kart{margin:0;padding:0;box-shadow:none}
+.grid .kart a{display:block;padding:16px;text-decoration:none;color:var(--yazi);min-height:100%}
+.grid .kart a:hover{background:var(--haki);color:#f1ecd6}
+.grid .kart a::before{content:attr(data-kod);display:block;font:700 12px "Courier New",monospace;color:var(--kirmizi);letter-spacing:2px;margin-bottom:6px}
+.grid .kart h3{margin:0 0 4px}
+.grid .kart a:hover h3,.grid .kart a:hover::before{color:#f1ecd6}
+a{color:var(--haki2);font-weight:600}
+@media (prefers-color-scheme:dark){:root:not([data-tema]) a{color:var(--haki)}}
+:root[data-tema="gece"] a{color:var(--kirmizi)}
+.btn{display:inline-block;background:var(--haki);color:#f1ecd6;text-decoration:none;padding:12px 18px;font:800 14px "Courier New",monospace;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--yazi)}
+code{font-family:"Courier New",monospace;background:var(--kagit2);padding:1px 5px;border:1px solid var(--cizgi)}
+audio{width:100%;margin-top:8px}
+.muzik-li{cursor:pointer;padding:8px 10px;border-bottom:1px dashed var(--cizgi);font-family:"Courier New",monospace}.muzik-li:hover{background:var(--haki);color:#f1ecd6}
+footer{max-width:980px;margin:auto;padding:16px;color:var(--soluk);font-size:12px;border-top:3px double var(--yazi)}
+@media (max-width:560px){h1{font-size:24px}h2{font-size:22px}.damga{display:none}body{font-size:16px}}
+@media print{nav,.tema,.serit{display:none}section{display:block!important;page-break-before:always}.kart{box-shadow:none}}
+.kanama-bant{display:grid;gap:2px;background:var(--kirmizi);color:#fff;text-decoration:none;border:2px solid var(--yazi);padding:14px 16px;margin:0 0 12px}
+.kanama-bant span{font:700 12px "Courier New",monospace;letter-spacing:2px}.kanama-bant b{font:900 26px Impact,"Arial Black",sans-serif;text-transform:uppercase;letter-spacing:1px}.kanama-bant em{font-style:normal;font-weight:700}
+:root[data-tema="gece"] .kanama-bant{color:#000}
+.etiket-ust{display:block;font:700 12px "Courier New",monospace;letter-spacing:2px;text-transform:uppercase;color:var(--soluk);margin-bottom:6px}
+.arama,.satir{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.arama input,.satir input,.satir select{flex:1;min-width:0;font:16px "Segoe UI",Arial,sans-serif;padding:11px 12px;border:2px solid var(--yazi);background:var(--kagit2);color:var(--yazi)}
+.satir select{flex:1 1 220px}
+.btn{cursor:pointer}
+.btn.ikincil{background:transparent;color:var(--yazi)}
+.btn.ufak{padding:7px 10px;font-size:12px;white-space:nowrap}
+.btn:disabled{opacity:.5}
+h4.ara-bas{font:700 12px "Courier New",monospace;letter-spacing:1px;text-transform:uppercase;color:var(--soluk);margin:16px 0 2px}
+ul.sonuc .ozet{font-size:.9em;color:var(--soluk);margin-top:3px;line-height:1.45}
+ul.sonuc mark{background:transparent;color:var(--yazi);font-weight:700;border-bottom:2px solid var(--sari)}
+ul.sonuc{list-style:none;padding:0;margin:8px 0}ul.sonuc li{padding:8px 0;border-top:1px dashed var(--cizgi)}
+.kitap-grid{margin-bottom:14px}.kitap{display:flex;flex-direction:column;gap:6px;margin:0}.kitap p{flex:1;margin:0}.kitap .btn{align-self:flex-start}
+.kod-k{font:700 11px "Courier New",monospace;letter-spacing:1.5px;color:var(--kirmizi)}
+.cubuk{height:12px;border:2px solid var(--yazi);margin:10px 0;background:var(--kagit2)}.cubuk div{height:100%;width:0;background:repeating-linear-gradient(-45deg,var(--haki) 0 8px,var(--haki2) 8px 16px);transition:width .4s}
+pre#is-log{white-space:pre-wrap;font:12px "Courier New",monospace;max-height:200px;overflow:auto}
+.profil-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:8px 0}
+.profil{display:grid;gap:2px;text-align:left;border:2px solid var(--yazi);background:var(--kagit2);color:var(--yazi);padding:14px;cursor:pointer;font:inherit}
+.profil:hover{background:var(--haki);color:#f1ecd6}.profil b{font:900 22px Impact,"Arial Black",sans-serif;text-transform:uppercase;letter-spacing:1px}.profil span{font-size:14px}.profil em{font:700 12px "Courier New",monospace;font-style:normal}
+ul.paket{list-style:none;padding:0;margin:0}ul.paket li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px dashed var(--cizgi)}ul.paket li>div{min-width:0}
+.cip{font:700 11px "Courier New",monospace;letter-spacing:1px;text-transform:uppercase;border:1.5px solid currentColor;padding:2px 7px;white-space:nowrap;color:var(--soluk)}.cip.var{color:var(--haki)}
+.tik-satir{display:flex;gap:8px;align-items:center;margin:6px 0}
+#okuyucu{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;flex-direction:column}
+#okuyucu[hidden]{display:none}
+.ok-bar{display:flex;gap:10px;align-items:center;padding:8px 12px;border-bottom:3px double var(--yazi);background:var(--kagit)}
+.ok-bar b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:800 14px "Courier New",monospace;text-transform:uppercase;letter-spacing:1px}
+[hidden]{display:none!important}
+.kitap-grid .kart{padding:16px 18px;box-shadow:4px 4px 0 var(--cizgi)}
+#ok-cerceve{flex:1;border:0;width:100%;background:#fff}
+.dil-sec{display:flex;flex-wrap:wrap;border:2px solid var(--yazi);width:max-content;max-width:100%}
+.dil-sec button{border:0;border-right:1px solid var(--cizgi);background:var(--kagit2);color:var(--yazi);font:700 13px "Courier New",monospace;letter-spacing:1px;text-transform:uppercase;padding:11px 14px;cursor:pointer}
+.dil-sec button.aktif{background:var(--haki);color:#f1ecd6}
+.iki-sutun{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.iki-sutun .kart{margin:0}
+.liste-li{display:flex;justify-content:space-between;gap:8px;padding:7px 0;border-top:1px dashed var(--cizgi)}
+.liste-li a{min-width:0;overflow-wrap:anywhere}.liste-li button{border:0;background:none;color:var(--soluk);cursor:pointer;font:700 14px monospace}
+.harfler{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.harfler button{min-width:42px;min-height:42px;border:2px solid var(--yazi);background:var(--kagit2);color:var(--yazi);font:900 18px Impact,"Arial Black",sans-serif;cursor:pointer}
+.harfler button.aktif,.harfler button:hover{background:var(--haki);color:#f1ecd6}
+.dz-grid{columns:3 220px;column-gap:24px;margin:0;padding:0;list-style:none}.dz-grid li{break-inside:avoid;padding:0 0 8px;margin:0}
+.calar .cal-ust{margin-bottom:8px}.calar b{font:800 20px/1.2 "Segoe UI",Arial,sans-serif}
+.cal-sure{display:flex;align-items:center;gap:10px;font:700 13px "Courier New",monospace;font-variant-numeric:tabular-nums}
+.cal-sure input{flex:1;min-width:0;accent-color:var(--haki)}
+.cal-dugme{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.cal-dugme button{border:2px solid var(--yazi);background:var(--kagit2);color:var(--yazi);font:700 14px "Segoe UI",Arial,sans-serif;padding:9px 12px;cursor:pointer;min-height:44px}
+.cal-dugme button.buyuk{background:var(--haki);color:#f1ecd6;min-width:64px;font-size:18px}
+.cal-dugme button.acik{background:var(--yazi);color:var(--kagit)}
+.cal-ses{display:flex;align-items:center;gap:6px;margin-left:auto}.cal-ses input{width:120px;accent-color:var(--haki)}
+.muzik-li.calan{background:var(--haki);color:#f1ecd6}
+#ok-govde{flex:1;position:relative;display:flex;min-height:0}
+.ok-cubuk{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:6px 12px;background:var(--kagit2);border-bottom:2px solid var(--yazi);font-size:14px}
+.ok-cubuk input[type=search]{flex:1;min-width:140px;max-width:340px;padding:7px 9px;border:2px solid var(--yazi);background:var(--kagit);color:var(--yazi);font:inherit}
+.ok-cubuk select{padding:6px;border:2px solid var(--yazi);background:var(--kagit);color:var(--yazi);font:inherit}
+.ok-cubuk .btn{padding:6px 9px}
+.ok-say{font:700 13px "Courier New",monospace;min-width:80px}
+.ok-panel{position:absolute;top:0;right:0;bottom:0;width:min(340px,88vw);overflow:auto;background:var(--kagit);border-left:3px double var(--yazi);padding:12px 14px}
+#ok-not-metin{width:100%;min-height:40vh;margin:8px 0;padding:8px;border:2px solid var(--yazi);background:var(--kagit2);color:var(--yazi);font:inherit;resize:vertical}
+.ok-cer{flex:1;border:0;width:100%;background:#fff}
+#ok-sekmeler{display:flex;flex-wrap:wrap;gap:4px;padding:4px 12px 0;background:var(--kagit2);border-bottom:2px solid var(--yazi)}
+.ok-sekme{display:inline-flex;border:2px solid var(--yazi);border-bottom:0;background:var(--kagit)}
+.ok-sekme button{border:0;background:transparent;color:var(--yazi);font:700 12px "Courier New",monospace;padding:6px 8px;cursor:pointer;max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ok-sekme.aktif{background:var(--yazi)}.ok-sekme.aktif button{color:var(--kagit)}
+#okuyucu:fullscreen{background:var(--bg)}
+#ok-ic-liste{list-style:none;margin:8px 0 0;padding:0}
+#ok-ic-liste li{padding:8px 0;border-top:1px dashed var(--cizgi)}
+#ok-ic-liste li.d3{padding-left:16px}#ok-ic-liste li.d4{padding-left:32px}
+.ok-bar .btn.acik,.ok-bar .btn.ikincil.acik{background:var(--yazi);color:var(--kagit)}
+.ok-bar .btn:disabled{opacity:.45;cursor:default}
+.ok-araclar{display:flex;gap:6px;flex-wrap:wrap}
+.ok-bar{flex-wrap:wrap}
+.ok-bar .btn{padding:8px 10px}
+.nav-ayrac{flex:0 0 100%;height:3px;background:var(--yazi);margin:0}
+@media (max-width:760px){nav{position:static}nav button{padding:9px 8px;font-size:12px;min-height:40px}}
+.sanat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin:10px 0}
+.sanat-kare{border:2px solid var(--yazi);padding:0;background:#111;aspect-ratio:1;cursor:pointer;overflow:hidden}
+.sanat-kare img{width:100%;height:100%;object-fit:cover;display:block}
+#sanat-buyuk{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#eee;padding:10px;gap:8px}
+#sanat-buyuk[hidden]{display:none}
+#sanat-buyuk img{max-width:100%;max-height:70vh;object-fit:contain;border:2px solid #777}
+#sanat-kunye{max-width:820px;text-align:center;font-size:15px}
+#sanat-kunye b{display:block;font-size:18px}
+#sanat-kunye span{display:block;color:#bbb;font-size:13px;overflow-wrap:anywhere}
+.profil-icerik details{border-top:1px solid var(--cizgi);padding:8px 0}
+.profil-icerik summary{cursor:pointer;font-weight:700}
+.profil-icerik li{margin:3px 0}
+.oyun-sec{display:flex;flex-wrap:wrap;gap:8px}
+.oyun-sec button.aktif{background:var(--haki);color:#f1ecd6}
+.ilgili{margin-top:6px}
+.rehber-durum{border:2px dashed var(--sari);padding:10px 12px;margin:0 0 14px;font-size:14px;background:var(--kagit2)}
+.rehber-durum b{font:700 12px "Courier New",monospace;letter-spacing:2px;color:var(--sari);display:block}
+.rehber-durum.kaynakli{border-style:solid}
+.rehber-durum.onayli{border:2px solid var(--haki)}.rehber-durum.onayli b{color:var(--haki)}
+.kn{display:block;margin-top:6px;font:700 11px "Courier New",monospace;letter-spacing:1px;color:var(--soluk)}
+.kaynakca ol{padding-left:28px}.kaynakca li{margin:6px 0;font-size:14px}
+.kn-adres{font:12px "Courier New",monospace;overflow-wrap:anywhere;user-select:all;color:var(--soluk)}
+/* ---- Kitap giriş ekranı ---- */
+#kitap-ekran{position:fixed;inset:0;z-index:40;background:var(--bg);display:flex;flex-direction:column;background-image:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.018) 3px 4px)}
+#kg-govde{flex:1;overflow:auto;-webkit-overflow-scrolling:touch}
+.kg-ic{max-width:980px;margin:auto;padding:20px 16px 48px}
+.kg-kimlik{display:flex;gap:14px;align-items:flex-start}
+.kg-simge{width:48px;height:48px;flex:none;border:2px solid var(--yazi);background:#fff}
+.kg-ad{margin:2px 0 4px;font:900 30px/1.05 Impact,"Arial Narrow Bold","Arial Black",sans-serif;letter-spacing:1px;text-transform:uppercase;overflow-wrap:anywhere}
+.kg-sayi{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;margin:14px 0 10px;padding:10px 14px;border:2px solid var(--yazi);background:var(--kagit2)}
+.kg-sayi b{font:900 42px/1 Impact,"Arial Black",sans-serif;letter-spacing:1px;color:var(--kirmizi);font-variant-numeric:tabular-nums}
+.kg-sayi span{font:700 13px "Courier New",monospace;letter-spacing:2px;text-transform:uppercase}
+.harfler button small{display:block;font:700 10px "Courier New",monospace;letter-spacing:0;color:var(--soluk);margin-top:1px}
+.harfler button:not(:disabled):hover small,.harfler button.aktif small{color:#cfc79f}
+.harfler button:disabled{opacity:.3;cursor:default;background:var(--kagit2);color:var(--yazi)}
+.harfler button.genis{min-width:68px}
+.kg-cipler{display:flex;flex-wrap:wrap;gap:6px}
+.kg-cipler button{border:2px solid var(--yazi);background:var(--kagit2);color:var(--yazi);font:700 14px "Segoe UI",Arial,sans-serif;padding:7px 10px;cursor:pointer;min-height:40px;text-align:left}
+.kg-cipler button em{font:700 11px "Courier New",monospace;font-style:normal;color:var(--soluk);margin-left:6px}
+.kg-cipler button:hover,.kg-cipler button.aktif{background:var(--haki);color:#f1ecd6}
+.kg-cipler button:hover em,.kg-cipler button.aktif em{color:#cfc79f}
+.kunye td:first-child{width:36%;font:700 12px "Courier New",monospace;letter-spacing:1px;text-transform:uppercase;color:var(--soluk)}
+.kunye td{overflow-wrap:anywhere}
+.hedef{color:var(--soluk);font-size:14px}
+@media (max-width:560px){.kg-ad{font-size:24px}.kg-sayi b{font-size:34px}}
+</style>
+</head>
+<body>
+<div class="serit"></div>
+<header>
+  <div>
+    <div class="alt-ust">Saha El Kitabı · İMC-01 · Sürüm 0.19</div>
+    <h1><span>İmece</span> Çevrimdışı Arşiv</h1>
+    <div class="alt">İnternet, yayın ve şebeke olmadan çalışır. Önce sakin ol, sonra bu sayfayı sırayla takip et.</div>
+  </div>
+  <div style="display:flex;gap:14px;align-items:center">
+    <div class="tema" id="tema" title="Gece modu: karanlıkta gözü kamaştırmaz">
+      <button data-t="gunduz">Gündüz</button><button data-t="koyu">Koyu</button><button data-t="gece">Gece</button>
+    </div>
+    <div class="tema" id="arayuz-dil" title="Arayüz dili · Interface language"><button data-dil="tr">TR</button><button data-dil="en">EN</button></div>
+    <a href="#ayarlar" id="ag-rozet" class="ag-rozet" hidden title="Kütüphane aynı ağdaki cihazlara açık. Kapatmak için Ayarlar'a git.">● Ağa açık</a>
+    <button id="imece-kapat" class="kapat-btn" hidden title="İmece'yi bu bilgisayarda tamamen kapatır">İmece'yi kapat</button>
+  </div>
+</header>
+<div id="kapandi" hidden><div>
+  <h2>İmece kapandı</h2>
+  <p>Bu sekmeyi kapatabilirsin.</p>
+  <p>Yeniden açmak için İmece klasöründeki <b>Imece-Ac</b> dosyasına çift tıkla.</p>
+</div></div>
+<div class="acil"><div><b>112</b><span title="Kaynak: İçişleri Bakanlığı, 112 Acil Çağrı Merkezi (112.gov.tr), erişim 19.11.2026">Ambulans, itfaiye, polis, jandarma, orman, AFAD, sahil güvenlik: hepsi tek numara. Hat meşgulse tekrar ara.</span></div></div>
+<nav><div class="ic" id="sekmeler"></div></nav>
+<main>
+
+<section id="simdi" data-ad="Şimdi ne yapmalıyım">
+<h2>Şimdi ne yapmalıyım?</h2>
+<!--rehber:simdi-->
+<div class="kart"><h3>Nereden başlamalı?</h3>
+<p>Aşağıdaki sıra bu rehberin bölümlerine hızlı geçiş içindir; bir kaynaktan alınmış kesin bir öncelik sıralaması değildir.</p>
+<ol>
+<li><b>Güvenlik:</b> Bir yaralıya ya da bir yere yaklaşmadan önce bak: yaklaşmak güvenli mi?</li>
+<li><b>Yaralanma:</b> Ciddi kanama, nefes almama, bilinç kaybı → <a href="#" data-git="ilkyardim">İlk yardım</a>.</li>
+<li><b>Sıcak ve soğuk:</b> Sıcak çarpmasında vücut ısısı 10–15 dakika içinde çok yükselebilir; acil tedavi edilmezse kalıcı sakatlığa ya da ölüme yol açabilir. Hipotermi (vücudun aşırı soğuması) de tıbbi acil durumdur → <a href="#" data-git="ilkyardim">İlk yardım</a>, <a href="#" data-git="isinma">Isınma</a>.</li>
+<li><b>Su:</b> Normal hareketli bir insan günde en az 2 litre kadar su içmelidir. Su azalsa bile içmeyi kısma → <a href="#" data-git="su">Su</a>.</li>
+<li><b>İletişim:</b> Yakınlarına haber ver, resmî duyuruları dinle → <a href="#" data-git="iletisim">İletişim</a>.</li>
+<li><b>Gıda:</b> Hareket azaltılırsa sağlıklı yetişkinler uzun süre her zamankinin yarısı kadar yiyecekle, günlerce de hiç yemeden idare edebilir. Bu, çocuklar ve gebeler için geçerli değildir → <a href="#" data-git="gida">Gıda</a>.</li>
+</ol><span data-kn="1,2,3,4"></span></div>
+<a class="kanama-bant" href="rehber.html?r=kanama"><span>DURUM 00 · EN ACİL</span><b>Biri kanıyor</b><em>Adım adım, sesli rehber →</em></a>
+<div class="grid">
+<div class="kart" data-kaynaksiz="1"><a href="#" data-git="deprem" data-kod="DURUM 01"><h3>Deprem oldu</h3><span class="alt">Deprem rehberi →</span></a></div>
+<div class="kart" data-kaynaksiz="1"><a href="#" data-git="iletisim" data-kod="DURUM 02"><h3>Elektrik ve internet yok</h3><span class="alt">İletişim ve radyo →</span></a></div>
+<div class="kart" data-kaynaksiz="1"><a href="#" data-git="su" data-kod="DURUM 03"><h3>Su kesildi</h3><span class="alt">Su bulma ve arıtma →</span></a></div>
+<div class="kart" data-kaynaksiz="1"><a href="#" data-git="bitki" data-kod="DURUM 04"><h3>Doğada kaldım</h3><span class="alt">Yenilebilir bitkiler →</span></a></div>
+</div>
+<!--/rehber:simdi-->
+</section>
+
+<section id="deprem" data-ad="Deprem">
+<h2>Deprem</h2>
+<!--rehber:deprem-->
+<div class="kart"><h3>Sarsıntı anında</h3><ol>
+<li><b>Çök, kapan, tutun.</b> Diz üstü çök; başını ve enseni koruyacak biçimde kapan; düşmemek için sabit bir yere tutun. Sarsıntı durana kadar olduğun yerde kal.</li>
+<li>Yakında sağlam bir masa varsa altına gir. Yoksa koltuk, kanepe, içi dolu sandık gibi hacimli bir eşyanın yanına ya da bir iç duvarın dibine çök. Başını ellerinle ya da yastık, kitap gibi bir şeyle koru.</li>
+<li>Merdivenlere ve çıkışlara koşma, balkona çıkma, asansör kullanma. Sarsıntı sürerken binadan çıkmaya çalışma.</li>
+<li>Camlardan, pencerelerden, sabitlenmemiş dolap ve raflardan, üstüne düşebilecek eşyalardan uzak dur.</li>
+<li>Yataktaysan orada kal ve başını yastıkla koru; üstüne düşebilecek ağır bir eşya varsa en yakın güvenli yere geç.</li>
+<li>Dışarıdaysan dışarıda kal. Binalardan, enerji hatlarından, direklerden, ağaçlardan ve duvar diplerinden uzaklaş. Deniz kıyısından uzaklaş.</li>
+<li>Araç kullanıyorsan ve bulunduğun yer güvenliyse: bina, ağaç ve direk yanında, üst geçit altında durmadan, yolu kapatmadan sağa yanaşıp dur; aracın içinde kal. Yerleşim yerindeysen ya da yer güvenli değilse AFAD aracı durdurup anahtarı üstünde bırakarak açık alana gitmeyi söylüyor; ABD'deki CDC ise araçta kalmayı söylüyor.</li>
+</ol><span data-kn="1,5,6"></span></div>
+<div class="kart"><h3>Sarsıntı bitince</h3><ol>
+<li>Elektrik, gaz ve su vanalarını kapat; sobayı ve ısıtıcıları söndür. Gaz kokusu alırsan gaz vanasını kapat, camları ve kapıları aç, binayı hemen terk et.</li>
+<li>Kibrit ve çakmak yakma, elektrik düğmelerine dokunma.</li>
+<li>Yerdeki cam kırıklarına ve döküntüye karşı sağlam ayakkabı giy.</li>
+<li>Acil durum çantanı al; asansör kullanmadan binayı terk et ve toplanma alanına git.</li>
+<li>Hasarlı binaya girme: artçı depremler hasarlı binalarda zarara yol açabilir.</li>
+<li>Toplanma alanını önceden öğren: e-Devlet'te “Afet ve Acil Durum Toplanma Alanı Sorgulama”.</li>
+<li>Telefonu acil durum ve yangın bildirmek dışında aramayla meşgul etme. Yakınlarına yazılı mesaj at: mesaj, aramadan daha güvenilir ulaşabilir.</li>
+</ol><span data-kn="1,2,3,4,7,8,9,10"></span></div>
+<div class="kart"><h3>Enkaz altındaysan</h3><ul>
+<li>Kibrit ve çakmak yakma. Hareket etme, toz kaldırma.</li>
+<li>Ağzını ve burnunu mendille ya da giysinle kapat.</li>
+<li>Borulara ya da duvarlara vurarak, ıslık ya da düdük çalarak yerini bildirmeye çalış. Bir kaynak “birkaç dakikada bir, üç kez yüksek sesle vur” diyor.</li>
+<li>Bağırmayı son çare olarak kullan: bağırmak tehlikeli ölçüde toz yutmana yol açabilir.</li>
+<li>Kurtarma ekiplerinin sesini duymaya ve onlara seslenmeye çalış; enerjini idareli kullan.</li>
+<li>Telefonun yanındaysa yazılı mesaj göndermeyi dene.</li>
+</ul><span data-kn="1,2,5,9"></span></div>
+<!--/rehber:deprem-->
+</section>
+
+<section id="su" data-ad="Su">
+<h2>Su: bulma, toplama, arıtma</h2>
+<!--rehber:su-->
+<div class="kart"><h3>Evdeki su</h3><ul>
+<li><b>Sıcak su tankı</b> (termosifon, boyler; kalorifer tesisatı değil): Önce elektriğini ya da gazını kapat. Tanka su giriş vanasını kapat, evde bir sıcak su musluğunu aç, suyu tankın altındaki boşaltma musluğundan al. Tankı yeniden doldurmadan elektriği ya da gazı açma; kapatılan gazı yeniden açmak için yetkili biri gerekir.</li>
+<li><b>Klozet rezervuarı</b> (çanağı değil): CDC, su berraksa ve içine temizlik kimyasalı konmadıysa kullanılabileceğini söylüyor; FEMA'nın 2004 tarihli kitapçığı ise rezervuar suyunun kullanılmamasını söylüyor. Başka çaren yoksa kullan ve mutlaka arıt.</li>
+<li>Kirlenmemiş sudan yapılmış buz kalıpları (eritilerek); konserve meyve ve sebzelerin suyu.</li>
+<li>Kalorifer tesisatının (radyatör, kazan) suyu içilmez; yemekte ve temizlikte de kullanılmaz.</li>
+<li>Kesinti bekleniyorsa temiz kapları içme suyuyla doldur. Küveti ve lavaboları da doldurabilirsin; bu su yıkanmak içindir.</li>
+<li>Su azalsa bile içmeyi kısma.</li>
+</ul><span data-kn="1,2,4,8"></span></div>
+<div class="kart"><h3>Dışarıdaki su</h3><ul>
+<li>Yağmur suyu, akarsular, göller, göletler ve doğal kaynak suları: hepsi içilmeden önce arıtılmalıdır.</li>
+<li>Akarsular ve göller hayvan dışkısı, kanalizasyon ve kimyasallarla kirlenmiş olabilir. Üstünde bir şeyler yüzen, kokan ya da koyu renkli sudan kaçın; sel suyunu içme.</li>
+<li>Yakıt, zehirli kimyasal ya da radyoaktif madde bulaşmış su ne kaynatılarak ne de dezenfekte edilerek güvenli hale gelir; kullanma.</li></ul>
+<div class="uyari">Deniz suyu içme: vücut, deniz suyundaki tuzu atamaz. Alkollü ve kafeinli içecekler vücudu susuz bırakır.</div>
+<span data-kn="1,2,3,4,9,10"></span></div>
+<div class="kart"><h3>Arıtma yöntemleri</h3>
+<div class="tablo"><table><tr><th>Yöntem</th><th>Nasıl</th><th>Not</th></tr>
+<tr><td>Kaynatma</td><td>Su bulanıksa önce çökmesini bekle ve temiz bir bezden, kâğıt havludan ya da kahve filtresinden süz. Fokur fokur kaynamaya başladıktan sonra en az 1 dakika kaynat. Yüksek yerlerde 3 dakika.</td><td>Mikropları öldürmenin en iyi yolu. Yükseklik sınırını CDC 2.000 m (6.500 fit), EPA 5.000 fit (yaklaşık 1.500 m) olarak veriyor; emin değilsen 3 dakika kaynat. Soğuyan suyu temiz, kapaklı kaplarda sakla.<span data-kn="2,3,5"></span></td></tr>
+<tr><td>Çamaşır suyu</td><td>Yalnızca kokusuz ve katkısız çamaşır suyu (parfümlü, renk koruyuculu, temizleyici katkılı olan kullanılmaz). Etiketine bak: %5–9'luk olandan 1 litre suya 2 damla, %1'lik olandan 10 damla. Karıştır, en az 30 dakika bekle.</td><td>Su bulanık, renkli ya da çok soğuksa iki katını koy. Sonunda hafif bir klor kokusu olmalı; yoksa aynı dozu yinele ve 15 dakika daha bekle. Cryptosporidium ve Giardia gibi bazı parazitlere karşı kaynatma kadar etkili değildir. Sağlık Bakanlığı da çamaşır suyunun parfümsüz ve kıvam artırıcısız olmasını istiyor.<span data-kn="2,3,6"></span></td></tr>
+<tr><td>Güneş (SODIS)</td><td>Berrak suyu temiz, şeffaf şişelere doldur (en çok 3 litrelik; hafif ve kırılmaz olduğu için PET önerilir, cam da olur). Şişeleri yan yatırıp güneşe koy: gökyüzünün yarısından azı bulutluysa 6 saat, daha bulutluysa art arda 2 gün.</td><td>Su berrak olmalı: şişenin arkasındaki gazete başlığı okunmuyorsa önce süz. Uzun süren yağışlı havada yeterince çalışmaz. CDC bu yöntemi “mikrop sayısını azaltarak suyun kalitesini iyileştirebilir” diye anıyor.<span data-kn="2,7"></span></td></tr>
+<tr><td>Süzme</td><td>Temiz bez, kâğıt havlu ya da kahve filtresi</td><td>Yalnızca bulanıklığı azaltır; ardından kaynat ya da dezenfekte et. Taşınabilir su filtreleri de her mikrobu tutmaz: çoğu parazitleri tutar, virüsleri ve bakterileri tutmaz.<span data-kn="2"></span></td></tr>
+</table></div></div>
+<!--/rehber:su-->
+</section>
+
+<section id="ilkyardim" data-ad="İlk yardım">
+<h2>İlk yardım</h2>
+<!--rehber:ilkyardim-->
+<div class="uyari" data-kaynaksiz="1">Bu sayfa eğitim yerine geçmez. Mümkünse bir ilk yardım kursu al. Yardım gelebilecekse 112'ye ulaşmayı sürdür.</div>
+<div class="kart" data-kaynaksiz="1"><a class="btn" href="rehber.html?r=kanama">▶ Adım adım kanama rehberi (sesli)</a></div>
+<div class="kart"><h3>Ciddi kanama</h3><ol>
+<li>Yaranın üstüne sargı bezi ya da katlanmış temiz bir bez koy; üstünden elinle doğrudan, sıkıca ve aralıksız bastır. Kanama durana ya da yardım gelene kadar bırakma.</li>
+<li>Bez kanla dolarsa ne yapılacağında kaynaklar ayrışıyor: İngiltere sağlık hizmeti (NHS) üstüne yeni bir bez koymayı, İngiliz Kızılhaçı ıslanan bezi yenisiyle değiştirmeyi söylüyor. Ortak olan: sıkı baskıyı sürdür.</li>
+<li><b>Turnike:</b> Kol ya da bacaktaki, hayatı tehdit eden kanama doğrudan baskıyla durmuyorsa hemen turnike uygula. Yaranın 5–7 cm üstüne, eklemin üstüne gelmeyecek biçimde tak; kanama durana kadar sık; taktığın saati turnikenin üstüne yaz; gevşetme (bunu yalnızca sağlık görevlisi yapar). Hazır turnike, doğaçlama olandan daha iyidir.</li>
+<li>Yaralıyı sırtüstü yatır ve üşümesini önle: üstünü ört, soğuk zeminle arasına bir şey ser. Bacaklarını kaldırma: kılavuzlar bunu yalnızca yaralanma olmayan durumlar için, o da geçici bir önlem olarak anıyor.</li>
+</ol><span data-kn="1,3,4,5,17,18"></span></div>
+<div class="kart"><h3>Yanıt vermiyor, normal nefes almıyor (yetişkinde temel yaşam desteği)</h3><ol>
+<li>Hafifçe uyar ve yüksek sesle sor: “İyi misin?” Yanıt vermiyorsa hemen 112'yi ara, telefonu hoparlöre al; arama yanıtlanana kadar nefesine bak.</li>
+<li>Normal nefes almıyorsa (yavaş, zorlu, iç çeker gibi nefes de buna dahildir) göğüs basısına başla: göğsün ortasına (göğüs kemiğinin alt yarısına) bir elinin topuğunu, onun üstüne öbür elini koy; kolların düz olsun.</li>
+<li>Dakikada 100–120 hızla, en az 5, en çok 6 cm derinlikte bas; her basıdan sonra göğsün tümüyle geri gelmesine izin ver.</li>
+<li>Kurtarıcı nefes eğitimi aldıysan 30 bası, 2 nefes. Almadıysan aralıksız bas.</li>
+<li>Otomatik şok cihazı (OED) gelirse hemen tak ve söylediklerini yap.</li>
+<li>Yardım gelip devralana ya da durmanı söyleyene kadar sürdür.</li>
+</ol><span data-kn="1,2"></span></div>
+<div class="kart"><h3>Diğer durumlar</h3>
+<div class="tablo"><table><tr><th>Durum</th><th>Yap</th><th>Yapma</th></tr>
+<tr><td>Bilinci bulanık ya da kapalı, ama normal nefes alıyor</td><td>Yan yatır (derlenme pozisyonu); hava yolu açık kalsın diye başını hafifçe geriye eğ. Nefesini izlemeyi sürdür.</td><td>Yaralanma (travma) varsa ya da nefesi düzensiz, iç çeker gibiyse yan yatırma.<span data-kn="1,3"></span></td></tr>
+<tr><td>Yanık</td><td>Hemen serin ya da soğuk (buz gibi değil) akan suyun altında en az 20 dakika soğut. Sonra üstüne streç film ser ya da kuru, temiz bir sargıyla gevşekçe ört.</td><td>Krem, yağ, tereyağı sürme. Streç filmi yanığın çevresine sarma. Yara bandı ve yapışkan sargı kullanma. Su toplamış kabarcıkları patlatma.<span data-kn="3,6"></span></td></tr>
+<tr><td>Kırık</td><td>Yaralı uzvu olduğu biçimde atele alarak (sabitleyerek) koru.</td><td>Eğrilmiş kemiği düzeltmeye çalışma.<span data-kn="3"></span></td></tr>
+<tr><td>Hipotermi (vücudun aşırı soğuması)</td><td>İçeriye ya da korunaklı bir yere al, rüzgârdan koru. Islak giysilerini nazikçe çıkar, kuru giysi giydir; başı da örtülecek biçimde kuru battaniyeyle sar; soğuk zeminle arasına yalıtım koy. Tamamen uyanıksa ılık, alkolsüz bir içecek ve şekerli bir yiyecek ver.</td><td>Alkol verme. Kollarını, bacaklarını, ellerini, ayaklarını ovma. Sıcak banyo, sıcak su torbası ya da ısıtıcı lamba kullanma. Bilinci kapalı kişiye içecek verme.<span data-kn="1,7,8"></span></td></tr>
+<tr><td>Sıcak çarpması (bilinç bulanıklığı, konuşma bozukluğu, bayılma, havale; çok yüksek vücut ısısı)</td><td>112'yi ara. Gölge, serin bir yere al, üstündeki fazla giysiyi çıkar. Elde ne varsa onunla hemen ve hızla soğut: en iyisi boyundan aşağısını soğuk suya sokmak; olmuyorsa soğuk duş, buz torbaları, derisini ıslatıp yelpazelemek. Ateşini ölçemiyorsan 15 dakika ya da belirtiler düzelene kadar soğutmayı sürdür. Önce soğut, sonra taşı.</td><td>Soğutmayı geciktirme. Yutamayan kişiye içecek verme.<span data-kn="1,4,9"></span></td></tr>
+<tr><td>İshal</td><td>Bol sıvı ver. Hazır ağızdan sıvı tuzu (ORS) paketini 1 litre temiz suda çöz. Paket yoksa evde karışım: Dünya Sağlık Örgütü'nün Doğu Akdeniz bürosuna göre 1 litre temiz ve güvenli içme suyu + 6 çay kaşığı şeker + yarım çay kaşığı tuz. Uluslararası Kızılhaç-Kızılay Federasyonu şekeri daha fazla veriyor: 8 küçük kaşık (40 g) şeker + yarım küçük kaşık (3,5 g) tuz; ev karışımının ancak paket yokken kullanılmasını söylüyor.</td><td>Sıvı vermeyi bırakma. Kanlı ishalde sağlık kuruluşuna başvurmayı geciktirme.<span data-kn="10,11,12"></span></td></tr>
+<tr><td>Karbonmonoksit zehirlenmesi (baş ağrısı, baş dönmesi, halsizlik, bulantı, kusma, göğüs ağrısı, bilinç bulanıklığı)</td><td>Hemen dışarı, temiz havaya çık. En kısa zamanda sağlık yardımı al.</td><td>Görüş almadan o binaya geri girme. Evde ya da garajda — kapı ve pencereler açık olsa bile — jeneratör çalıştırma; kapalı yerde mangal kömürü yakma, kamp ocağı kullanma.<span data-kn="13,14"></span></td></tr>
+<tr><td>Arı sokması</td><td>İğne deride kaldıysa hemen çıkar: tırnağınla ya da bir kartın kenarıyla yandan kazı. Şişlik için bezle sarılmış buz ya da soğuk suyla ıslatılmış temiz bir bez koy (en çok 20 dakika). Dudak, ağız, boğaz ya da dil şişerse, nefes almakta ya da yutmakta zorlanırsa hemen 112'yi ara.</td><td>NHS iğneyi cımbızla çekmemeyi söylüyor (zehri sıkabilir). Amerikan kılavuzu ise çekerek de kazıyarak da olur, önemli olan çabuk çıkarmak diyor.<span data-kn="4,15"></span></td></tr>
+<tr><td>Yılan ısırması</td><td>112'yi ara. Kişiyi sakin ve hareketsiz tut; ısırılan uzvu oynatma, sabitle. O uzuvdaki yüzük, saat ve dar giysileri şişmeden önce çıkar.</td><td>Yarayı kesme, zehri emmeye çalışma. Turnike, baskılı sargı, buz ya da sıcak uygulama. Belirtilerin çıkmasını bekleme; hastaneye kendin araç kullanarak gitme.<span data-kn="1,16"></span></td></tr>
+</table></div></div>
+<!--/rehber:ilkyardim-->
+</section>
+
+<section id="isinma" data-ad="Isınma">
+<h2>Isınma, elektrik, ışık</h2>
+<!--rehber:isinma-->
+<div class="kart"><ul>
+<li><b>Isıyı içeride tut:</b> Kullanılmayan odaları kapat. Kapı altındaki aralıklara havlu ya da bez sıkıştır. Geceleri perdeleri kapat ya da pencereleri battaniyeyle ört. Kapı ve pencereleri gereksiz yere açma.</li>
+<li><b>Giyim:</b> Kat kat giyin ve kuru kal: ıslak giysi vücudu çabuk soğutur.</li>
+<li><b>Işık:</b> Mum yerine pilli fener ya da lamba kullan; mum yangına yol açabilir. Mum kullanırsan yanarken başından ayrılma.</li>
+<li><b>Telefon:</b> Düşük güç moduna ya da uçak moduna al; elektrik yokken cihazı olabildiğince az kullan.</li></ul>
+<div class="uyari">Evin içinde ya da garajda — kapı ve pencereler açık olsa bile — jeneratör çalıştırma; jeneratör pencere, kapı ve havalandırma deliklerinden en az 6 metre uzakta dursun. Kapalı yerde mangal kömürü yakma, kamp ocağı kullanma. Evi ocakla ya da gazlı fırınla ısıtmaya çalışma. Karbonmonoksit kokusuz ve renksizdir, uyarı vermeden öldürür; uyuyan kişi hiçbir belirti fark etmeden ölebilir.</div>
+<span data-kn="1,2,3,4"></span></div>
+<!--/rehber:isinma-->
+</section>
+
+<section id="iletisim" data-ad="İletişim">
+<h2>İletişim: internet ve telefon yokken</h2>
+<!--rehber:iletisim-->
+<div class="kart"><h3>Haberleşme araçları</h3>
+<div class="tablo"><table><tr><th>Araç</th><th>Ne zaman</th><th>Bilinmesi gereken</th></tr>
+<tr><td>Kısa mesaj (SMS)</td><td>Şebeke var ama hatlar dolu</td><td>Yazılı mesaj, sesli aramadan daha az hat kapasitesi kullanır; aramaya göre ulaşma olasılığı daha yüksek olabilir. Telefonu, acil durum bildirmek dışında aramayla meşgul etme.</td></tr>
+<tr><td>Radyo (pilli, kurmalı ya da araç radyosu)</td><td>Elektrik ve internet yok</td><td>Resmî uyarılar radyo ve televizyondan duyurulur; dinle. TRT'nin radyo kanalları (Radyo 1, TRT Radyo Haber ve ötekiler) ile bulunduğun yerdeki FM frekansları TRT'nin "Frekanslar" sayfasında yazar; internet varken kendi ilininkileri bir kâğıda not al.</td></tr>
+<tr><td>Kısa dalga radyo</td><td>Yerel yayınlar da susmuşsa</td><td>TRT'nin Türkiye'nin Sesi Radyosu kısa dalgadan yayın yapıyor; ancak bu yayınlar yurt dışındaki dinleyiciye yöneliktir. Yurt içi afet duyurularını taşıyacağını söyleyen bir kaynak bulamadık; buna güvenme. Kısa dalgada gece düşük frekanslar, gündüz yüksek frekanslar daha iyi ulaşır.</td></tr>
+<tr><td>PMR446 el telsizi</td><td>Hiçbir şebeke yok</td><td>Kullanmak için ruhsat ya da izin gerekmez (446,0–446,2 MHz; gücü en çok 500 mW ile sınırlıdır, anteni sabittir).</td></tr>
+</table></div><span data-kn="1,2,3,4,5,6,7"></span></div>
+<div class="kart"><h3>Aile afet planı</h3><ul>
+<li>Aile bireyleriyle önceden kararlaştır: birbirinize nasıl ulaşacaksınız, nerede buluşacaksınız (bir yer evin yakınında, bir yer mahallenin dışında) ve herkes kime haber verecek.</li>
+<li><b>Bölge dışı bağlantı kişisi:</b> Başka bir şehirde oturan birini belirle; herkes durumunu ona bildirsin. Yerel hatlar tıkalıyken şehirler arası arama bazen daha kolay bağlanır.</li>
+</ul><span data-kn="2,3,8"></span></div>
+<!--/rehber:iletisim-->
+</section>
+
+<section id="gida" data-ad="Gıda">
+<h2>Gıda</h2>
+<!--rehber:gida-->
+<div class="kart"><ul>
+<li><b>Sıra:</b> Önce buzdolabındaki ve öteki bozulabilir yiyecekleri, sonra dondurucudakileri, en son dayanıklı yiyecekleri kullan.</li>
+<li><b>Elektrik kesikken:</b> Kapağı kapalı tutulursa buzdolabı yiyeceği 4 saate kadar, dolu bir dondurucu 48 saat, yarı dolu bir dondurucu 24 saat güvenli tutar.</li>
+<li>Elektrik 4 saatten uzun kesildiyse buzdolabındaki bozulabilir yiyecekleri (et, balık, yumurta, süt, kesilmiş meyve ve sebze, artan yemek) at. Kokusu, rengi ya da dokusu olağan dışı olan yiyeceği yeme.</li>
+<li><b>Konserve:</b> Sızdıran, şişmiş, hasarlı ya da çatlak kabı; açınca sıvı ya da köpük fışkırtan kabı yeme. Şişmiş, ezilmiş ya da paslanmış konserveyi at. Botulizm zehri görülmez, koklanmaz, tadından anlaşılmaz.</li>
+<li><b>Azaltma:</b> Hareket azaltılırsa sağlıklı kişiler uzun süre her zamankinin yarısı kadar yiyecekle, günlerce de hiç yemeden idare edebilir. Yiyecek — çocuklar ve gebeler dışında — kısılabilir; su kısılmaz.</li>
+</ul><span data-kn="1,2,3,4,5"></span></div>
+<!--/rehber:gida-->
+</section>
+
+<section id="bitki" data-ad="Yenilebilir bitkiler">
+<h2>Yenilebilir bitkiler (Türkiye)</h2>
+<!--rehber:bitki-->
+<div class="uyari" data-kaynaksiz="1"><b>Bu sayfadaki kısa tarifler bir bitkiyi tanımaya yetmez.</b> Yalnızca daha önce bilen birinden öğrendiğin, kesin tanıdığın bitkiler için hatırlatmadır. Zehirli bitkilerin bir kısmı yenilebilir olanlara çok benzer ve bazı zehirlenmeler birkaç saat içinde öldürür. Emin değilsen yeme.</div>
+<div class="kart"><h3>Asla yeme</h3><ul>
+<li><b>Doğada yetişen mantarlar.</b> Sağlık Bakanlığı doğadan toplanan mantarın kesinlikle yenmemesini söylüyor. Pişirmek zehirli mantarı zararsız yapmaz.</li>
+<li><b>Baldıran.</b> Yaprakları maydanoza benzer; bitkinin her yeri zehirlidir ve yenirse öldürebilir. Maydanoza, havuca, dereotuna benzeyen yabani bitkilerden uzak dur.</li>
+<li><b>Porsuk ağacı.</b> İğne yapraklı, kırmızı meyveli bir ağaçtır. Meyvenin kırmızı etli kısmı dışında her yeri, meyvenin içindeki çekirdek de dahil, zehirlidir; kalp ve solunum durmasına yol açabilir. Meyvesini de yeme.</li>
+<li><b>Yılan yastığı (Arum).</b> Parlak, koyu yeşil, ok biçimli yaprakları ve olgunlaşınca turuncu-kırmızıya dönen meyveleri vardır; yenirse ağızda ve boğazda şişme yapar.</li>
+<li><b>Yaban yasemini (Solanum dulcamara).</b> Kırmızı meyveli bir sarmaşıktır; her yeri zehirlidir.</li>
+</ul><span data-kn="1,2,3,4,5,6,7,8,9"></span></div>
+<div class="kart"><h3>Tanıyorsan yenebilenler</h3>
+<div class="tablo"><table><tr><th>Bitki</th><th>Kaynakların tarifi</th><th>Nasıl yenir, neye dikkat</th></tr>
+<tr><td>Isırgan otu</td><td>Dokununca yakar; dere kenarı, çayır, hendek gibi nemli yerlerde yetişir</td><td>Uzun kollu giysi ve eldivenle topla. Pişince yakıcılığı kaybolur. Erken ilkbaharda, çiçeklenmeden önce toplanır.</td></tr>
+<tr><td>Ebegümeci</td><td>Yuvarlağa yakın, böbrek biçimli, sığ loblu yapraklar; beyazdan açık pembeye, açık mora çiçekler</td><td>Yaprakları ve tohumları yenir.</td></tr>
+<tr><td>Semizotu</td><td>Yere yayılan, düz, kırmızımsı gövdeler; etli, oval yapraklar</td><td>Yaprağı, sapı ve çiçeği çiğ ya da haşlanmış yenir. Oksalat içerir; çok yeme. <b>Benzeri:</b> benekli sütleğen de yere yayılır ve zehirlidir; gövdesi kırılınca süt gibi beyaz bir özsu çıkar.</td></tr>
+<tr><td>Karahindiba</td><td>Derin dişli yapraklar; sarı çiçek; tohumlanınca top biçimli tüylü baş</td><td>Genç yaprak çiğ yenir, yaşlı yaprak pişirilir. Birçok benzer türü vardır.</td></tr>
+<tr><td>Kuzukulağı</td><td>Ok biçimli, kenarı düz, dibinde iki kulakçığı olan yapraklar</td><td>Çiğ ya da pişmiş, dikkatle ve az yenir: içindeki oksalik asit böbreklere zarar verebilir. <b>Benzeri:</b> zehirli yılan yastığının yaprağı da ok biçimlidir (yukarıya bak).</td></tr>
+<tr><td>Böğürtlen, ahududu</td><td>Gövdesi çoğunlukla dikenli çalılar; birçok küçük taneden oluşan meyve</td><td>Meyvesi yenir.</td></tr>
+<tr><td>Kuşburnu (gül meyvesi)</td><td>Yabani gülün meyvesi</td><td>Meyvenin etinin altında, tohumları saran bir tüy katmanı vardır; yutulursa ağzı ve sindirim yolunu tahriş eder, ayıkla. Her kırmızı meyve kuşburnu değildir (yukarıdaki zehirli bitkilere bak).</td></tr>
+<tr><td>Meşe palamudu</td><td>Meşe ağacının meyvesi</td><td>İçindeki tanenler suda bekletilerek ya da kaynatılarak giderildikten sonra yenir; işlenmemişini yeme.</td></tr>
+</table></div><span data-kn="6,7,10,11,12,13,14,15,16,17,18,19"></span></div>
+<!--/rehber:bitki-->
+</section>
+
+<section id="halk" data-ad="Halk ilaçları">
+<h2>Halk ilaçları: hangisi işe yarar?</h2>
+<!--rehber:halk-->
+<div class="kart"><h3>Evde yapılanlar: kaynaklar ne diyor?</h3>
+<p>Etiketler, bulduğumuz kaynakların vardığı sonucu özetler: <span class="etiket e-guclu">öneriliyor</span> <span class="etiket e-orta">işe yarayabilir</span> <span class="etiket e-zayif">kanıt yetersiz</span> <span class="etiket e-zarar">yapma</span></p>
+<div class="tablo"><table><tr><th>Yöntem</th><th>Sonuç</th><th>Kaynakların söylediği</th></tr>
+<tr><td>İshalde ağızdan sıvı tuzu (ORS)</td><td><span class="etiket e-guclu">öneriliyor</span></td><td>Bağırsaktan emilir; dışkıyla kaybedilen suyu ve tuzları yerine koyar. Hazır paket yoksa Dünya Sağlık Örgütü'nün ev tarifi: 1 litre güvenli su + 6 çay kaşığı şeker + yarım çay kaşığı tuz.</td></tr>
+<tr><td>Öksürükte bal (çocuklarda)</td><td><span class="etiket e-orta">işe yarayabilir</span></td><td>Çocuklarda öksürüğü, hiçbir şey vermemeye göre büyük olasılıkla daha çok hafifletir; kanıtın gücü düşük-orta. <b>1 yaşından küçük bebeğe bal verilmez</b> (bebek botulizmi).</td></tr>
+<tr><td>Bulantıda zencefil</td><td><span class="etiket e-zayif">kanıt yetersiz</span></td><td>Gebelik bulantısında yardımcı olabileceğine dair kanıt sınırlı ve tutarsız; taşıt tutmasında çalışmaların çoğu yararını göstermedi. Mide yanması yapabilir, ilaçlarla etkileşebilir.</td></tr>
+<tr><td>Boğaz ağrısında tuzlu su gargarası</td><td><span class="etiket e-zayif">kanıt yetersiz</span></td><td>İngiltere sağlık hizmeti (NHS) evde bakım önerileri arasında sayıyor: bir bardak ılık suya yarım çay kaşığı tuz. Etkisini sınayan bir derleme bulamadık. Çocuklar denemesin.</td></tr>
+<tr><td>Soğuk algınlığında buhar</td><td><span class="etiket e-zayif">kanıt yetersiz</span></td><td>Isıtılmış nemli havanın yararı da zararı da gösterilemedi. Çocuklara bir kap sıcak sudan buhar soluttırma: haşlanma tehlikesi var.</td></tr>
+<tr><td>Papatya çayı</td><td><span class="etiket e-zayif">kanıt yetersiz</span></td><td>Yararını değerlendirmeye yetecek güvenilir kanıt yok. Yakın bitkilere alerjisi olanlarda alerji yapabilir; kan sulandırıcı (varfarin) ile etkileşim bildirilmiş. Soğuk algınlığında asıl önerilen bol sıvı içmektir.</td></tr>
+<tr><td>Soğuk algınlığında sarımsak</td><td><span class="etiket e-zayif">kanıt yetersiz</span></td><td>Soğuk algınlığını önlediğine ya da iyileştirdiğine dair yeterli kanıt yok.</td></tr>
+<tr><td>Yanığa diş macunu, yağ, tereyağı, buz ya da evdeki başka maddeler</td><td><span class="etiket e-zarar">yapma</span></td><td>Dünya Sağlık Örgütü yanığa bunların sürülmemesini söylüyor. Yanık, serin (buz gibi değil) akan suyun altında yaklaşık 20 dakika soğutulur.</td></tr>
+<tr><td>Ateşte alkolle ya da suyla silme</td><td><span class="etiket e-zarar">yapma</span></td><td>Alkollü banyo, buz ve silerek soğutma artık önerilmiyor; çocuğa zarar verebilir. Çocuğu soymak ya da silmek yerine sıvı ver ve düzenli aralıklarla kontrol et.</td></tr>
+<tr><td>Yılan ısırığını kesmek, emmek</td><td><span class="etiket e-zarar">yapma</span></td><td>Yarayı kesme, zehri emmeye çalışma; geleneksel ilk yardım yöntemlerinden ve bitkisel ilaçlardan kaçın.</td></tr>
+</table></div><span data-kn="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19"></span></div>
+<!--/rehber:halk-->
+</section>
+
+<section id="kutuphane" data-ad="Kütüphane">
+<h2>Kütüphane</h2>
+<div id="veri-yok-uyari"></div>
+<div class="kart">
+  <label for="ara" class="etiket-ust">Tüm kitaplarda ara</label>
+  <div class="arama"><input id="ara" type="search" placeholder="Bir kelime yaz: maddelerin adında ve yazısında aranır. Örn: kanama, deprem, ısırgan…" autocomplete="off"><button id="ara-btn" class="btn">Ara</button></div>
+  <div id="ara-sonuc"></div>
+</div>
+<div id="kutuphane-bilgi"></div>
+<div id="kitaplar" class="grid kitap-grid"></div>
+<div class="iki-sutun">
+  <div class="kart"><h3>Yer imleri</h3><div id="yerimleri" class="alt">Henüz yok. Okurken ☆ düğmesine bas.</div></div>
+  <div class="kart"><h3>Son okunanlar</h3><div id="gecmis" class="alt">Henüz yok.</div></div>
+  <div class="kart" id="notlar-kart"><h3>Notlarım</h3><div id="notlar" class="alt">Henüz yok. Bir madde okurken “Not” düğmesine bas.</div></div>
+</div>
+<div class="kart" id="ekle-kart">
+  <h3>Bilgisayardan kitap ekle</h3>
+  <p>Elinde hazır bir kitap dosyası varsa (adı <b>.zim</b> ile biter; örneğin bir flash diskten ya da başka bir bilgisayardan gelmiş) buradan kütüphaneye ekle. Dosya İmece'nin içine kopyalanır; kopyalanırken sağlam olup olmadığı denetlenir.</p>
+  <input type="file" id="ekle-dosya" accept=".zim" hidden>
+  <div class="satir"><button id="ekle-btn" class="btn">Dosya seç…</button><button id="ekle-vazgec" class="btn ikincil" hidden>Vazgeç</button></div>
+  <div class="cubuk" id="ekle-cubuk-kap" hidden><div id="ekle-cubuk"></div></div>
+  <div id="ekle-durum" class="alt"></div>
+</div>
+<div class="iyi">İnternetten yeni kitap indirmek için <a href="#" data-git="paketler">Paketler</a> bölümüne geç. Bir kitabı silmek için kitabı aç; giriş ekranının en altında “Kitabı sil” var.</div>
+</section>
+
+<section id="dizin" data-ad="A–Z Dizin">
+<h2>A–Z Dizin</h2>
+<div class="kart">
+  <p>Bir kitap seç: o kitabın bütün maddeleri harf harf, sözlük gibi sırayla önüne gelir.</p>
+  <div id="dz-kitaplar"></div>
+</div>
+</section>
+
+<section id="muzik" data-ad="Müzik">
+<h2>Müzik</h2>
+<div class="kart calar">
+  <div class="cal-ust"><div class="kod-k">ŞİMDİ ÇALIYOR</div><b id="cal-ad">Bir parça seç</b></div>
+  <div class="cal-sure"><span id="cal-gecen">0:00</span><input id="cal-konum" type="range" min="0" max="1000" value="0" aria-label="Konum"><span id="cal-toplam">0:00</span></div>
+  <div class="cal-dugme">
+    <button id="cal-onceki" title="Önceki">⏮</button>
+    <button id="cal-oynat" class="buyuk" title="Çal / Duraklat">▶</button>
+    <button id="cal-sonraki" title="Sonraki">⏭</button>
+    <button id="cal-karisik" title="Karışık çal">🔀 Karışık</button>
+    <button id="cal-tekrar" title="Tekrar">🔁 Liste</button>
+    <span class="cal-ses"><button id="cal-sessiz" title="Sesi kapat">🔊</button><input id="cal-seviye" type="range" min="0" max="100" value="80" aria-label="Ses seviyesi"></span>
+  </div>
+  <audio id="calar" preload="metadata"></audio>
+</div>
+<div class="kart"><h3>Çalma listesi</h3><div id="muzik-liste"></div>
+<p class="alt">Paketler bölümünden müzik indir ya da telifsiz dosyaları veri klasöründeki <code>muzik</code> klasörüne koy.</p></div>
+</section>
+
+<section id="sanat" data-ad="Sanat">
+<h2>Sanat: resim galerisi</h2>
+<div class="kart"><p>Ressamların kamu malı eserleri. Bir esere basınca büyür; altında ressamı, adı, tarihi ve kaynağı yazar. Yeni galeri indirmek için <a href="#" data-git="paketler">Paketler</a> bölümünde “Sanat” başlığına bak.</p></div>
+<div id="sanat-liste"></div>
+<div id="sanat-buyuk" hidden><img id="sanat-resim" alt=""><div id="sanat-kunye"></div><div class="satir"><button class="btn ikincil" id="sanat-onceki">‹ Önceki eser</button><button class="btn" id="sanat-kapat">✕ Kapat</button><button class="btn ikincil" id="sanat-sonraki">Sonraki eser ›</button></div></div>
+</section>
+
+<section id="oyunlar" data-ad="Oyunlar">
+<h2>Oyunlar: akıl oyunları</h2>
+<div class="kart"><p>İnternet istemez; hepsi bu cihazda çalışır. Satranç ve mangala aynı cihazda iki kişiyle oynanır.</p><div class="oyun-sec" id="oyun-sec"><button class="btn ikincil" data-oyun="satranc">Satranç</button><button class="btn ikincil" data-oyun="sudoku">Sudoku</button><button class="btn ikincil" data-oyun="mangala">Mangala</button></div></div>
+<div class="kart" id="oyun-alan"><p class="alt">Bir oyun seç.</p></div>
+</section>
+
+<section id="paketler" data-ad="Paketler">
+<h2>Paketler</h2>
+<div class="kart" id="is-kart">
+  <h3>İndirme durumu</h3>
+  <div id="is-durum" class="alt">Yükleniyor…</div>
+  <div class="cubuk"><div id="is-cubuk"></div></div>
+  <div class="satir"><button id="durdur" class="btn ikincil" hidden>Duraklat</button><button id="devam" class="btn" hidden>Devam et</button><button id="sira-sil" class="btn ikincil" hidden>Yarım kalanları sil</button></div>
+  <details><summary class="alt">Kayıt</summary><pre id="is-log"></pre></details>
+</div>
+<div class="kart">
+  <h3>İçerik dili</h3>
+  <div class="dil-sec" id="dil-sec">
+    <button data-dil="tr" class="aktif">Türkçe</button><button data-dil="tr,en">Türkçe + İngilizce</button><button data-dil="en">İngilizce</button>
+  </div>
+  <p class="alt">Hazır seçimler ve aşağıdaki liste bu seçime göre gelir. Müzik ve haritalar her seçimde vardır.</p>
+</div>
+<div class="kart">
+  <h3>Hazır seçimler</h3>
+  <div class="profil-grid">
+    <button class="profil" data-profil="mini"><b>Mini</b><span>Telefon, 16 GB flash</span><em id="pf-mini"></em></button>
+    <button class="profil" data-profil="standart"><b>Standart</b><span>64 GB disk, kutu</span><em id="pf-standart"></em></button>
+    <button class="profil" data-profil="tam"><b>Tam</b><span>256 GB ve üstü</span><em id="pf-tam"></em></button>
+  </div>
+  <div class="profil-icerik" id="profil-icerik"></div>
+  <div class="uyari">Boyutlar tahminidir; büyük paketler saatler sürebilir. İndirme yarıda kalırsa tekrar başlatınca kaldığı yerden sürer. Bilgisayarı uykuya alma.</div>
+</div>
+<div id="paket-liste"></div>
+<div class="kart">
+  <h3>Katalogdaki her şey</h3>
+  <p>Seçtiğin dilde açık içerik kataloğunda ne varsa hepsi: ansiklopediler, sözlükler, ders kitapları, simülasyonlar. Liste internetten anlık gelir.</p>
+  <div class="satir"><button id="katalog-btn" class="btn">Kataloğu getir</button><input id="katalog-ara" type="search" placeholder="Listede ara…" hidden></div>
+  <div id="katalog-liste"></div>
+</div>
+<div class="kart" id="komsu-kart">
+  <h3>Başka bir İmece'den kitap al (internetsiz)</h3>
+  <p>Yakındaki başka bir bilgisayarda İmece açıksa, oradaki kitapları internet olmadan buraya kopyalayabilirsin. Öbür bilgisayarda <b>Ayarlar → Aynı ağdaki cihazlarla paylaş → Paylaşımı aç</b> de; iki bilgisayar aynı ağda olsun. Sonra orada görünen adresi buraya yaz.</p>
+  <div class="satir"><input id="komsu-adres" type="text" inputmode="url" spellcheck="false" placeholder="Örnek: 192.168.1.8:8642"><button id="komsu-btn" class="btn">Kitapları göster</button></div>
+  <div id="komsu-liste"></div>
+</div>
+</section>
+
+<section id="ayarlar" data-ad="Ayarlar">
+<h2>Ayarlar</h2>
+<div class="kart">
+  <h3>Flash diske kur</h3>
+  <p>İmece'yi ve indirdiğin her şeyi bir flash diske kopyala. Rafta saklarsın, gün gelince herhangi bir bilgisayara takıp açarsın.</p>
+  <div class="satir"><select id="surucu"></select><button id="surucu-yenile" class="btn ikincil">Yenile</button></div>
+  <label class="tik-satir"><input type="checkbox" id="icerik-kopya" checked> İndirilen kitapları ve müziği de kopyala</label>
+  <div class="satir"><button id="flash-btn" class="btn">Flash diske kur</button></div>
+  <div class="cubuk"><div id="flash-cubuk"></div></div>
+  <div id="flash-durum" class="alt"></div>
+  <div class="uyari">Kopyalama bitmeden diski çıkarma. Bitince Windows'ta "Donanımı güvenli kaldır" ile çıkar, yoksa dosyalar bozulabilir.</div>
+</div>
+<div class="kart" id="ag-kart">
+  <h3>Aynı ağdaki cihazlarla paylaş</h3>
+  <p>Bu bilgisayardaki kütüphaneyi aynı Wi-Fi'daki telefon, tablet ve bilgisayarlar da okuyabilsin. Onlar yalnızca okur ve arar; indirme, silme ve ayarlar yalnızca bu bilgisayardan yapılır. İmece kapanınca paylaşım da kapanır.</p>
+  <div id="ag-durum" class="alt"></div>
+  <div id="ag-adres" class="ag-adres" hidden></div>
+  <div id="ag-kare" hidden></div>
+  <div class="satir"><button id="ag-btn" class="btn">Paylaşımı aç</button></div>
+  <div class="uyari">Yalnızca güvendiğin ağlarda aç (ev, okul, kendi kurduğunuz ağ). Kafe ya da otel gibi herkese açık bir ağda açarsan o ağdaki herkes kütüphaneni görebilir. Windows ilk açışta “erişime izin verilsin mi” diye sorabilir; izin vermezsen öbür cihazlar bağlanamaz.</div>
+</div>
+<div class="kart" id="veri-kart">
+  <h3>Kitapların durduğu yer</h3>
+  <p>Kitaplar, müzik, arama dizinleri ve notların tek bir yerde durur. Bilgisayarda yer azaldıysa hepsini başka bir diske taşıyabilirsin. Bir klasör yolu yazman gerekmez: diski seç, İmece dosyaları kopyalar, kopyanın sağlam olduğunu denetler, sonra eskisini siler.</p>
+  <div id="veri-bilgi" class="alt"></div>
+  <div class="satir"><select id="veri-disk"></select><button id="veri-yenile" class="btn ikincil">Yenile</button></div>
+  <div class="satir"><button id="veri-tasi" class="btn">Seçilen diske taşı</button><button id="veri-geri" class="btn ikincil" hidden>İmece klasörüne geri al</button></div>
+  <div class="cubuk"><div id="veri-cubuk"></div></div>
+  <div id="veri-durum" class="alt"></div>
+  <div class="uyari">Taşıma bitmeden İmece'yi kapatma, diski çıkarma. Çıkarılabilir bir diske (flash, harici disk) taşırsan o disk takılı değilken kütüphane boş görünür; diski takıp İmece'yi yeniden açınca kitaplar geri gelir.</div>
+</div>
+<div class="kart">
+  <h3>Tam metin arama</h3>
+  <p>Maddelerin yalnızca adında değil, yazısının içinde de arar. Bunun için her kitaba bir kere dizin hazırlanır. İş arka planda yapılır; İmece kapanırsa bir sonraki açılışta kaldığı yerden sürer.</p>
+  <div id="tm-bilgi" class="alt"></div>
+  <div class="satir" id="tm-dugmeler"><button id="tm-ac" class="btn ikincil"></button><button id="tm-sil" class="btn ikincil">Dizinleri sil, yer aç</button></div>
+  <div class="uyari">Dizin, kitabın yaklaşık üçte biri ile yarısı kadar yer tutar. Diskte yer azsa kapatabilirsin; arama o zaman yalnızca madde adlarına bakar.</div>
+</div>
+<div class="kart">
+  <h3>Sesli rehber</h3>
+  <p>Rehberler şimdilik cihazın kendi Türkçe sesiyle okunur. Windows'ta Türkçe ses yoksa: <b>Ayarlar → Saat ve dil → Konuşma → Ses ekle → Türkçe</b>.</p>
+  <p class="alt">Daha doğal internetsiz ses paketi bir sonraki sürümde buradan tek tuşla inecek.</p>
+</div>
+<div class="kart"><h3>Hakkında</h3><p class="alt" id="hakkinda">İmece</p></div>
+</section>
+
+</main>
+<footer>İmece · açık kaynak çevrimdışı bilgi projesi · Rehber metinleri genel bilgilendirme amaçlıdır, eğitim ve uzman yardımının yerini tutmaz. Kütüphane içerikleri kendi lisanslarıyla dağıtılır.</footer>
+
+<div id="kitap-ekran" hidden>
+  <div class="ok-bar"><button id="kg-kapat" class="btn">← Kütüphane</button><b id="kg-ust">Kitap girişi</b></div>
+  <div id="kg-govde"><div class="kg-ic" id="kg-ic"></div></div>
+</div>
+
+<div id="okuyucu" hidden>
+  <div class="ok-bar">
+    <button id="ok-kapat" class="btn">✕ Kapat</button>
+    <button id="ok-geri" class="btn ikincil" title="Bir önceki sayfa">‹ Geri</button>
+    <button id="ok-ileri" class="btn ikincil" title="Geri gittiysen: bir sonraki sayfa">İleri ›</button>
+    <b id="ok-baslik"></b>
+    <span class="ok-araclar">
+      <button id="ok-not" class="btn ikincil" title="Bu sayfaya kendi notunu yaz">Not</button>
+      <button id="ok-yeni-sekme" class="btn ikincil" title="Bu sayfa açık kalsın; aynı sayfayı yeni bir sekmede aç (bağlantıya Ctrl ile basmak da yeni sekmede açar)">+ Sekme</button>
+      <button id="ok-tam" class="btn ikincil" title="Okuyucu bütün ekranı kaplasın (çıkmak için Esc)">Tam ekran</button>
+      <button id="ok-bul" class="btn ikincil" title="Bu sayfanın içinde kelime ara (Ctrl+F)">Bul</button>
+      <button id="ok-icindekiler" class="btn ikincil" title="Bu sayfada bölüm başlığı yok" disabled>İçindekiler</button>
+      <button id="ok-ses" class="btn ikincil" title="Sayfayı sesli oku (bu cihazın kendi sesiyle, internetsiz)">▶ Sesli oku</button>
+      <button id="ok-yerimi" class="btn ikincil" title="Yer imi ekle">☆</button>
+      <button id="ok-kucuk" class="btn ikincil" title="Yazıyı küçült">A−</button>
+      <button id="ok-buyuk" class="btn ikincil" title="Yazıyı büyüt">A+</button>
+      <button id="ok-gece" class="btn ikincil" title="Okuma gece modu">◐</button>
+      <button id="ok-rastgele" class="btn ikincil" title="Rastgele madde">⚄</button>
+      <button id="ok-ana" class="btn ikincil" title="Bu kitabın giriş ekranı: arama, A–Z, madde sayısı">Kitap girişi</button>
+    </span>
+  </div>
+  <div id="ok-bul-cubuk" class="ok-cubuk" hidden>
+    <label for="ok-bul-q">Sayfada bul</label>
+    <input id="ok-bul-q" type="search" autocomplete="off" placeholder="Kelime yaz…">
+    <span id="ok-bul-say" class="ok-say"></span>
+    <button id="ok-bul-once" class="btn ikincil" title="Önceki (Shift+Enter)">▲ Önceki</button>
+    <button id="ok-bul-sonra" class="btn ikincil" title="Sonraki (Enter)">▼ Sonraki</button>
+    <button id="ok-bul-kapat" class="btn ikincil" title="Aramayı kapat (Esc)">✕ Kapat</button>
+  </div>
+  <div id="ok-ses-cubuk" class="ok-cubuk" hidden>
+    <span id="ok-ses-durum" class="ok-say"></span>
+    <button id="ok-ses-geri" class="btn ikincil">⏮ Önceki paragraf</button>
+    <button id="ok-ses-dur" class="btn ikincil">⏸ Duraklat</button>
+    <button id="ok-ses-ileri" class="btn ikincil">Sonraki paragraf ⏭</button>
+    <label for="ok-ses-hiz">Hız</label>
+    <select id="ok-ses-hiz"><option value="0.8">Yavaş</option><option value="1">Normal</option><option value="1.25">Hızlı</option></select>
+    <button id="ok-ses-kapat" class="btn ikincil">■ Bitir</button>
+  </div>
+  <div id="ok-sekmeler" hidden></div>
+  <div id="ok-govde">
+    <iframe id="ok-cerceve" class="ok-cer" title="Kitap"></iframe>
+    <div id="ok-ic-panel" class="ok-panel" hidden><div class="kod-k">Bu sayfanın bölümleri</div><ul id="ok-ic-liste"></ul></div>
+    <div id="ok-not-panel" class="ok-panel" hidden>
+      <div class="kod-k">Bu sayfaya notun</div>
+      <textarea id="ok-not-metin" placeholder="Buraya yaz. Kendiliğinden kaydedilir; Kütüphane'deki “Notlarım” listesinde durur."></textarea>
+      <div id="ok-not-durum" class="alt"></div>
+      <div class="satir"><button id="ok-not-kapat" class="btn ikincil">Kapat</button><button id="ok-not-sil" class="btn ikincil">Notu sil</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="rehber-kaynak.js"></script>
+<script>
+(function(){
+  var SIRA=['simdi','deprem','gida','halk','isinma','iletisim','ilkyardim','su','bitki','kutuphane','dizin','sanat','muzik','oyunlar','paketler','ayarlar'];
+  var REHBER={deprem:['Deprem','Deprem çantası','Fay'],gida:['Gıda','Konserve','Kurutma'],halk:['Bitkisel tedavi','Şifalı bitkiler'],isinma:['Hipotermi','Donma'],iletisim:['Telsiz','Amatör radyo','Kısa dalga'],ilkyardim:['İlk yardım','Kanama','Turnike','Yanık'],su:['İçme suyu','Su arıtımı','Klor'],bitki:['Isırgan','Ebegümeci','Yabani bitkiler']};
+  (function(){var m=document.querySelector('main');SIRA.forEach(function(id){var x=document.getElementById(id);if(x)m.appendChild(x)});
+    Object.keys(REHBER).forEach(function(id){var sec=document.getElementById(id);if(!sec)return;
+      var k=document.createElement('div');k.className='kart';k.innerHTML='<h3>Kütüphanede ilgili maddeler</h3><p class="alt">İndirdiğin kitaplarda bu konuyla ilgili maddeleri getirir.</p><button class="btn" data-ilgili="'+id+'">Getir</button><div class="ilgili"></div>';
+      sec.appendChild(k)})})();
+  /* ---- Rehberlerin kaynak ve onay durumu (veri: rehber-kaynak.js; denetim aracı: gelistirme/rehber_onay.py) ----
+     Her rehber bölümünün başında durumu yazar: TASLAK (kaynaksız) / KAYNAKLI · UZMAN ONAYI BEKLİYOR / UZMAN ONAYLI.
+     Onay, metnin onaylandığı günkü özetine (SHA-256) bağlıdır; metin sonradan değiştiyse onay geçersiz sayılır. */
+  function sha256(b){ // b: Uint8Array → onaltılık özet. Sabitler asal sayılardan hesaplanır (elle yazım hatası olmasın).
+    var P=[],x=2,i,j;while(P.length<64){var asal=true;for(i=2;i*i<=x;i++)if(x%i===0){asal=false;break}if(asal)P.push(x);x++}
+    function kesir(v){return Math.floor((v-Math.floor(v))*4294967296)|0}
+    var K=P.map(function(p){return kesir(Math.cbrt(p))}),H=P.slice(0,8).map(function(p){return kesir(Math.sqrt(p))});
+    var uz=b.length,n=((uz+72)>>6)<<6,m=new Uint8Array(n);m.set(b);m[uz]=0x80;
+    var bit=uz*8;for(i=0;i<8;i++)m[n-1-i]=Math.floor(bit/Math.pow(2,8*i))&255;
+    var w=new Int32Array(64);function rr(v,k){return (v>>>k)|(v<<(32-k))}
+    for(var o=0;o<n;o+=64){
+      for(i=0;i<16;i++)w[i]=(m[o+4*i]<<24)|(m[o+4*i+1]<<16)|(m[o+4*i+2]<<8)|m[o+4*i+3];
+      for(i=16;i<64;i++){var s0=rr(w[i-15],7)^rr(w[i-15],18)^(w[i-15]>>>3),s1=rr(w[i-2],17)^rr(w[i-2],19)^(w[i-2]>>>10);w[i]=(w[i-16]+s0+w[i-7]+s1)|0}
+      var h=H.slice();
+      for(i=0;i<64;i++){var t1=(h[7]+(rr(h[4],6)^rr(h[4],11)^rr(h[4],25))+((h[4]&h[5])^(~h[4]&h[6]))+K[i]+w[i])|0,
+          t2=((rr(h[0],2)^rr(h[0],13)^rr(h[0],22))+((h[0]&h[1])^(h[0]&h[2])^(h[1]&h[2])))|0;
+        h=[(t1+t2)|0,h[0],h[1],h[2],(h[3]+t1)|0,h[4],h[5],h[6]]}
+      for(j=0;j<8;j++)H[j]=(H[j]+h[j])|0}
+    return H.map(function(v){return ('00000000'+(v>>>0).toString(16)).slice(-8)}).join('')}
+  var RK=window.REHBER_KAYNAK||{bolumler:{}};
+  // Sayfanın kaynak metninden her bölümün özetini çıkarır ve onay kaydıyla karşılaştırır.
+  function rehberDenetle(veri,sayfaMetni){var out={};
+    Object.keys(veri.bolumler||{}).forEach(function(id){var b=veri.bolumler[id];if(b.dosya)return;
+      var m=new RegExp('<!--rehber:'+id+'-->([\\s\\S]*?)<!--/rehber:'+id+'-->').exec(sayfaMetni),
+          oz=m?sha256(new TextEncoder().encode(m[1])):null;
+      out[id]={ozet:oz,onay:!b.onay?'yok':(oz&&b.onay.ozet===oz?'gecerli':'gecersiz')}});
+    return out}
+  window.imeceRehberDenetle=rehberDenetle;window.imeceSha256=function(m){return sha256(new TextEncoder().encode(String(m)))};
+  function trTarih(t){var p=String(t||'').split('-');return p.length===3?p[2]+'.'+p[1]+'.'+p[0]:String(t||'')}
+  // Kaynaklar zamanla güncellenir: son gözden geçirmenin üstünden bir yıldan çok geçtiyse bölüm bunu söyler.
+  // (Cihazın saati yanlışsa uyarı da yanlış olabilir; uyarı yalnızca "yeniden bak" der, metni gizlemez.)
+  function rehberEski(gozden,simdi){var g=Date.parse(String(gozden||'')+'T00:00:00Z');return !isNaN(g)&&((simdi||Date.now())-g)>366*864e5}
+  window.imeceRehberEski=rehberEski;
+  function rehberCiz(){
+    Object.keys(RK.bolumler||{}).forEach(function(id){var b=RK.bolumler[id],sec=document.getElementById(id);if(!sec)return;
+      var h=sec.querySelector('h2'),eski=sec.querySelector('.rehber-durum');if(eski)eski.remove();
+      var t=document.createElement('div'),o=b.onay,gecerli=o&&b.onayDurumu==='gecerli';
+      t.className='rehber-durum '+(gecerli?'onayli':(b.durum==='kaynakli'?'kaynakli':'taslak'));
+      t.innerHTML=gecerli?'<b>UZMAN ONAYLI</b>Bu sayfayı '+e(o.ad)+(o.unvan?' ('+e(o.unvan)+(o.kurum?', '+e(o.kurum):'')+')':'')+' '+e(trTarih(o.tarih))+' tarihinde gözden geçirip onayladı. Eğitim ve uzman yardımının yerini tutmaz; hayati durumda önce 112.'
+        :(b.durum==='kaynakli'?'<b>KAYNAKLI · UZMAN ONAYI BEKLİYOR</b>Bu sayfa, altta sayılan kaynaklara dayanarak yazıldı (son gözden geçirme: '+e(trTarih(b.gozden))+'). Henüz bir uzman onaylamadı; tek başına güvenme. Hayati durumda önce 112.'
+        :'<b>TASLAK · KAYNAK VE UZMAN ONAYI BEKLİYOR</b>Bu sayfadaki bilgiler genel bilgidir; kaynakları ve uzman onayı eklenene kadar tek başına güvenme. Hayati durumda önce 112.')
+        +(o&&b.onayDurumu==='gecersiz'?'<br><b>ÖNCEKİ ONAY GEÇERSİZ</b>Bu sayfanın metni, onaylandığı hâlinden farklı; yeniden onay gerekiyor.':'')
+        +(b.gozden&&rehberEski(b.gozden,window.imeceSimdi)?'<br><b class="rehber-eski">GÖZDEN GEÇİRME GECİKTİ</b>Bu sayfa en son '+e(trTarih(b.gozden))+' tarihinde gözden geçirildi; üstünden bir yıldan çok geçti. Kaynaklar değişmiş olabilir.':'');
+      h.insertAdjacentElement('afterend',t);
+      [].forEach.call(sec.querySelectorAll('[data-kn]'),function(s){s.className='kn';s.textContent='Kaynak: '+s.dataset.kn.split(',').map(function(n){return '['+n.trim()+']'}).join(' ')});
+      var kc=sec.querySelector('.kaynakca');if(kc)kc.remove();
+      if(b.kaynaklar&&b.kaynaklar.length){kc=document.createElement('div');kc.className='kart kaynakca';
+        kc.innerHTML='<h3>Kaynaklar</h3><ol>'+b.kaynaklar.map(function(k){return '<li value="'+(+k.no)+'"><b>'+e(k.kurum)+'.</b> '+e(k.baslik)+(k.yil?' ('+e(k.yil)+')':'')+'. <span class="kn-adres">'+e(k.adres)+'</span> · Erişim: '+e(trTarih(k.erisim))+'</li>'}).join('')+'</ol>'
+          +'<p class="alt">Adresler internete gider; çevrimdışıyken açılmaz. Metin bu kaynaklardan alıntı değildir, onlara dayanarak yeniden yazılmıştır.'+(b.not?' '+e(b.not):'')+'</p>';
+        var ilgili=sec.querySelector('[data-ilgili]');if(ilgili)sec.insertBefore(kc,ilgili.closest('.kart'));else sec.appendChild(kc)}})}
+  rehberCiz();window.imeceRehberCiz=rehberCiz;
+  if(location.protocol.indexOf('http')===0&&Object.keys(RK.bolumler||{}).some(function(id){return RK.bolumler[id].onay}))
+    fetch(location.pathname,{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var d=rehberDenetle(RK,t);
+      Object.keys(d).forEach(function(id){RK.bolumler[id].onayDurumu=d[id].onay});rehberCiz()}).catch(function(){});
+  var secs=[].slice.call(document.querySelectorAll('section')), nav=document.getElementById('sekmeler');
+  function git(id){
+    secs.forEach(function(s){s.classList.toggle('aktif',s.id===id)});
+    [].forEach.call(nav.children,function(b){b.classList.toggle('aktif',b.dataset.id===id);if(b.dataset.id===id){nav.scrollLeft=b.offsetLeft-nav.clientWidth/2+b.offsetWidth/2}});
+    try{history.replaceState(null,'','#'+id)}catch(e){}
+    window.scrollTo(0,0);
+    if(id==='paketler')paketYukle(); if(id==='kutuphane')kitapYukle(); if(id==='ayarlar')ayarYukle(); if(id==='muzik')muzikYukle(); if(id==='dizin')dizinYukle(); if(id==='sanat')sanatYukle();
+  }
+  secs.forEach(function(s,i){var no=(i<9?'0':'')+(i+1);var b=document.createElement('button');b.innerHTML='<i>'+no+'</i>'+s.dataset.ad;b.dataset.id=s.id;b.onclick=function(){git(s.id)};if(s.id==='kutuphane'){var ay=document.createElement('span');ay.className='nav-ayrac';nav.appendChild(ay)}nav.appendChild(b);
+    var h=s.querySelector('h2');if(h){var n=document.createElement('span');n.className='no';n.textContent='BÖLÜM '+no;h.insertBefore(n,h.firstChild)}});
+  var kok=document.documentElement,tb=document.getElementById('tema');
+  function tema(t){if(t)kok.setAttribute('data-tema',t);else kok.removeAttribute('data-tema');
+    var g=t||(matchMedia('(prefers-color-scheme: dark)').matches?'koyu':'gunduz');
+    [].forEach.call(tb.children,function(b){b.classList.toggle('aktif',b.dataset.t===g)});
+    try{t?localStorage.setItem('tema',t):0}catch(e){}}
+  [].forEach.call(tb.children,function(b){b.onclick=function(){tema(b.dataset.t)}});
+  var kayitli=null;try{kayitli=localStorage.getItem('tema')}catch(e){}
+  tema(kayitli);
+  document.addEventListener('click',function(e){var t=e.target.closest('[data-git]');if(t){e.preventDefault();git(t.dataset.git)}});
+  window.addEventListener('load',function(){setTimeout(function(){window.scrollTo(0,0)},0)});
+
+  var CEVRIMICI=location.protocol.indexOf('http')===0;
+  function $(id){return document.getElementById(id)}
+  function e(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function gb(mb){return mb==null?'?':(mb>=1024?(mb/1024).toFixed(1)+' GB':Math.round(mb)+' MB')}
+  function api(yol,veri){
+    if(!CEVRIMICI)return Promise.reject(new Error('uygulama'));
+    return fetch('/api/'+yol,veri?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(veri)}:{}).then(function(r){return r.json()});
+  }
+  function uygulamaDegil(el){el.innerHTML='<div class="uyari">Bu bölüm İmece uygulamasıyla çalışır. İmece klasöründeki <b>Imece-Ac</b> dosyasına çift tıklayarak aç.</div>'}
+
+  /* ---- Kütüphane ---- */
+  var KITAP=[];
+  // Veriler başka bir diske taşınmışsa ve o disk takılı değilse kütüphane boş görünür; nedenini söyle.
+  function veriYokCiz(d){$('veri-yok-uyari').innerHTML=d&&d.veri_yok?'<div class="uyari"><b>Kitapların durduğu disk takılı değil.</b> Kitaplar başka bir diske taşınmıştı'+(d.veri_yok_yol?' ('+e(d.veri_yok_yol)+')':'')+'; o disk şu an bulunamıyor, bu yüzden kütüphane boş görünüyor. Kitapların silinmedi: diski tak, İmece\'yi kapatıp yeniden aç.</div>':''}
+  function kitapYukle(){
+    var k=$('kitaplar');
+    api('durum').then(veriYokCiz).catch(function(){});
+    api('kitaplar').then(function(l){KITAP=l;
+      if(!l.length){k.innerHTML='<div class="kart"><h3>Kütüphane boş</h3><p>Henüz kitap yok. <a href="#" data-git="paketler">Paketler</a> bölümünden bir seçim indir.</p></div>';return}
+      k.innerHTML=l.map(function(b){return '<div class="kart kitap"><div class="kod-k">'+e((b.dil||'').toUpperCase())+' · '+gb(b.boyut_mb)+(b.tarih?' · '+e(b.tarih):'')+'</div><h3>'+e(b.baslik)+'</h3><p class="alt">'+e(b.aciklama)+'</p><div class="kod-k">'+say(b.madde)+' MADDE</div><button class="btn" data-giris="'+e(b.id)+'">Aç</button></div>'}).join('');
+    }).catch(function(){uygulamaDegil(k)});
+  }
+  function zimAdres(id,yol){return '/zim/'+encodeURIComponent(id)+'/'+(yol?yol.split('/').map(encodeURIComponent).join('/'):'')}
+  function kitapAc(id,yol,bul){ // bul: arama sonucundan gelindiyse aranan söz; sayfa açılınca işaretlenir. Etkin sekmede açılır.
+    okuyucuSifirla();BUL.bekleyen=bul||null;
+    var b=KITAP.filter(function(x){return x.id===id})[0]||{baslik:id},s=SEKMELER[AKTIF];
+    $('ok-baslik').textContent=b.baslik;$('ok-ana').dataset.id=id;SIMDI=null;s.simdi=null;s.ad=b.baslik;s.basliklar=[];
+    $('ok-yerimi').textContent='☆';notCiz(null);icCiz([]);
+    try{cer.name=JSON.stringify({boy:OKU.boy,gece:OKU.gece})}catch(x){}
+    cer.src=zimAdres(id,yol);
+    $('okuyucu').hidden=false;document.body.style.overflow='hidden';sekmeCiz();
+  }
+  document.addEventListener('click',function(ev){
+    var t=ev.target.closest('[data-ac]');if(t){ev.preventDefault();kitapAc(t.dataset.ac,t.dataset.yol,t.dataset.bul);return}
+    t=ev.target.closest('[data-giris]');if(t){ev.preventDefault();kitapGiris(t.dataset.giris,t.dataset.az)}});
+  $('ok-kapat').onclick=function(){okuyucuSifirla();tamCik();listeCiz();notListe();$('okuyucu').hidden=true;if($('kitap-ekran').hidden)document.body.style.overflow='';
+    // Okuyucu kapanınca bütün sekmeler kapanır (arkada ses ya da deney çalışmaya devam etmesin); tek boş sekme kalır.
+    SEKMELER.forEach(function(s,i){s.cer.src='about:blank';if(i>0)s.cer.remove()});
+    SEKMELER=[{cer:SEKMELER[0].cer,simdi:null,basliklar:[],ad:''}];AKTIF=0;cer=SEKMELER[0].cer;cer.hidden=false;SIMDI=null;sekmeCiz()};
+  $('ok-ana').onclick=function(){var id=(SIMDI&&SIMDI.kitap)||this.dataset.id;$('ok-kapat').onclick();kitapGiris(id)};
+  $('ok-geri').onclick=function(){cerGonder({tur:'geri'})};
+  $('ok-ileri').onclick=function(){cerGonder({tur:'ileri'})};
+  // Kitap sayfaları yalıtılmış çalışır; arayüz onlarla sadece mesajla konuşur (bkz. okuyucu-ic.js).
+  var cer=$('ok-cerceve'),OKU=oku('imece-okuma',{boy:100,gece:false}),SIMDI=null;
+  // Sekmeler: her sekme kendi çerçevesidir. "cer" ve "SIMDI" her zaman etkin sekmeyi gösterir.
+  var SEKMELER=[{cer:cer,simdi:null,basliklar:[],ad:''}],AKTIF=0;
+  function cerGonder(m){m.imece=1;try{cer.contentWindow.postMessage(m,'*')}catch(x){}}
+  function okumaUygula(){SEKMELER.forEach(function(s){
+      try{s.cer.name=JSON.stringify({boy:OKU.boy,gece:OKU.gece})}catch(x){}
+      try{s.cer.contentWindow.postMessage({imece:1,tur:'ayar',boy:OKU.boy,gece:OKU.gece},'*')}catch(x){}});
+    $('ok-gece').classList.toggle('acik',OKU.gece)}
+  function yerimiCiz(){$('ok-yerimi').textContent=SIMDI&&oku('imece-yerimi',[]).some(function(x){return x.kitap===SIMDI.kitap&&x.yol===SIMDI.yol})?'★':'☆'}
+  function sekmeBul(w){for(var i=0;i<SEKMELER.length;i++)if(SEKMELER[i].cer.contentWindow===w)return i;return -1}
+  function sekmeCiz(){var el=$('ok-sekmeler');el.hidden=SEKMELER.length<2;
+    el.innerHTML=SEKMELER.map(function(s,i){return '<span class="ok-sekme'+(i===AKTIF?' aktif':'')+'"><button data-sekme="'+i+'" title="'+e(s.ad)+'">'+e(kisalt(s.ad||'Yükleniyor…',28))+'</button><button data-sekme-kapat="'+i+'" title="Bu sekmeyi kapat">✕</button></span>'}).join('')}
+  function sekmeGoster(i){AKTIF=i;var s=SEKMELER[i];cer=s.cer;SIMDI=s.simdi;
+    SEKMELER.forEach(function(x,j){x.cer.hidden=j!==i});
+    $('ok-baslik').textContent=s.ad||'';if(SIMDI)$('ok-ana').dataset.id=SIMDI.kitap;
+    yerimiCiz();icCiz(s.basliklar);notYukle();sekmeCiz()}
+  function sekmeSec(i){if(i===AKTIF||!SEKMELER[i])return;bulKapat();okuyucuSifirla();SEKMELER[AKTIF].simdi=SIMDI;sekmeGoster(i)}
+  function sekmeAc(adres){ // adres: /zim/… yolu. Yeni sekme açılır ve öne gelir.
+    if(SEKMELER.length>=8){alert2('En çok 8 sekme açılabilir. Önce birini kapat.');return}
+    bulKapat();okuyucuSifirla();SEKMELER[AKTIF].simdi=SIMDI;
+    var f=document.createElement('iframe');f.className='ok-cer';f.title='Kitap';
+    try{f.name=JSON.stringify({boy:OKU.boy,gece:OKU.gece})}catch(x){}
+    $('ok-govde').insertBefore(f,$('ok-ic-panel'));
+    SEKMELER.push({cer:f,simdi:null,basliklar:[],ad:''});f.src=adres;sekmeGoster(SEKMELER.length-1)}
+  function sekmeKapat(i){if(!SEKMELER[i])return;
+    if(SEKMELER.length<2){$('ok-kapat').onclick();return}
+    if(i===AKTIF){bulKapat();okuyucuSifirla()}else SEKMELER[AKTIF].simdi=SIMDI;
+    var s=SEKMELER[i];s.cer.src='about:blank';s.cer.remove();SEKMELER.splice(i,1);
+    sekmeGoster(i<AKTIF?AKTIF-1:Math.min(AKTIF,SEKMELER.length-1))}
+  $('ok-sekmeler').onclick=function(ev){var t=ev.target.closest('[data-sekme-kapat]');if(t){sekmeKapat(+t.dataset.sekmeKapat);return}
+    t=ev.target.closest('[data-sekme]');if(t)sekmeSec(+t.dataset.sekme)};
+  $('ok-yeni-sekme').onclick=function(){if(SIMDI)sekmeAc(zimAdres(SIMDI.kitap,SIMDI.yol))};
+  window.addEventListener('message',function(ev){var d=ev.data;
+    if(!d||d.imece!==1)return;var si=sekmeBul(ev.source);if(si<0)return;var s=SEKMELER[si],etkin=si===AKTIF;
+    if(d.tur==='hazir'){okumaUygula();return}
+    if(d.tur==='yeni-sekme'){if(typeof d.yol==='string'&&d.yol.indexOf('/zim/')===0&&d.yol.indexOf('//')!==0)sekmeAc(d.yol);return}
+    if(d.tur==='basliklar'){s.basliklar=Array.isArray(d.liste)?d.liste:[];if(etkin)icCiz(s.basliklar);return}
+    if(!etkin&&d.tur!=='sayfa')return; // arkadaki sekme: yalnızca hangi sayfada olduğu izlenir
+    if(d.tur==='dis'){alert2('Bu bağlantı internete gidiyor; çevrimdışı açılamaz.');return}
+    if(d.tur==='bul-ac'){bulAc();return}
+    if(d.tur==='bul-sonuc'){$('ok-bul-say').textContent=d.adet?(d.sira+' / '+d.adet+(d.sinir?'+':'')):($('ok-bul-q').value.trim()?'Bu sayfada yok':'');return}
+    if(d.tur==='metin'){sesBasla(d);return}
+    if(d.tur!=='sayfa'||typeof d.yol!=='string'||d.yol.indexOf('/zim/')!==0)return;
+    var yol;try{yol=decodeURIComponent(d.yol).slice(5)}catch(x){return}
+    var i=yol.indexOf('/');if(i<0)return;
+    var sim={kitap:yol.slice(0,i),yol:yol.slice(i+1),baslik:String(d.baslik||'').trim().slice(0,300)||yol.slice(i+1).split('/').pop().replace(/_/g,' ')};
+    var g=oku('imece-gecmis',[]).filter(function(x){return !(x.kitap===sim.kitap&&x.yol===sim.yol)});g.unshift(sim);yaz('imece-gecmis',g.slice(0,50));
+    s.simdi=sim;s.ad=sim.baslik;
+    if(!etkin){sekmeCiz();return}
+    var bekleyen=BUL.bekleyen,acikQ=BUL.acik?$('ok-bul-q').value:null;
+    okuyucuSifirla(); // yeni sayfa: önceki sayfanın bölüm listesi, notu ve sesli okuması kapanır
+    SIMDI=sim;$('ok-ana').dataset.id=sim.kitap;
+    if(bekleyen){bulAc(bekleyen);BUL.son=bekleyen;$('ok-bul-say').textContent='…';cerGonder({tur:'bul',q:bekleyen,kelimeler:kelimeler(bekleyen)})}
+    else if(acikQ!==null){bulAc(acikQ);if(acikQ.trim())bulYap()} // "Bul" çubuğu açıksa açık kalır; aranan söz yeni sayfada da aranır
+    yerimiCiz();$('ok-baslik').textContent=SIMDI.baslik;okumaUygula();notYukle();sekmeCiz()});
+  $('ok-buyuk').onclick=function(){OKU.boy=Math.min(200,OKU.boy+10);yaz('imece-okuma',OKU);okumaUygula()};
+  $('ok-kucuk').onclick=function(){OKU.boy=Math.max(60,OKU.boy-10);yaz('imece-okuma',OKU);okumaUygula()};
+  $('ok-gece').onclick=function(){OKU.gece=!OKU.gece;yaz('imece-okuma',OKU);okumaUygula()};
+  $('ok-rastgele').onclick=function(){var k=(SIMDI&&SIMDI.kitap)||$('ok-ana').dataset.id;api('rastgele?k='+encodeURIComponent(k)).then(function(r){if(r.yol)kitapAc(r.kitap,r.yol)})};
+  $('ok-yerimi').onclick=function(){if(!SIMDI)return;var y=oku('imece-yerimi',[]),var_=y.some(function(x){return x.kitap===SIMDI.kitap&&x.yol===SIMDI.yol});
+    y=var_?y.filter(function(x){return !(x.kitap===SIMDI.kitap&&x.yol===SIMDI.yol)}):[SIMDI].concat(y);yaz('imece-yerimi',y);this.textContent=var_?'☆':'★';listeCiz()};
+  function alert2(m){var b=$('ok-baslik'),eski=b.textContent;b.textContent=m;setTimeout(function(){b.textContent=eski},3000)}
+
+  /* ---- Okuyucu: tam ekran ---- */
+  function tamCik(){try{if(document.fullscreenElement)document.exitFullscreen()}catch(x){}}
+  $('ok-tam').onclick=function(){var o=$('okuyucu');
+    if(document.fullscreenElement)tamCik();
+    else if(o.requestFullscreen)o.requestFullscreen().catch(function(){alert2('Tam ekran açılamadı.')});
+    else alert2('Bu tarayıcı tam ekranı desteklemiyor.')};
+  document.addEventListener('fullscreenchange',function(){var a=!!document.fullscreenElement;$('ok-tam').textContent=a?'Tam ekrandan çık':'Tam ekran';$('ok-tam').classList.toggle('acik',a)});
+
+  /* ---- Okuyucu: notlar. Notlar İmece'nin veri klasöründe durur (flash'a kurunca birlikte gider);
+     yalnızca İmece'nin çalıştığı bilgisayardan yazılıp okunur. ---- */
+  var NOT={kirli:false,t:null};
+  function notCiz(n){var v=!!(n&&n.metin);$('ok-not').textContent=v?'Not ●':'Not';$('ok-not-metin').value=(n&&n.metin)||'';
+    $('ok-not-durum').textContent=n&&n.tarih?'Son kayıt: '+n.tarih:'';NOT.kirli=false;clearTimeout(NOT.t)}
+  function notYukle(){notCiz(null);if(!SIMDI)return;var s=SIMDI; // önce boşalt: yeni sayfada bir an bile eski sayfanın notu görünmesin
+    api('not?k='+encodeURIComponent(s.kitap)+'&yol='+encodeURIComponent(s.yol)).then(function(n){if(SIMDI!==s)return;
+      $('ok-not').hidden=!!n.hata;if(!n.hata)notCiz(n)}).catch(function(){})}
+  function notKaydet(){clearTimeout(NOT.t);NOT.kirli=false;if(!SIMDI)return;var s=SIMDI,m=$('ok-not-metin').value;
+    api('not',{kitap:s.kitap,yol:s.yol,baslik:s.baslik,metin:m}).then(function(r){if(SIMDI!==s)return;
+      if(r.hata){$('ok-not-durum').textContent=r.hata;return}
+      $('ok-not').textContent=m.trim()?'Not ●':'Not';$('ok-not-durum').textContent=m.trim()?'Kaydedildi: '+r.tarih:'Bu sayfada not yok.'}).catch(function(){$('ok-not-durum').textContent='Kaydedilemedi.'})}
+  $('ok-not').onclick=function(){var p=$('ok-not-panel');if(p.hidden){icKapat();p.hidden=false;this.classList.add('acik');try{$('ok-not-metin').focus()}catch(x){}}
+    else{if(NOT.kirli)notKaydet();p.hidden=true;this.classList.remove('acik')}};
+  $('ok-not-kapat').onclick=function(){if(NOT.kirli)notKaydet();$('ok-not-panel').hidden=true;$('ok-not').classList.remove('acik')};
+  $('ok-not-metin').oninput=function(){NOT.kirli=true;$('ok-not-durum').textContent='Yazılıyor…';clearTimeout(NOT.t);NOT.t=setTimeout(notKaydet,700)};
+  $('ok-not-sil').onclick=function(){if(!$('ok-not-metin').value.trim()||confirm('Bu sayfadaki not silinsin mi?')){$('ok-not-metin').value='';notKaydet()}};
+  function notListe(){var el=$('notlar');if(!el)return;
+    api('notlar').then(function(l){if(!Array.isArray(l)){$('notlar-kart').hidden=true;return}
+      el.innerHTML=l.length?l.map(function(n){return '<div class="liste-li"><div><a href="#" data-ac="'+e(n.kitap)+'" data-yol="'+e(n.yol)+'">'+e(n.baslik||n.yol)+'</a>'+(n.var?'':' <span class="alt">(kitap kütüphanede yok)</span>')
+        +'<div class="alt">'+e(kisalt(n.metin,160))+' · '+e(n.tarih)+'</div></div></div>'}).join(''):'Henüz yok. Bir madde okurken “Not” düğmesine bas.'}).catch(function(){})}
+  notListe();
+
+  /* ---- Okuyucu: sayfada bul (işaretleme sayfanın içinde yapılır; bkz. okuyucu-ic.js) ---- */
+  var BUL={acik:false,bekleyen:null,son:'',t:null};
+  function bulAc(q){BUL.acik=true;$('ok-bul-cubuk').hidden=false;$('ok-bul').classList.add('acik');var i=$('ok-bul-q');if(q!=null)i.value=q;try{i.focus();i.select()}catch(x){}}
+  function bulKapat(){clearTimeout(BUL.t);var vardi=BUL.acik;BUL.acik=false;BUL.son='';$('ok-bul-cubuk').hidden=true;$('ok-bul').classList.remove('acik');$('ok-bul-q').value='';$('ok-bul-say').textContent='';if(vardi)cerGonder({tur:'bul',q:''})}
+  function bulYap(){var q=$('ok-bul-q').value.trim();BUL.son=q;$('ok-bul-say').textContent=q?'…':'';cerGonder({tur:'bul',q:q})}
+  // Arama sonucundan gelen söz: kelimelerine ayrılır; üç harf ve üstü kelimeler ekleriyle birlikte işaretlenir (aramanın yaptığı gibi).
+  function kelimeler(q){return (q.replace(/"/g,' ').match(/[^\s.,;:!?()\[\]{}'’“”«»\/\\-]+/g)||[]).map(function(k){return {k:k,onek:k.length>=3}})}
+  $('ok-bul').onclick=function(){if(BUL.acik)bulKapat();else bulAc()};
+  $('ok-bul-kapat').onclick=bulKapat;
+  $('ok-bul-q').oninput=function(){clearTimeout(BUL.t);BUL.t=setTimeout(bulYap,250)};
+  $('ok-bul-q').onkeydown=function(ev){
+    if(ev.key==='Enter'){ev.preventDefault();clearTimeout(BUL.t);if(BUL.son===this.value.trim()&&BUL.son)cerGonder({tur:'bul-git',yon:ev.shiftKey?-1:1});else bulYap()}
+    else if(ev.key==='Escape')bulKapat()};
+  $('ok-bul-sonra').onclick=function(){cerGonder({tur:'bul-git',yon:1})};
+  $('ok-bul-once').onclick=function(){cerGonder({tur:'bul-git',yon:-1})};
+  document.addEventListener('keydown',function(ev){if(!$('okuyucu').hidden&&(ev.ctrlKey||ev.metaKey)&&!ev.altKey&&(ev.key==='f'||ev.key==='F')){ev.preventDefault();bulAc()}});
+
+  /* ---- Okuyucu: içindekiler (sayfanın bölüm başlıkları) ---- */
+  function icCiz(l){var b=$('ok-icindekiler');b.disabled=!l.length;b.title=l.length?'Bu sayfanın bölümleri ('+l.length+')':'Bu sayfada bölüm başlığı yok';
+    $('ok-ic-liste').innerHTML=l.map(function(x,i){return '<li class="d'+(+x.d||2)+'"><a href="#" data-ic="'+i+'">'+e(x.ad)+'</a></li>'}).join('')}
+  function icKapat(){$('ok-ic-panel').hidden=true;$('ok-icindekiler').classList.remove('acik')}
+  $('ok-icindekiler').onclick=function(){var p=$('ok-ic-panel');if(p.hidden&&!$('ok-not-panel').hidden)$('ok-not-kapat').onclick();p.hidden=!p.hidden;this.classList.toggle('acik',!p.hidden)};
+  $('ok-ic-liste').onclick=function(ev){var a=ev.target.closest('[data-ic]');if(!a)return;ev.preventDefault();cerGonder({tur:'baslik-git',i:+a.dataset.ic});icKapat()};
+
+  /* ---- Okuyucu: sesli okuma. Ses bu cihazın kendi konuşma motorundan gelir (internet gerekmez).
+     Sayfa okunacak paragrafları verir; burada sırayla okunur, okunan paragraf sayfada işaretlenir. ---- */
+  var SES={aktif:false,bekle:false,parca:[],i:0,no:0,durakladi:false,bitti:false,ses:null,dil:''};
+  var DIL_AD={tr:'Türkçe',en:'İngilizce',de:'Almanca',fr:'Fransızca',es:'İspanyolca',ar:'Arapça',ru:'Rusça',it:'İtalyanca'};
+  function sesler(){try{return window.speechSynthesis?speechSynthesis.getVoices():[]}catch(x){return []}}
+  function sesDurum(t){$('ok-ses-durum').textContent=t}
+  function sesAc(){
+    if(SES.aktif){sesBitir();return}
+    if(!('speechSynthesis' in window)||!window.SpeechSynthesisUtterance){alert2('Bu tarayıcı sesli okumayı desteklemiyor.');return}
+    SES.aktif=true;SES.bekle=true;SES.parca=[];SES.bitti=false;SES.durakladi=false;
+    $('ok-ses-cubuk').hidden=false;$('ok-ses').classList.add('acik');$('ok-ses').textContent='■ Okumayı bitir';$('ok-ses-dur').textContent='⏸ Duraklat';
+    sesDurum('Hazırlanıyor…');cerGonder({tur:'metin-iste'})}
+  function sesBasla(d){
+    if(!SES.aktif||!SES.bekle)return;SES.bekle=false;
+    SES.parca=Array.isArray(d.parcalar)?d.parcalar.map(String):[];SES.i=Math.max(0,+d.bas||0);
+    if(!SES.parca.length){sesDurum('Bu sayfada okunacak yazı bulunamadı.');return}
+    var dil=String(d.dil||'tr').slice(0,2)||'tr';
+    var basla=function(){
+      // Yalnızca cihazda yüklü sesler kullanılır: tarayıcının internet sesleri okunan yazıyı dışarıdaki bir sunucuya gönderir
+      // ve internetsiz çalışmaz. Başka dilin sesi de kullanılmaz (Türkçeyi anlaşılmaz okur).
+      var v=sesler().filter(function(s){return String(s.lang||'').toLowerCase().indexOf(dil)===0&&s.localService!==false});
+      SES.ses=v[0]||null;
+      if(!SES.ses){SES.parca=[];sesDurum('Bu cihazda '+(DIL_AD[dil]||dil)+' ses yüklü değil; sayfa okunamıyor. Nasıl ekleneceği Ayarlar → Sesli rehber bölümünde yazıyor.');return}
+      SES.dil=SES.ses.lang;sesOku()};
+    if(sesler().length)basla();
+    else{var oldu=false,f=function(){if(oldu)return;oldu=true;if(SES.aktif)basla()};try{speechSynthesis.addEventListener('voiceschanged',f)}catch(x){}setTimeout(f,1500)}}
+  // Uzun paragraflar cümlelere bölünür: bazı tarayıcılar uzun tek parçayı yarıda keser.
+  function cumleler(t){var out=[],b='';
+    (t.match(/[^.!?…;:]+[.!?…;:]*\s*/g)||[t]).forEach(function(c){
+      while(c.length>220){var k=c.lastIndexOf(' ',220);if(k<60)k=220;if(b.trim())out.push(b.trim());b='';out.push(c.slice(0,k).trim());c=c.slice(k)}
+      if((b+c).length>220){if(b.trim())out.push(b.trim());b=c}else b+=c});
+    if(b.trim())out.push(b.trim());return out.filter(function(x){return x})}
+  function sesOku(){var no=++SES.no;
+    try{speechSynthesis.cancel()}catch(x){}
+    if(SES.i>=SES.parca.length){SES.bitti=true;cerGonder({tur:'okunan',i:-1});sesDurum('Sayfanın sonu.');$('ok-ses-dur').textContent='▶ Baştan oku';return}
+    SES.bitti=false;SES.durakladi=false;$('ok-ses-dur').textContent='⏸ Duraklat';
+    cerGonder({tur:'okunan',i:SES.i});sesDurum('Okunuyor: '+(SES.i+1)+' / '+SES.parca.length+' paragraf');
+    var c=cumleler(SES.parca[SES.i]),j=0;
+    var sonraki=function(){if(no!==SES.no)return;
+      if(j>=c.length){SES.i++;sesOku();return}
+      var u=new SpeechSynthesisUtterance(c[j++]);u.lang=SES.dil||'tr-TR';try{u.voice=SES.ses}catch(x){}u.rate=+OKU.hiz||1;
+      u.onend=sonraki;u.onerror=function(ev){if(no!==SES.no)return;var h=ev&&ev.error;if(h==='interrupted'||h==='canceled')return;sonraki()};
+      try{speechSynthesis.speak(u)}catch(x){sesDurum('Ses motoru çalışmadı.')}};
+    setTimeout(sonraki,80)} // iptalden hemen sonra konuşma isteği bazı tarayıcılarda yutulur
+  function sesBitir(){if(!SES.aktif)return;SES.aktif=false;SES.bekle=false;SES.no++;SES.parca=[];try{speechSynthesis.cancel()}catch(x){}
+    cerGonder({tur:'okunan',i:-1});$('ok-ses-cubuk').hidden=true;$('ok-ses').classList.remove('acik');$('ok-ses').textContent='▶ Sesli oku'}
+  $('ok-ses').onclick=sesAc;$('ok-ses-kapat').onclick=sesBitir;
+  $('ok-ses-dur').onclick=function(){if(!SES.parca.length)return;
+    if(SES.bitti){SES.i=0;sesOku()}
+    else if(SES.durakladi)sesOku() // kaldığı paragrafın başından sürer
+    else{SES.no++;SES.durakladi=true;try{speechSynthesis.cancel()}catch(x){}this.textContent='▶ Sürdür';sesDurum('Duraklatıldı: '+(SES.i+1)+' / '+SES.parca.length+' paragraf')}};
+  $('ok-ses-ileri').onclick=function(){if(SES.parca.length&&SES.i<SES.parca.length-1){SES.i++;sesOku()}};
+  $('ok-ses-geri').onclick=function(){if(SES.parca.length){SES.i=Math.max(0,Math.min(SES.i,SES.parca.length)-1);sesOku()}};
+  $('ok-ses-hiz').value=String(OKU.hiz||1);
+  $('ok-ses-hiz').onchange=function(){OKU.hiz=+this.value||1;yaz('imece-okuma',OKU);if(SES.aktif&&!SES.durakladi&&!SES.bitti&&SES.parca.length)sesOku()};
+  function okuyucuSifirla(){sesBitir();icKapat();if(NOT.kirli)notKaydet();$('ok-not-panel').hidden=true;$('ok-not').classList.remove('acik');BUL.bekleyen=null;clearTimeout(BUL.t);BUL.acik=false;BUL.son='';$('ok-bul-cubuk').hidden=true;$('ok-bul').classList.remove('acik');$('ok-bul-q').value='';$('ok-bul-say').textContent=''}
+  var araT;
+  function ara(){var q=$('ara').value.trim(),r=$('ara-sonuc');if(q.length<2){r.innerHTML='';return}
+    api('ara?q='+encodeURIComponent(q)).then(function(l){
+      if(!KITAP.length)api('kitaplar').then(function(x){KITAP=x});
+      r.innerHTML='<h4 class="ara-bas">Adında geçenler</h4>'+(l.length?'<ul class="sonuc">'+l.map(function(s){return sonucLi(s,true)}).join('')+'</ul>':'<p class="alt">Adında “'+e(q)+'” geçen madde yok.</p>')
+        +'<div id="ara-metin"><h4 class="ara-bas">Yazısının içinde geçenler</h4><p class="alt">Aranıyor…</p></div>';
+      metinAra(q,null,$('ara-metin'),function(){return $('ara').value.trim()===q});
+    }).catch(function(){uygulamaDegil(r)})}
+  /* ---- Tam metin arama: maddelerin yazısının içinde geçenler ---- */
+  function ozetHtml(s){var c=Array.from(s.ozet||''),h='',p=0;(s.vurgu||[]).forEach(function(v){if(v[0]<p)return;h+=e(c.slice(p,v[0]).join(''))+'<mark>'+e(c.slice(v[0],v[1]).join(''))+'</mark>';p=v[1]});return h+e(c.slice(p).join(''))}
+  function metinLi(s,kitapli,q){return '<li><a href="#" data-ac="'+e(s.kitap)+'" data-yol="'+e(s.yol)+'" data-bul="'+e(q||'')+'">'+e(s.baslik)+'</a>'+(kitapli?' <span class="alt">· '+e(s.kitap_baslik)+'</span>':'')+'<div class="ozet">'+ozetHtml(s)+'</div></li>'}
+  function bekleyenYazi(l,tek){var g={};l.forEach(function(b){var k=b.durum==='yok'?'yok-'+b.neden:(b.durum==='sirada'?'hazirlaniyor':b.durum);(g[k]=g[k]||[]).push(b)});
+    var kim=function(x){return tek?'Bu kitabın':x.length+' kitabın'},out=[],x;
+    if(x=g.hazirlaniyor){var s=x.filter(function(b){return b.durum==='hazirlaniyor'})[0];
+      out.push(kim(x)+' tam metin dizini hazırlanıyor'+(s?' ('+(tek?'':e(s.kitap_baslik)+' ')+'%'+s.yuzde+')':'')+'. Bitince yazıların içinde de aranır; '+(tek?'şimdilik':'o kitaplarda şimdilik')+' yalnızca madde adlarına bakıldı.')}
+    if(x=g.kapali)out.push('Yazıların içinde arama kapalı (Ayarlar → Tam metin arama). '+(tek?'Bu kitapta':x.length+' kitapta')+' yalnızca madde adlarına bakıldı.');
+    if(x=g['yok-yer'])out.push('Diskte yer kalmadığı için '+(tek?'bu kitabın':x.length+' kitabın')+' tam metin dizini kurulamadı.');
+    if(x=g['yok-buyuk'])out.push((tek?'Bu kitap':x.length+' kitap')+' çok büyük olduğu için tam metin dizini kurulmadı.');
+    Object.keys(g).forEach(function(k){if(k.indexOf('yok-')===0&&k!=='yok-yer'&&k!=='yok-buyuk')out.push(kim(g[k])+' tam metin dizini kurulamadı.')});
+    return out.map(function(t){return '<p class="alt">'+t+'</p>'}).join('')}
+  function metinAra(q,kitap,el,gecerli,bas){
+    api('metin-ara?q='+encodeURIComponent(q)+(kitap?'&k='+encodeURIComponent(kitap)+'&adet=20&bas='+(bas||0):'')).then(function(r){
+      if(!gecerli()||!el.isConnected)return;
+      var li=r.sonuc.map(function(s){return metinLi(s,!kitap,q)}).join('');
+      if(bas){el.querySelector('ul').insertAdjacentHTML('beforeend',li)}
+      else{var h='<h4 class="ara-bas">Yazısının içinde geçenler</h4>';
+        if(!r.var)h+='<p class="alt">Bu bilgisayardaki Python tam metin aramayı desteklemiyor; yalnızca madde adlarında arandı.</p>';
+        else{
+          if(r.sonuc.length&&!r.tumu)h+='<p class="alt">Yazdığın kelimelerin hepsini birden içeren madde yok; herhangi birini içerenler gösteriliyor.</p>';
+          if(!r.sonuc.length&&!r.bekleyen.length)h+='<p class="alt">Hiçbir maddenin yazısında “'+e(q)+'” geçmiyor.</p>';
+          h+='<ul class="sonuc">'+li+'</ul>'+bekleyenYazi(r.bekleyen,!!kitap)}
+        el.innerHTML=h+'<div class="metin-alt"></div>'}
+      var alt=el.querySelector('.metin-alt'),sayi=el.querySelectorAll('ul.sonuc li').length;
+      if(alt){alt.innerHTML=(kitap&&r.devam)?'<button class="btn ikincil">Yazısında geçenlerden daha fazla göster</button>':'';
+        if(kitap&&r.devam)alt.querySelector('button').onclick=function(){this.disabled=true;metinAra(q,kitap,el,gecerli,sayi)}}
+    }).catch(function(){})}
+  function sonucLi(s,kitapli){return '<li><a href="#" data-ac="'+e(s.kitap)+'" data-yol="'+e(s.yol)+'">'+e(s.baslik)+'</a>'+(s.hedef?' <span class="hedef">→ '+e(s.hedef)+'</span>':'')+(kitapli?' <span class="alt">· '+e(s.kitap_baslik)+'</span>':'')+'</li>'}
+
+  /* ---- Kitap giriş ekranı: her kitabın bizim hazırladığımız kapısı ---- */
+  var KG={id:null},CESIT={nopic:'resimsiz',maxi:'resimli, tam metin',mini:'özet (her maddenin giriş bölümü)'};
+  function say(n){return n==null?'?':Number(n).toLocaleString('tr-TR')}
+  function kisalt(t,n){t=String(t);return t.length>n?t.slice(0,n-1)+'…':t}
+  function kitapGiris(id,az){
+    clearTimeout(KG.t);clearTimeout(KG.at);KG={id:id,veri:null,q:'',adet:30,liste:null,az:az};
+    $('kitap-ekran').hidden=false;document.body.style.overflow='hidden';
+    $('kg-ust').textContent='Kitap girişi';$('kg-ic').innerHTML='<p class="alt">Yükleniyor…</p>';$('kg-govde').scrollTop=0;
+    kgYukle();
+  }
+  $('kg-kapat').onclick=function(){clearTimeout(KG.t);clearTimeout(KG.at);KG={id:null};$('kitap-ekran').hidden=true;if($('okuyucu').hidden)document.body.style.overflow='';listeCiz()};
+  function kgYukle(){var id=KG.id;
+    api('kitap?k='+encodeURIComponent(id)).then(function(r){if(KG.id!==id)return;
+      if(r.hata){$('kg-ic').innerHTML='<div class="uyari">'+e(r.hata)+'</div>';return}
+      var once=KG.veri;KG.veri=r;
+      if(!once||once.dizin.durum!==r.dizin.durum)kgCiz();else kgDurum();
+      var tm=(r.tam_metin||{}).durum;
+      if(r.dizin.durum==='sirada'||r.dizin.durum==='hazirlaniyor')KG.t=setTimeout(kgYukle,1500);
+      else if(tm==='sirada'||tm==='hazirlaniyor')KG.t=setTimeout(kgYukle,4000);
+      if(once&&(once.tam_metin||{}).durum!==tm&&tm==='hazir'&&KG.q&&$('kg-ara'))kgAra();
+    }).catch(function(){uygulamaDegil($('kg-ic'))});
+  }
+  function kgDurum(){var el=$('kg-durum'),d=KG.veri.dizin;if(!el)return;
+    el.innerHTML=(d.durum==='hazirlaniyor'||d.durum==='sirada')?'<div class="iyi">Bu kitabın dizini ilk kez hazırlanıyor'+(d.yuzde?' (%'+d.yuzde+')':'')+'. Bitene kadar arama sadece adın başına bakar ve sayılar yaklaşıktır. Bitince bu ekran kendiliğinden tamamlanır.</div>'
+      :(d.durum==='yok'?'<div class="iyi">Bu kitap çok büyük olduğu için sade kipte açıldı: arama sadece adın başına bakar, harf listeleri dosyadaki sırayla gelir, sayılar yaklaşıktır.</div>':'');
+    var t=KG.veri.tam_metin||{},tm='';
+    if(d.durum==='hazir'){
+      if(t.durum==='hazirlaniyor')tm='Maddelerin yazısının içinde arama için dizin hazırlanıyor (%'+(t.yuzde||0)+'). Bitene kadar arama yalnızca madde adlarına bakar; bitince kendiliğinden açılır.';
+      else if(t.durum==='sirada')tm='Maddelerin yazısının içinde arama için dizin sırasını bekliyor (önce başka bir kitabınki hazırlanıyor). O zamana kadar arama yalnızca madde adlarına bakar.';
+      else if(t.durum==='kapali')tm='Yazıların içinde arama kapalı (Ayarlar → Tam metin arama). Arama yalnızca madde adlarına bakar.';
+      else if(t.durum==='yok'&&t.neden==='yer')tm='Diskte yer kalmadığı için bu kitabın tam metin dizini kurulamadı (yaklaşık '+gb(t.gereken_mb)+' boş yer gerekiyor). Arama yalnızca madde adlarına bakar.';
+      else if(t.durum==='yok')tm='Bu kitabın tam metin dizini kurulamadı. Arama yalnızca madde adlarına bakar.';}
+    if(tm)el.insertAdjacentHTML('beforeend','<div class="iyi" id="kg-tm">'+tm+'</div>')}
+  function kgCiz(){var r=KG.veri,id=KG.id,h='',kid=encodeURIComponent(id);
+    $('kg-ust').textContent=r.baslik;
+    var son=oku('imece-gecmis',[]).filter(function(x){return x.kitap===id})[0];
+    h+='<div class="kart"><div class="kg-kimlik">'+(r.simge?'<img class="kg-simge" alt="" src="/zim/'+kid+'/'+e(r.simge)+'">':'')
+      +'<div><div class="kod-k">KİTAP GİRİŞİ'+(r.dil_adi?' · '+e(r.dil_adi.toLocaleUpperCase('tr-TR')):'')+(r.tarih?' · '+e(r.tarih):'')+' · '+gb(r.boyut_mb)+'</div><div class="kg-ad">'+e(r.baslik)+'</div><div class="alt">'+e(r.aciklama)+'</div></div></div>'
+      +'<div class="kg-sayi"><b>'+say(r.madde)+'</b><span>madde bu kitapta'+(r.madde_kesin?'':' (yaklaşık)')+'</span></div>'
+      +'<p>Bu maddelerin <b>hepsine buradan ulaşırsın</b>: adında ya da yazısında geçen bir kelimeyle ara, baş harfinden bul ya da rastgele aç. Paketin kendi ana sayfası sadece seçme birkaç konuyu gösterir.</p>'
+      +'<div id="kg-durum"></div>'
+      +'<label for="kg-ara" class="etiket-ust">Bu kitapta ara</label>'
+      +'<div class="arama"><input id="kg-ara" type="search" autocomplete="off" placeholder="Bir kelime yaz: maddelerin adında ve yazısında aranır…"><button id="kg-ara-btn" class="btn">Ara</button></div>'
+      +'<div id="kg-sonuc"></div>'
+      +'<div class="satir"><button class="btn ikincil" id="kg-rastgele">⚄ Rastgele madde</button>'
+      +(r.ana?'<button class="btn ikincil" data-ac="'+e(id)+'" data-yol="'+e(r.ana)+'">Paketin ana sayfası</button>':'')
+      +(son?'<button class="btn ikincil" data-ac="'+e(id)+'" data-yol="'+e(son.yol)+'">Kaldığın yer: '+e(kisalt(son.baslik||son.yol,30))+'</button>':'')+'</div></div>';
+    h+='<div class="kart" id="kg-az"><h3>A–Z dizin</h3><p class="alt">Bir harfe bas: o harfle başlayan bütün maddeler sırayla gelir. Harfin altındaki sayı, o harfteki madde sayısıdır.</p><div class="harfler">'
+      +r.harfler.filter(function(x){return x.adet||(x.harf.length===1&&'QWX#'.indexOf(x.harf)<0)}).map(function(x){
+        var ad=x.harf==='#'?'Diğer':(x.harf==='0-9'?'0–9':x.harf);
+        return '<button data-kg-harf="'+e(x.harf)+'"'+(x.adet?'':' disabled')+(ad.length>1?' class="genis"':'')+'>'+ad+'<small>'+say(x.adet)+'</small></button>'}).join('')
+      +'</div></div><div id="kg-liste"></div>';
+    if(r.bolumler&&r.bolumler.length)h+='<div class="kart"><h3>Bölümler</h3><p class="alt">Bu kitabın içindeki alt kitaplar ve diziler. Madde adlarındaki ortak baş kısımdan çıkarılır (örnek: “Yemek:Mercimek çorbası” → Yemek).</p><div class="kg-cipler">'
+      +r.bolumler.map(function(b){return '<button data-kg-bolum="'+e(b.anahtar)+'" data-ad="'+e(b.ad)+'">'+e(b.ad)+'<em>'+say(b.adet)+'</em></button>'}).join('')+'</div></div>';
+    var kunye=[['Madde sayısı',say(r.madde)+(r.madde_kesin?'':' (yaklaşık)')],['Başlık sayısı',say(r.baslik_adet)+' (aynı maddeye götüren başka adlarla birlikte)'],['Dil',r.dil_adi],['Paket tarihi',r.tarih],['Boyut',gb(r.boyut_mb)],['Çeşit',CESIT[r.cesit]||r.cesit],['Kaynak',r.kaynak],['Hazırlayan',r.hazirlayan],['Yayıncı',r.yayinci],['Lisans',r.lisans],['Dosya',r.dosya]];
+    h+='<div class="kart"><h3>Künye</h3><div class="tablo"><table class="kunye">'+kunye.filter(function(x){return x[1]}).map(function(x){return '<tr><td>'+x[0]+'</td><td>'+e(x[1])+'</td></tr>'}).join('')+'</table></div>'
+      +(r.lisans?'':'<p class="alt">Bu paket lisans bilgisini kendi içinde taşımıyor; içerik, kaynağının lisansıyla dağıtılır.</p>')
+      +(r.yerel!==false?'<p class="alt">Kitap dosyasının bozulup bozulmadığını denetleyebilirsin (örneğin flash diske kopyaladıktan ya da uzun süre sakladıktan sonra). Büyük kitapta birkaç dakika sürebilir.</p><button class="btn ikincil" id="kg-denetle">Dosyayı denetle</button><div id="kg-denetle-durum" class="alt"></div>':'')+'</div>';
+    if(r.yerel!==false)h+='<div class="kart"><h3>Kitabı sil</h3><p class="alt">Yer açmak için bu kitabı ve arama dizinlerini bu bilgisayardan siler. Geri getirmek için yeniden indirmen ya da eklemen gerekir.</p>'
+      +'<button class="btn ikincil" id="kg-sil">Bu kitabı sil ('+gb(r.boyut_mb)+')</button><div id="kg-sil-durum" class="alt"></div></div>';
+    $('kg-ic').innerHTML=h;kgDurum();
+    var db=$('kg-denetle');if(db)db.onclick=function(){db.disabled=true;$('kg-denetle-durum').className='alt';$('kg-denetle-durum').textContent='Denetleniyor…';denetleYokla(id,true)};
+    var sb=$('kg-sil');if(sb)sb.onclick=function(){
+      if(!confirm('“'+r.baslik+'” silinsin mi?\n\nKitap ('+gb(r.boyut_mb)+') ve arama dizinleri bu bilgisayardan silinir; bu kitaptaki yer imlerin ve okuma geçmişin de kalkar.\n\nBu işlem geri alınamaz. Kitabı geri getirmek için yeniden indirmen ya da eklemen gerekir.'))return;
+      sb.disabled=true;$('kg-sil-durum').textContent='Siliniyor…';
+      api('kitap-sil',{k:id}).then(function(x){
+        if(!x.tamam){sb.disabled=false;$('kg-sil-durum').textContent=x.hata||'Silinemedi.';return}
+        ['imece-yerimi','imece-gecmis'].forEach(function(a){yaz(a,oku(a,[]).filter(function(y){return y.kitap!==id}))});
+        $('kg-kapat').onclick();kitapYukle();
+        $('kutuphane-bilgi').innerHTML='<div class="iyi">“'+e(r.baslik)+'” silindi · '+gb(x.silinen_mb)+' yer açıldı.</div>';
+      }).catch(function(){sb.disabled=false;$('kg-sil-durum').textContent='Silinemedi.'})};
+    var inp=$('kg-ara');inp.value=KG.q;
+    inp.oninput=function(){clearTimeout(KG.at);KG.at=setTimeout(function(){KG.adet=30;kgAra()},250)};
+    inp.onkeydown=function(ev){if(ev.key==='Enter'){clearTimeout(KG.at);KG.adet=30;kgAra()}};
+    $('kg-ara-btn').onclick=function(){clearTimeout(KG.at);KG.adet=30;kgAra()};
+    $('kg-rastgele').onclick=function(){api('rastgele?k='+kid).then(function(x){if(x.yol)kitapAc(x.kitap,x.yol)})};
+    if(KG.q)kgAra();
+    if(KG.liste)kgListe(KG.liste.tur,KG.liste.deger,KG.liste.ad);
+    else if(KG.az){KG.az=0;setTimeout(function(){var a=$('kg-az');if(a)a.scrollIntoView()},0)}
+  }
+  // Kitap dosyasını denetle: sunucu arka planda dosyanın sağlamasını hesaplar; burada ilerlemesi sorulur.
+  function denetleYokla(id,basla){
+    api('kitap-denetle?k='+encodeURIComponent(id)+(basla?'&basla=1':'')).then(function(s){
+      if(KG.id!==id)return;var el=$('kg-denetle-durum'),db=$('kg-denetle');if(!el||!db)return;
+      if(s.durum==='suruyor'){el.className='alt';el.textContent='Denetleniyor… %'+(s.yuzde||0)+' ('+gb(s.boyut_mb)+' okunuyor)';setTimeout(function(){denetleYokla(id)},600);return}
+      db.disabled=false;
+      if(s.durum==='saglam'){el.className='iyi';el.textContent='Sağlam: dosyanın sağlaması tutuyor ('+s.sure+' sn sürdü). Kitap, hazırlandığı günkü hâliyle aynı.'}
+      else if(s.durum==='bozuk'){el.className='uyari';el.textContent='BOZUK: '+s.neden+'. Bu kitaptaki bazı maddeler açılmayabilir ya da yanlış görünebilir. Kitabı silip yeniden indir ya da sağlam bir kopyasını ekle.'}
+      else{el.className='uyari';el.textContent='Denetlenemedi'+(s.hata||s.neden?': '+(s.hata||s.neden):'.')}
+    }).catch(function(){var el=$('kg-denetle-durum'),db=$('kg-denetle');if(el&&db){db.disabled=false;el.className='uyari';el.textContent='Denetlenemedi.'}})}
+  function kgAra(){var q=$('kg-ara').value.trim(),r=$('kg-sonuc'),id=KG.id;KG.q=q;if(q.length<2){r.innerHTML='';return}
+    api('ara?k='+encodeURIComponent(id)+'&adet='+(KG.adet+1)+'&q='+encodeURIComponent(q)).then(function(l){if(KG.id!==id||KG.q!==q)return;
+      var fazla=l.length>KG.adet;l=l.slice(0,KG.adet);
+      r.innerHTML='<h4 class="ara-bas">Adında geçenler</h4>'+(l.length?'<p class="alt">'+(fazla?'İlk '+l.length+' sonuç':l.length+' sonuç')+'</p><ul class="sonuc">'+l.map(function(s){return sonucLi(s)}).join('')+'</ul>'+(fazla?'<button class="btn ikincil" id="kg-fazla">Adında geçenlerden daha fazla göster</button>':'')
+        :'<p class="alt">Adında “'+e(q)+'” geçen madde bu kitapta yok.</p>')
+        +'<div id="kg-metin"><h4 class="ara-bas">Yazısının içinde geçenler</h4><p class="alt">Aranıyor…</p></div>';
+      metinAra(q,id,$('kg-metin'),function(){return KG.id===id&&KG.q===q});
+      if(fazla)$('kg-fazla').onclick=function(){KG.adet=Math.min(299,KG.adet*3);kgAra()}})}
+  function kgListe(tur,deger,ad,ek){var id=KG.id,hedef=$('kg-liste');
+    if(!ek){KG.liste={tur:tur,deger:deger,ad:ad,bas:0,sayi:0};hedef.innerHTML='<div class="kart"><p class="alt">Yükleniyor…</p></div>'}
+    var L=KG.liste,u=(tur==='harf'?'dizin?harf=':'bolum?ad=')+encodeURIComponent(deger)+'&k='+encodeURIComponent(id);
+    [].forEach.call(document.querySelectorAll('[data-kg-harf],[data-kg-bolum]'),function(b){b.classList.toggle('aktif',(tur==='harf'?b.dataset.kgHarf:b.dataset.kgBolum)===deger)});
+    api(u+'&bas='+L.bas+'&adet=200').then(function(r){if(KG.id!==id||KG.liste!==L)return;
+      if(!ek)hedef.innerHTML='<div class="kart"><h3 id="kg-liste-ad"></h3><ul class="dz-grid" id="kg-liste-ic"></ul><div id="kg-liste-alt"></div></div>';
+      var l=r.liste||[];L.sayi+=l.length;L.bas=r.sonraki;
+      $('kg-liste-ad').textContent=ad+(r.toplam!=null?' · '+say(r.toplam)+' madde':'');
+      var kes=tur==='bolum'?deger.length:0; // bölüm listesinde ortak baş kısmı ("Yemek:") tekrar etme
+      $('kg-liste-ic').insertAdjacentHTML('beforeend',l.map(function(x){return '<li><a href="#" data-ac="'+e(id)+'" data-yol="'+e(x.yol)+'">'+e(kes&&x.baslik.length>kes?x.baslik.slice(kes):x.baslik)+'</a></li>'}).join(''));
+      $('kg-liste-alt').innerHTML=(L.sayi?'':'<p class="alt">Burada madde yok.</p>')
+        +(r.sonraki!=null?'<button class="btn ikincil" id="kg-devam">Devamını göster ('+say(L.sayi)+(r.toplam!=null?' / '+say(r.toplam):'')+')</button>':(L.sayi>200?'<p class="alt">Listenin sonu · '+say(L.sayi)+' madde</p>':''));
+      if(r.sonraki!=null)$('kg-devam').onclick=function(){this.disabled=true;kgListe(tur,deger,ad,true)};
+      if(!ek)hedef.scrollIntoView({behavior:'smooth',block:'start'});
+    })}
+  $('kitap-ekran').addEventListener('click',function(ev){
+    var t=ev.target.closest('[data-kg-harf]');
+    if(t&&!t.disabled){var h=t.dataset.kgHarf;kgListe('harf',h,h==='#'?'Diğer: işaretle ya da başka alfabeyle başlayanlar':(h==='0-9'?'Rakamla başlayanlar':h+' harfi'));return}
+    t=ev.target.closest('[data-kg-bolum]');if(t)kgListe('bolum',t.dataset.kgBolum,'Bölüm: '+t.dataset.ad)});
+  $('ara').oninput=function(){clearTimeout(araT);araT=setTimeout(ara,250)};
+  $('ara-btn').onclick=ara;
+
+  /* ---- Paketler ---- */
+  var D=null,isT=null;
+  function paketYukle(){
+    api('durum').then(function(d){D=d;paketCiz();isCiz(d.is);if(d.is.aktif&&!isT)isT=setInterval(isYokla,1000)})
+      .catch(function(){uygulamaDegil($('paket-liste'));$('is-durum').textContent='Uygulama kapalı.'});
+  }
+  var DIL=['tr'];try{var dk=localStorage.getItem('imece-dil');if(dk)DIL=dk.split(',')}catch(x){}
+  function dilUyar(x){return !x.dil||x.dil==='-'||x.dil==='mul'||DIL.indexOf(x.dil)>=0}
+  [].forEach.call(document.querySelectorAll('#dil-sec button'),function(b){
+    b.classList.toggle('aktif',b.dataset.dil===DIL.join(','));
+    b.onclick=function(){DIL=b.dataset.dil.split(',');try{localStorage.setItem('imece-dil',b.dataset.dil)}catch(x){}
+      [].forEach.call(document.querySelectorAll('#dil-sec button'),function(c){c.classList.toggle('aktif',c===b)});
+      if(D)paketCiz();if(KAT)katalogCiz()}});
+  function paketCiz(){
+    ['mini','standart','tam'].forEach(function(p){var t=0,k=0,bil=0;D.paketler.forEach(function(x){if((x.profiller||[]).indexOf(p)>=0&&x.tur!=='elle'&&dilUyar(x)){if(x.kurulu)k++;else if(x.tahmini_mb)t+=x.tahmini_mb;else bil++}});$('pf-'+p).textContent=(k?k+' kurulu · ':'')+'~'+gb(t)+(bil?' + '+bil+' paket (boyut indirirken belli olur)':'')+' inecek'});
+    var ad={};D.kategoriler.forEach(function(k){ad[k.id]=k.ad});
+    var PA={mini:'Mini',standart:'Standart',tam:'Tam'};
+    $('profil-icerik').innerHTML=['mini','standart','tam'].map(function(p){var l=D.paketler.filter(function(x){return (x.profiller||[]).indexOf(p)>=0&&dilUyar(x)});
+      return '<details><summary>'+PA[p]+' seçiminde ne var? ('+l.length+' içerik)</summary><ul>'+l.map(function(x){return '<li><b>'+e(x.baslik)+'</b> <span class="alt">· '+e(ad[x.kategori]||x.kategori)+(x.tahmini_mb?' · yaklaşık '+gb(x.tahmini_mb):'')+(x.lisans?' · '+e(x.lisans):'')+(x.tur==='elle'?' · ayrıca kurulur':'')+'</span></li>'}).join('')+'</ul></details>'}).join('');
+    var gr={};D.paketler.filter(dilUyar).forEach(function(x){(gr[x.kategori]=gr[x.kategori]||[]).push(x)});
+    $('paket-liste').innerHTML=Object.keys(gr).map(function(k){
+      return '<div class="kart"><h3>'+e(ad[k]||k)+'</h3><ul class="paket">'+gr[k].map(function(x){
+        var sag=x.tur==='elle'?'<span class="cip">dış kaynak</span>':(x.kurulu?'<span class="cip var">kurulu</span>':'<button class="btn ufak" data-indir="'+e(x.id)+'">İndir'+(x.tahmini_mb?' · '+gb(x.tahmini_mb):'')+'</button>');
+        return '<li><div><b>'+e(x.baslik)+'</b><div class="alt">'+e(x.lisans||'')+(x.not?' · '+e(x.not):'')+'</div></div>'+sag+'</li>'}).join('')+'</ul></div>'}).join('')
+      +'<p class="alt">'+(D.veri?'Veri klasörü: '+e(D.veri)+' · ':'')+'Boş yer: '+gb(D.bos_mb)+'</p>';
+    if(D.yerel===false)$('paket-liste').insertAdjacentHTML('afterbegin',YEREL_DEGIL);
+    if(D.onedrive)$('paket-liste').insertAdjacentHTML('afterbegin','<div class="uyari"><b>İmece OneDrive klasörünün içinde.</b> İndirilen dosyalar buluta yüklenmeye çalışır ve OneDrive\'ı doldurur. İmece klasörünü C:\\Imece gibi OneDrive dışı bir yere taşı.</div>');
+  }
+  function isCiz(s){
+    var m=s.aktif?('<b>'+e(s.mevcut||'Hazırlanıyor')+'</b> · '+(s.yuzde!=null?s.yuzde+'% · ':'')+gb(s.mb)+' · '+s.hiz+' MB/sn'+(s.kuyruk.length?' · sırada: '+e(s.kuyruk.slice(0,3).join(', '))+(s.kuyruk.length>3?' ve '+(s.kuyruk.length-3)+' paket daha':''):'')):'Şu an indirme yok.';
+    var bek=s.bekleyen||[];
+    if(!s.aktif&&bek.length)m='<b>Yarım kalan indirme var:</b> '+bek.length+' paket bekliyor ('+e(bek.slice(0,3).join(', '))+(bek.length>3?' ve '+(bek.length-3)+' paket daha':'')+'). “Devam et” dersen kaldığı yerden sürer.';
+    $('is-durum').innerHTML=m;$('is-cubuk').style.width=(s.aktif&&s.yuzde?s.yuzde:0)+'%';
+    $('durdur').hidden=!s.aktif;$('devam').hidden=$('sira-sil').hidden=s.aktif||!bek.length;
+    $('is-log').textContent=(s.log||[]).slice().reverse().join('\n');
+  }
+  $('devam').onclick=function(){api('devam',{}).then(function(){if(!isT)isT=setInterval(isYokla,1000);isYokla()})};
+  $('sira-sil').onclick=function(){if(confirm('Bekleyen sıra ve yarım inmiş dosyalar silinecek. Bu paketleri sonra baştan indirmen gerekir. Silinsin mi?'))api('sira-sil',{}).then(isYokla)};
+  var YEREL_DEGIL='<div class="uyari">Bu cihaz İmece\'ye ağ üzerinden bağlı. Okuma, arama ve müzik buradan çalışır; paket indirme ve ayarlar sadece İmece\'nin çalıştığı bilgisayardan yapılır.</div>';
+  function isYokla(){api('durum').then(function(d){var once=D&&D.is.aktif;D=d;isCiz(d.is);if(!d.is.aktif){clearInterval(isT);isT=null;paketCiz()}else if(!once)paketCiz()})}
+  function baslat(veri){api('indir',veri).then(function(r){if(r&&r.hata){$('is-durum').innerHTML='<b>'+e(r.hata)+'</b>';$('is-kart').scrollIntoView({behavior:'smooth'});return}
+    if(!isT)isT=setInterval(isYokla,1000);isYokla();$('is-kart').scrollIntoView({behavior:'smooth'})})}
+  [].forEach.call(document.querySelectorAll('[data-profil]'),function(b){b.onclick=function(){baslat({profil:b.dataset.profil,diller:DIL})}});
+  var KAT=null;
+  $('katalog-btn').onclick=function(){var b=this;b.disabled=true;b.textContent='Getiriliyor…';
+    var istek=DIL.map(function(d){return api('katalog?dil='+(d==='en'?'eng':'tur'))});
+    Promise.all(istek).then(function(l){KAT=[].concat.apply([],l.map(function(x){return Array.isArray(x)?x:[]}));
+      var hata=l.filter(function(x){return x&&x.hata})[0];
+      b.disabled=false;b.textContent='Yenile';$('katalog-ara').hidden=false;
+      if(hata&&!KAT.length){$('katalog-liste').innerHTML='<div class="uyari">'+e(hata.hata)+'</div>';return}
+      katalogCiz()}).catch(function(){b.disabled=false;b.textContent='Kataloğu getir';uygulamaDegil($('katalog-liste'))})};
+  $('katalog-ara').oninput=function(){katalogCiz()};
+  // Katalogdaki tür adları (kaynağın kendi etiketleri) ve Türkçe karşılıkları; bilinmeyen etiket olduğu gibi gösterilir.
+  var KAT_AD={wikipedia:'Vikipedi',wikibooks:'Vikikitap',wikiquote:'Vikisöz',wikisource:'Vikikaynak',wiktionary:'Vikisözlük',wikivoyage:'Vikigezgin',wikiversity:'Vikiversite',wikinews:'Vikihaber',
+    phet:'PhET deneyleri',ted:'TED konuşmaları',stack_exchange:'Stack Exchange',gutenberg:'Gutenberg kitapları',vikidia:'Vikidia',other:'Diğer','':'Türü belirtilmemiş'};
+  var KAT_SEC=null; // seçili tür (null: hepsi)
+  function katalogCiz(){var q=($('katalog-ara').value||'').toLocaleLowerCase('tr');
+    var say_={};KAT.forEach(function(x){var k=x.kategori||'';say_[k]=(say_[k]||0)+1});
+    if(KAT_SEC!==null&&!say_[KAT_SEC])KAT_SEC=null;
+    var cipler=Object.keys(say_).sort(function(a,b){return say_[b]-say_[a]}).map(function(k){
+      return '<button data-kat-tur="'+e(k)+'"'+(KAT_SEC===k?' class="aktif"':'')+'>'+e(KAT_AD[k]||k)+'<em>'+say_[k]+'</em></button>'}).join('');
+    var l=KAT.filter(function(x){return (KAT_SEC===null||(x.kategori||'')===KAT_SEC)&&(!q||(x.baslik+' '+x.aciklama+' '+x.ad).toLocaleLowerCase('tr').indexOf(q)>=0)});
+    $('katalog-liste').innerHTML='<div class="kg-cipler" id="katalog-turler"><button data-kat-tur-hepsi="1"'+(KAT_SEC===null?' class="aktif"':'')+'>Hepsi<em>'+KAT.length+'</em></button>'+cipler+'</div>'
+      +'<p class="alt">'+l.length+' içerik</p><ul class="paket">'+l.map(function(x){
+      return '<li><div><b>'+e(x.baslik)+'</b>'+(x.flavour?' <span class="cip">'+e({nopic:'resimsiz',maxi:'resimli',mini:'özet'}[x.flavour]||x.flavour)+'</span>':'')+'<div class="alt">'+e(x.aciklama)+' · '+e(x.tarih)+'</div></div>'
+        +(x.kurulu?'<span class="cip var">kurulu</span>':'<button class="btn ufak" data-kat="'+e(x.id)+'">İndir · '+gb(x.boyut_mb)+'</button>')+'</li>'}).join('')+'</ul>'}
+  /* ---- Başka bir İmece'den kitap al: öbür bilgisayarın paylaştığı kitaplar indirme sırasına konur ---- */
+  var KOMSU={adres:'',liste:[]};
+  function komsuGoster(){var b=$('komsu-btn'),el=$('komsu-liste'),a=$('komsu-adres').value.trim();if(!a)return;
+    b.disabled=true;el.innerHTML='<p class="alt">Bağlanılıyor…</p>';
+    api('komsu?adres='+encodeURIComponent(a)).then(function(r){b.disabled=false;
+      if(r.hata){el.innerHTML='<div class="uyari">'+e(r.hata)+'</div>';return}
+      KOMSU={adres:r.adres,liste:r.kitaplar};
+      el.innerHTML=r.kitaplar.length?'<p class="alt">'+e(r.adres)+' adresindeki İmece\'de '+r.kitaplar.length+' kitap var.</p><ul class="paket">'+r.kitaplar.map(function(k){
+        return '<li><div><b>'+e(k.baslik)+'</b><div class="alt">'+e(k.aciklama)+(k.madde?' · '+say(k.madde)+' madde':'')+'</div></div>'
+          +(k.var?'<span class="cip var">sende var</span>':'<button class="btn ufak" data-komsu="'+e(k.id)+'">Al · '+gb(k.boyut_mb)+'</button>')+'</li>'}).join('')+'</ul>'
+        :'<p class="alt">O İmece\'de alınabilecek kitap yok (kütüphanesi boş ya da eski bir sürüm).</p>'}).catch(function(){b.disabled=false;el.innerHTML='<div class="uyari">Bağlanılamadı.</div>'})}
+  $('komsu-btn').onclick=komsuGoster;
+  $('komsu-adres').onkeydown=function(ev){if(ev.key==='Enter')komsuGoster()};
+  $('komsu-liste').addEventListener('click',function(ev){var t=ev.target.closest('[data-komsu]');if(!t)return;t.disabled=true;t.textContent='Sırada';
+    api('komsu-al',{adres:KOMSU.adres,ids:[t.dataset.komsu]}).then(function(r){if(r.hata){t.disabled=false;t.textContent='Yeniden dene';$('is-durum').innerHTML='<b>'+e(r.hata)+'</b>';return}
+      if(!isT)isT=setInterval(isYokla,1000);isYokla();$('is-kart').scrollIntoView({behavior:'smooth'})})});
+  $('katalog-liste').addEventListener('click',function(ev){var t=ev.target.closest('[data-kat-tur],[data-kat-tur-hepsi]');if(!t)return;
+    KAT_SEC=t.hasAttribute('data-kat-tur-hepsi')?null:t.dataset.katTur;katalogCiz()});
+  document.addEventListener('click',function(ev){var t=ev.target.closest('[data-kat]');if(t){t.disabled=true;t.textContent='Sırada';baslat({katalog:[t.dataset.kat]})}});
+  document.addEventListener('click',function(ev){var t=ev.target.closest('[data-indir]');if(t){t.disabled=true;t.textContent='Sırada';baslat({ids:[t.dataset.indir]})}});
+  $('durdur').onclick=function(){api('durdur',{})};
+
+  /* ---- Ayarlar ---- */
+  function ayarYukle(){
+    api('durum').then(function(d){veriCiz(d);veriYokCiz(d);
+      if(d.yerel===false&&!$('ayar-uyari')){$('ayarlar').querySelector('.kart').insertAdjacentHTML('beforebegin','<div id="ayar-uyari">'+YEREL_DEGIL+'</div>')}
+      tmCiz(d.tam_metin);agCiz(d.ag,d.yerel);var c=d.calisma||{};
+      $('hakkinda').textContent='İmece sürüm '+d.surum+(c.python?' · Python '+c.python+(c.gomulu?' (İmece klasöründeki hazır Python; python.org\'un resmi paketi, lisansı python klasöründe)':' (bu bilgisayarda kurulu Python)'):'')
+        +(d.zstd?'':' · UYARI: zstd desteği yok, Python 3.14 kur ya da "pip install zstandard" çalıştır.')}).catch(function(){});
+    surucuYukle();
+  }
+  /* ---- Tam metin arama ayarı ---- */
+  var TM={},tmT;
+  function tmCiz(t){if(!t)return;TM=t;clearTimeout(tmT);
+    if(!t.var){$('tm-bilgi').textContent='Bu bilgisayardaki Python tam metin aramayı desteklemiyor.';$('tm-dugmeler').hidden=true;return}
+    var bekleyen=t.sirada-(t.suren?1:0);
+    $('tm-bilgi').textContent=(t.acik?'Açık':'Kapalı')+' · '+t.toplam+' kitabın '+t.hazir+' tanesinin dizini hazır · '+gb(t.boyut_mb)+' yer tutuyor'
+      +(t.suren?' · Şu an hazırlanan: '+((KITAP.filter(function(k){return k.id===t.suren.kitap})[0]||{}).baslik||t.suren.kitap)+' (%'+t.suren.yuzde+')':'')
+      +(t.acik&&bekleyen>0?' · sırada '+bekleyen+' kitap':'');
+    $('tm-ac').textContent=t.acik?'Tam metin aramayı kapat':'Tam metin aramayı aç';$('tm-sil').disabled=!t.boyut_mb&&!t.suren;
+    if(t.acik&&t.sirada&&location.hash==='#ayarlar')tmT=setTimeout(function(){api('durum').then(function(d){tmCiz(d.tam_metin)}).catch(function(){})},3000)}
+  $('tm-ac').onclick=function(){api('ayar',{tam_metin:!TM.acik}).then(function(r){if(r.hata){alert(r.hata);return}setTimeout(function(){api('durum').then(function(d){tmCiz(d.tam_metin)})},700)})};
+  $('tm-sil').onclick=function(){if(!confirm('Tam metin dizinleri silinsin mi?\n\n'+gb(TM.boyut_mb)+' yer açılır ve tam metin arama kapanır. Arama yalnızca madde adlarına bakar. İstediğinde yeniden açabilirsin; dizinler baştan hazırlanır.'))return;
+    this.disabled=true;api('tam-metin-sil',{}).then(function(r){if(r.hata){alert(r.hata);return}tmCiz(r.tam_metin)})};
+  /* ---- İmece'yi kapat (siyah pencere olmadığı için kapatma buradan yapılır) ---- */
+  api('durum').then(function(d){if(d.yerel!==false)$('imece-kapat').hidden=false;agCiz(d.ag,d.yerel)}).catch(function(){});
+  /* ---- Kare kod (QR) üreticisi: kendi kodumuz. Ağ adresini telefonun kamerasıyla okutmak için.
+     Kapsam: bayt kipi, hata düzeltme düzeyi M, 1–6. sürümler (106 bayta kadar; bir adres için fazlasıyla yeter).
+     Döner: kare matris (true = koyu) ya da metin sığmıyorsa null. ---- */
+  function kareKod(metin){
+    var veri=[];try{veri=Array.from(new TextEncoder().encode(metin))}catch(x){for(var q=0;q<metin.length;q++)veri.push(metin.charCodeAt(q)&255)}
+    // sürüm -> [blok sayısı, blok başına veri baytı, blok başına düzeltme baytı, hizalama deseninin merkezi]
+    var TABLO={1:[1,16,10,0],2:[1,28,16,18],3:[1,44,26,22],4:[2,32,18,26],5:[2,43,24,30],6:[4,27,16,34]},s=0,t;
+    for(var v=1;v<=6;v++){t=TABLO[v];if(veri.length<=t[0]*t[1]-2){s=v;break}}
+    if(!s)return null;
+    var blokN=t[0],blokV=t[1],blokD=t[2],n=17+4*s,toplamV=blokN*blokV,i,j,k;
+    // 1) Veri bitleri: kip (0100), uzunluk (8 bit), baytlar, sonlandırıcı, dolgu
+    var bit=[];function ekle(deger,adet){for(var b=adet-1;b>=0;b--)bit.push((deger>>>b)&1)}
+    ekle(4,4);ekle(veri.length,8);veri.forEach(function(x){ekle(x,8)});
+    ekle(0,Math.min(4,toplamV*8-bit.length));while(bit.length%8)bit.push(0);
+    var kod=[];for(i=0;i<bit.length;i+=8){var x=0;for(j=0;j<8;j++)x=x<<1|bit[i+j];kod.push(x)}
+    for(var dolgu=0xEC;kod.length<toplamV;dolgu^=0xEC^0x11)kod.push(dolgu);
+    // 2) Reed–Solomon düzeltme baytları (GF(256), 0x11D)
+    function carp(a,b){var z=0;for(var b_=7;b_>=0;b_--){z=(z<<1)^((z>>>7)*0x11D);z^=((b>>>b_)&1)*a}return z}
+    var bolen=[];for(i=0;i<blokD-1;i++)bolen.push(0);bolen.push(1);
+    var kok=1;for(i=0;i<blokD;i++){for(j=0;j<blokD;j++){bolen[j]=carp(bolen[j],kok);if(j+1<blokD)bolen[j]^=bolen[j+1]}kok=carp(kok,2)}
+    function kalan(blok){var r=bolen.map(function(){return 0});blok.forEach(function(b){var f=b^r.shift();r.push(0);bolen.forEach(function(c,m){r[m]^=carp(c,f)})});return r}
+    var bloklar=[];for(i=0;i<blokN;i++){var parca=kod.slice(i*blokV,(i+1)*blokV);bloklar.push({v:parca,d:kalan(parca)})}
+    var dizi=[];for(i=0;i<blokV;i++)bloklar.forEach(function(b){dizi.push(b.v[i])});
+    for(i=0;i<blokD;i++)bloklar.forEach(function(b){dizi.push(b.d[i])});
+    // 3) Sabit desenler
+    var M=[],F=[];for(i=0;i<n;i++){M.push(new Array(n).fill(false));F.push(new Array(n).fill(false))}
+    function koy(x,y,koyu){M[y][x]=koyu;F[y][x]=true}
+    for(i=0;i<n;i++){koy(6,i,i%2===0);koy(i,6,i%2===0)} // zamanlama çizgileri
+    function bulucu(cx,cy){for(var dy=-4;dy<=4;dy++)for(var dx=-4;dx<=4;dx++){var u=Math.max(Math.abs(dx),Math.abs(dy)),xx=cx+dx,yy=cy+dy;
+      if(xx>=0&&xx<n&&yy>=0&&yy<n)koy(xx,yy,u!==2&&u!==4)}}
+    bulucu(3,3);bulucu(n-4,3);bulucu(3,n-4);
+    if(t[3])for(var dy=-2;dy<=2;dy++)for(var dx=-2;dx<=2;dx++)koy(t[3]+dx,t[3]+dy,Math.max(Math.abs(dx),Math.abs(dy))!==1); // hizalama deseni
+    function bicim(maske){var d=maske,r=d; // düzey M = 00
+      for(var b=0;b<10;b++)r=(r<<1)^((r>>>9)*0x537);
+      var bits=(d<<10|r)^0x5412,g=function(b){return ((bits>>>b)&1)!==0};
+      for(b=0;b<=5;b++)koy(8,b,g(b));koy(8,7,g(6));koy(8,8,g(7));koy(7,8,g(8));
+      for(b=9;b<15;b++)koy(14-b,8,g(b));
+      for(b=0;b<8;b++)koy(n-1-b,8,g(b));
+      for(b=8;b<15;b++)koy(8,n-15+b,g(b));
+      koy(8,n-8,true)}
+    bicim(0); // yerleri ayrılsın
+    // 4) Veri modülleri: sağ alttan başlayıp iki sütunluk şeritlerle zikzak
+    k=0;
+    for(var sag=n-1;sag>=1;sag-=2){if(sag===6)sag=5;
+      for(var dik=0;dik<n;dik++)for(j=0;j<2;j++){var xx=sag-j,yukari=((sag+1)&2)===0,yy=yukari?n-1-dik:dik;
+        if(!F[yy][xx]&&k<dizi.length*8){M[yy][xx]=((dizi[k>>>3]>>>(7-(k&7)))&1)!==0;k++}}}
+    // 5) Maske: sekiz desen denenir, en düşük ceza puanlı seçilir
+    function maskele(m){for(var y=0;y<n;y++)for(var x=0;x<n;x++){if(F[y][x])continue;var c;
+      switch(m){case 0:c=(x+y)%2===0;break;case 1:c=y%2===0;break;case 2:c=x%3===0;break;case 3:c=(x+y)%3===0;break;
+        case 4:c=(Math.floor(x/3)+Math.floor(y/2))%2===0;break;case 5:c=x*y%2+x*y%3===0;break;
+        case 6:c=(x*y%2+x*y%3)%2===0;break;default:c=((x+y)%2+x*y%3)%2===0}
+      if(c)M[y][x]=!M[y][x]}}
+    function ceza(){var p=0,x,y,koyu=0;
+      function serit(al){for(var a=0;a<n;a++){var uz=0,renk=null,gec=0;
+        for(var b=0;b<n;b++){var h=al(a,b);if(h===renk){uz++;if(uz===5)p+=3;else if(uz>5)p++}else{renk=h;uz=1}
+          gec=((gec<<1)|(h?1:0))&0x7FF;if(b>=10&&(gec===0x5D||gec===0x5D0))p+=40}}}
+      serit(function(a,b){return M[a][b]});serit(function(a,b){return M[b][a]});
+      for(y=0;y<n-1;y++)for(x=0;x<n-1;x++){var h=M[y][x];if(h===M[y][x+1]&&h===M[y+1][x]&&h===M[y+1][x+1])p+=3}
+      for(y=0;y<n;y++)for(x=0;x<n;x++)if(M[y][x])koyu++;
+      return p+Math.floor(Math.abs(koyu*20-n*n*10)/(n*n))*10}
+    var enIyi=0,enAz=Infinity;
+    for(var m=0;m<8;m++){maskele(m);bicim(m);var c=ceza();if(c<enAz){enAz=c;enIyi=m}maskele(m)}
+    maskele(enIyi);bicim(enIyi);
+    return M}
+  window.imeceKareKodSvg=function(m){return kareKodSvg(String(m))}; // testlerin üreticiyi başka metinlerle deneyebilmesi için
+  function kareKodSvg(metin){var M=kareKod(metin);if(!M)return '';var n=M.length,b=4,yol='';
+    for(var y=0;y<n;y++)for(var x=0;x<n;x++)if(M[y][x])yol+='M'+(x+b)+' '+(y+b)+'h1v1h-1z';
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+(n+2*b)+' '+(n+2*b)+'" width="220" height="220" shape-rendering="crispEdges" role="img" aria-label="Adresin kare kodu" data-boyut="'+n+'"><rect width="100%" height="100%" fill="#fff"/><path d="'+yol+'" fill="#000"/></svg>'}
+
+  /* ---- Ağ paylaşımı: aynı ağdaki cihazlar kütüphaneyi okuyabilsin (yönetim yine yalnızca bu bilgisayarda) ---- */
+  function agCiz(a,yerel){if(!a)return;
+    if(yerel===false){$('ag-kart').hidden=true;$('ag-rozet').hidden=true;$('komsu-kart').hidden=true;return} // ağdan bağlanan cihaz paylaşımı yönetemez
+    var acik=!!a.acik,d=$('ag-durum');d.className='alt';
+    $('ag-rozet').hidden=!acik;
+    d.textContent=!acik?'Kapalı: kütüphaneyi yalnızca bu bilgisayar görüyor.'
+      :(!a.adres?'Açık, ama bu bilgisayar şu an bir ağa bağlı değil.'
+      :(a.ag_degisti?'Ağ değişmiş: aşağıdaki adres artık çalışmayabilir. Paylaşımı kapatıp yeniden aç.'
+      :'Açık. Öbür cihazı aynı ağa bağla ve tarayıcısının adres çubuğuna şunu yaz:'))
+      +(a.sabit?' (İmece ağ kipinde başlatılmış; buradan kapatılamaz.)':'');
+    $('ag-adres').hidden=!(acik&&a.adres);$('ag-adres').textContent=(a.adres||'').replace(/\/$/,'');
+    var kk=$('ag-kare');kk.hidden=!(acik&&a.adres);
+    kk.innerHTML=acik&&a.adres?'<p class="alt">Telefonla bağlanacaksan adresi yazmak yerine kamerayı bu kareye tut:</p>'+kareKodSvg(a.adres):'';
+    var b=$('ag-btn');b.textContent=acik?'Paylaşımı kapat':'Paylaşımı aç';b.disabled=!!a.sabit;b.dataset.acik=acik?'1':''}
+  $('ag-btn').onclick=function(){var b=this;b.disabled=true;
+    api('ag',{ac:!b.dataset.acik}).then(function(r){b.disabled=false;
+      if(r.hata){$('ag-durum').className='uyari';$('ag-durum').textContent=r.hata;return}
+      agCiz(r)}).catch(function(){b.disabled=false})};
+  $('imece-kapat').onclick=function(){
+    api('durum').then(function(d){
+      var s='İmece kapansın mı?'+(d.is&&d.is.aktif?'\n\nSüren indirme durur; İmece\'yi yeniden açınca Paketler sekmesindeki "Devam et" ile kaldığı yerden sürer.':'');
+      if(!confirm(s))return;
+      api('kapat',{}).then(function(r){if(r&&r.hata){alert(r.hata);return}$('kapandi').hidden=false}).catch(function(){$('kapandi').hidden=false});
+    }).catch(function(){$('kapandi').hidden=false});
+  };
+  function surucuYukle(){api('suruculer').then(function(l){
+    var sec=l.length?l.map(function(s){return '<option value="'+e(s.yol)+'">'+e(s.yol)+(s.cikarilabilir?' (flash)':'')+' · boş '+gb(s.bos_mb)+'</option>'}).join(''):'';
+    $('surucu').innerHTML=sec||'<option value="">Disk bulunamadı, flash diski takıp Yenile\'ye bas</option>';
+    $('veri-disk').innerHTML=sec||'<option value="">Disk bulunamadı; diski takıp Yenile\'ye bas</option>';
+  }).catch(function(){})}
+  $('surucu-yenile').onclick=surucuYukle;$('veri-yenile').onclick=surucuYukle;
+  /* ---- Verileri başka bir diske taşıma. Kullanıcı yol yazmaz; disk seçer. ---- */
+  var VERI_D=null,vtT=null;
+  function veriCiz(d){VERI_D=d;
+    $('veri-bilgi').innerHTML=d.yerel===false?'':(d.veri_yok?'<b>Disk takılı değil.</b> Kitaplar '+e(d.veri_yok_yol)+' içinde duruyor ama o disk bulunamıyor.'
+      :'Şu an: <b>'+(d.veri_varsayilan?'İmece klasörünün içinde':e(d.veri))+'</b> · '+d.zim_sayisi+' kitap · o diskte boş yer: '+gb(d.bos_mb));
+    $('veri-geri').hidden=!!d.veri_varsayilan||!!d.veri_yok;
+    var kapali=d.yerel===false||!!d.veri_yok;$('veri-tasi').disabled=kapali;$('veri-disk').disabled=kapali;
+    if(d.tasiniyor)veriTasiIzle()}
+  function veriTasiIzle(){if(vtT)return;$('veri-tasi').disabled=true;$('veri-geri').disabled=true;
+    vtT=setInterval(function(){api('veri-tasi').then(function(k){$('veri-cubuk').style.width=k.yuzde+'%';$('veri-durum').textContent=k.hata||k.mesaj;
+      if(!k.aktif){clearInterval(vtT);vtT=null;$('veri-geri').disabled=false;if(k.hata)$('veri-cubuk').style.width='0%';
+        api('durum').then(function(d){veriCiz(d);veriYokCiz(d)});surucuYukle()}}).catch(function(){})},700)}
+  function veriTasi(hedef,nereye){
+    if(!confirm('Kitaplar, müzik, dizinler ve notlar '+nereye+' taşınsın mı?\n\nTaşıma sürerken kütüphane kapalı kalır; büyük kütüphanede uzun sürebilir. İmece önce kopyalar, kopyanın sağlam olduğunu denetler, sonra eskisini siler. Bitmeden İmece\'yi kapatma, diski çıkarma.'))return;
+    $('veri-durum').textContent='Başlıyor…';$('veri-cubuk').style.width='0%';
+    api('veri-tasi',{hedef:hedef}).then(function(r){if(r.hata){$('veri-durum').textContent=r.hata;return}veriTasiIzle()}).catch(function(){$('veri-durum').textContent='İmece\'ye ulaşılamadı.'})}
+  $('veri-tasi').onclick=function(){var h=$('veri-disk').value;if(!h){$('veri-durum').textContent='Önce bir disk seç.';return}veriTasi(h,h+' diskine')};
+  $('veri-geri').onclick=function(){veriTasi('','İmece klasörünün içine geri')};
+  window.imeceVeriCiz=function(d){veriCiz(d);veriYokCiz(d)};  // sınama için: verilen durumla kartı ve uyarıyı çizer
+  var flT;
+  $('flash-btn').onclick=function(){var h=$('surucu').value;if(!h)return;
+    api('flash',{hedef:h,icerik:$('icerik-kopya').checked}).then(function(r){if(r.hata){$('flash-durum').textContent=r.hata;return}
+      flT=setInterval(function(){api('flash').then(function(k){$('flash-cubuk').style.width=k.yuzde+'%';$('flash-durum').textContent=k.mesaj;if(!k.aktif)clearInterval(flT)})},800)})};
+
+  /* ---- Sanat: indirilen galeriler (veri/sanat/<galeri>/kunye.json + resimler) ---- */
+  var SANAT=[],SG=0,SI=0,SYEREL=true;
+  function sanatYukle(){api('durum').then(function(d){SYEREL=d.yerel!==false}).catch(function(){}).then(function(){return api('sanat')}).then(function(l){SANAT=l;sanatCiz()}).catch(function(){uygulamaDegil($('sanat-liste'))})}
+  function sanatYol(g,s){return '/veri/sanat/'+encodeURIComponent(g.id)+'/'+encodeURIComponent(s.dosya)}
+  function sanatCiz(){var el=$('sanat-liste');
+    if(!SANAT.length){el.innerHTML='<div class="kart"><h3>Henüz eser yok</h3><p><a href="#" data-git="paketler">Paketler</a> bölümündeki “Sanat” başlığından bir galeri indir.</p></div>';return}
+    el.innerHTML=SANAT.map(function(g,gi){return '<div class="kart"><h3 class="sanat-ad">'+e(g.baslik)+'</h3><p class="alt"><span>'+g.eserler.length+' eser</span> · <span class="sanat-kaynak">'+e(g.kaynak)+'</span></p><div class="sanat-grid">'
+      +g.eserler.map(function(s,i){return '<button class="sanat-kare" data-sanat="'+gi+','+i+'"><img loading="lazy" alt="" src="'+sanatYol(g,s)+'"></button>'}).join('')+'</div>'
+      +(SYEREL?'<button class="btn ikincil" data-sanat-sil="'+e(g.id)+'">Bu galeriyi sil</button><span class="alt sanat-durum"></span>':'')+'</div>'}).join('')}
+  function sanatAc(gi,i){SG=gi;SI=i;var g=SANAT[gi],s=g.eserler[i];$('sanat-resim').src=sanatYol(g,s);
+    $('sanat-kunye').innerHTML='<b class="sanat-eser">'+e(s.ad||s.dosya)+'</b><span class="sanat-eser">'+e([s.sanatci,s.tarih].filter(Boolean).join(' · '))+'</span><span>'+(i+1)+' / '+g.eserler.length+' · '+e(s.lisans||'')+'</span><span class="sanat-eser">'+e(s.kaynak||'')+'</span>';
+    $('sanat-buyuk').hidden=false}
+  function sanatGec(n){var g=SANAT[SG];if(!g)return;sanatAc(SG,(SI+n+g.eserler.length)%g.eserler.length)}
+  $('sanat-onceki').onclick=function(){sanatGec(-1)};$('sanat-sonraki').onclick=function(){sanatGec(1)};$('sanat-kapat').onclick=function(){$('sanat-buyuk').hidden=true};
+  document.addEventListener('keydown',function(ev){if($('sanat-buyuk').hidden)return;if(ev.key==='Escape')$('sanat-buyuk').hidden=true;if(ev.key==='ArrowLeft')sanatGec(-1);if(ev.key==='ArrowRight')sanatGec(1)});
+  $('sanat-liste').addEventListener('click',function(ev){var k=ev.target.closest('[data-sanat]'),s=ev.target.closest('[data-sanat-sil]');
+    if(k){var p=k.dataset.sanat.split(',');sanatAc(+p[0],+p[1])}
+    if(s){if(!confirm('Bu galeri ve içindeki bütün resimler bu cihazdan silinsin mi?\n\nGeri getirmek için yeniden indirmen gerekir.'))return;
+      api('sanat-sil',{id:s.dataset.sanatSil}).then(function(r){if(r.hata){s.nextElementSibling.textContent=' '+r.hata;return}sanatYukle()})}});
+  /* ---- Oyunlar (uygulama/oyunlar.js) ---- */
+  $('oyun-sec').addEventListener('click',function(ev){var b=ev.target.closest('[data-oyun]');if(!b||!window.imeceOyun)return;
+    [].forEach.call($('oyun-sec').children,function(c){c.classList.toggle('aktif',c===b)});window.imeceOyun(b.dataset.oyun,$('oyun-alan'))});
+
+  /* ---- Müzik ---- */
+  /* ---- Müzik çalar ---- */
+  var LISTE=[],SIRA_C=[],ci=-1,karisik=false,tekrar='liste',c=$('calar');
+  function oku(k,v){try{var x=localStorage.getItem(k);return x==null?v:JSON.parse(x)}catch(e){return v}}
+  function yaz(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+  karisik=oku('imece-karisik',false);tekrar=oku('imece-tekrar','liste');c.volume=oku('imece-ses',0.8);c.muted=oku('imece-sessiz',false);
+  function sure(t){t=Math.floor(t||0);return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')}
+  function adi(m){return m.split('/').pop().replace(/\.(mp3|ogg|opus|m4a|wav|flac)$/i,'').replace(/[_-]+/g,' ')}
+  function siraKur(){SIRA_C=LISTE.map(function(_,i){return i});if(karisik){for(var i=SIRA_C.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=SIRA_C[i];SIRA_C[i]=SIRA_C[j];SIRA_C[j]=t}}}
+  function calCiz(){
+    $('cal-karisik').classList.toggle('acik',karisik);
+    $('cal-tekrar').textContent={liste:'🔁 Liste',tek:'🔂 Tek parça',kapali:'➡ Tekrar yok'}[tekrar];$('cal-tekrar').classList.toggle('acik',tekrar!=='kapali');
+    $('cal-sessiz').textContent=c.muted||c.volume===0?'🔇':(c.volume<0.5?'🔉':'🔊');$('cal-seviye').value=Math.round(c.volume*100);
+    $('cal-oynat').textContent=c.paused?'▶':'⏸';
+    [].forEach.call(document.querySelectorAll('.muzik-li'),function(d,i){d.classList.toggle('calan',i===ci)});
+  }
+  function parcaCal(i){if(i<0||i>=LISTE.length)return;ci=i;c.src='/veri/muzik/'+LISTE[i].split('/').map(encodeURIComponent).join('/');c.play().catch(function(){});$('cal-ad').textContent=adi(LISTE[i]);calCiz()}
+  function adim(yon){if(!LISTE.length)return;var p=SIRA_C.indexOf(ci);var n=p+yon;
+    if(n>=SIRA_C.length){if(tekrar==='liste'){if(karisik)siraKur();n=0}else{c.pause();calCiz();return}}
+    if(n<0)n=SIRA_C.length-1;parcaCal(SIRA_C[n])}
+  $('cal-oynat').onclick=function(){if(ci<0){siraKur();parcaCal(SIRA_C[0]);return}if(c.paused)c.play();else c.pause()};
+  $('cal-sonraki').onclick=function(){adim(1)};
+  $('cal-onceki').onclick=function(){if(c.currentTime>3){c.currentTime=0}else adim(-1)};
+  $('cal-karisik').onclick=function(){karisik=!karisik;yaz('imece-karisik',karisik);siraKur();calCiz()};
+  $('cal-tekrar').onclick=function(){tekrar={liste:'tek',tek:'kapali',kapali:'liste'}[tekrar];yaz('imece-tekrar',tekrar);calCiz()};
+  $('cal-sessiz').onclick=function(){if(c.volume===0){c.volume=0.5}c.muted=!c.muted;yaz('imece-sessiz',c.muted);calCiz()};
+  $('cal-seviye').oninput=function(){c.volume=this.value/100;c.muted=false;yaz('imece-ses',c.volume);yaz('imece-sessiz',false);calCiz()};
+  $('cal-konum').oninput=function(){if(c.duration)c.currentTime=this.value/1000*c.duration};
+  c.addEventListener('timeupdate',function(){$('cal-gecen').textContent=sure(c.currentTime);$('cal-toplam').textContent=sure(c.duration);if(c.duration)$('cal-konum').value=Math.round(c.currentTime/c.duration*1000)});
+  c.addEventListener('play',calCiz);c.addEventListener('pause',calCiz);
+  c.addEventListener('ended',function(){if(tekrar==='tek'){c.currentTime=0;c.play()}else adim(1)});
+  function muzikYukle(){var ml=$('muzik-liste');calCiz();
+    api('muzik').then(function(l){LISTE=l;siraKur();ml.innerHTML=l.length?'':'<p class="alt">Henüz müzik yok.</p>';
+      l.forEach(function(m,i){var d=document.createElement('div');d.className='muzik-li';d.textContent=(i+1)+'. '+adi(m);d.onclick=function(){parcaCal(i)};ml.appendChild(d)});calCiz()
+    }).catch(function(){uygulamaDegil(ml)})}
+
+  /* ---- A–Z Dizin: kitap seç, o kitabın giriş ekranındaki A–Z açılır ---- */
+  function dizinYukle(){var hedef=$('dz-kitaplar');
+    api('kitaplar').then(function(l){KITAP=l;
+      if(!l.length){hedef.innerHTML='<p>Önce <a href="#" data-git="paketler">Paketler</a> bölümünden bir kitap indir.</p>';return}
+      var tr=l.filter(function(b){return /^tur|^tr/.test(b.dil)}),sirali=tr.concat(l.filter(function(b){return tr.indexOf(b)<0}));
+      hedef.innerHTML='<ul class="paket">'+sirali.map(function(b){return '<li><div><b>'+e(b.baslik)+'</b><div class="alt">'+say(b.madde)+' madde'+(b.madde_kesin?'':' (yaklaşık)')+'</div></div><button class="btn ufak" data-giris="'+e(b.id)+'" data-az="1">A–Z\'yi aç</button></li>'}).join('')+'</ul>';
+    }).catch(function(){uygulamaDegil(hedef)})}
+
+  /* ---- İlgili maddeler (rehber sayfalarında) ---- */
+  document.addEventListener('click',function(ev){var t=ev.target.closest('[data-ilgili]');if(!t)return;var hedef=t.nextElementSibling;hedef.innerHTML='<p class="alt">Aranıyor…</p>';
+    Promise.all(REHBER[t.dataset.ilgili].map(function(q){return api('ara?q='+encodeURIComponent(q)).catch(function(){return []})})).then(function(ls){
+      var gor={},l=[].concat.apply([],ls).filter(function(x){var k=x.kitap+x.yol;if(gor[k])return false;gor[k]=1;return true}).slice(0,30);
+      if(!KITAP.length)api('kitaplar').then(function(x){KITAP=x});
+      hedef.innerHTML=l.length?'<ul class="sonuc">'+l.map(function(x){return '<li><a href="#" data-ac="'+e(x.kitap)+'" data-yol="'+e(x.yol)+'">'+e(x.baslik)+'</a> <span class="alt">· '+e(x.kitap_baslik)+'</span></li>'}).join('')+'</ul>':'<p class="alt">İndirilmiş kitaplarda ilgili madde bulunamadı. Türkçe Vikipedi indirirsen burası dolacak.</p>'})});
+
+  /* ---- Bilgisayardan kitap ekle: dosya tarayıcıdan İmece'ye kopyalanır, sunucu sağlamasını denetler ---- */
+  var EKLE={x:null};
+  function ekleDurum(t,hata){var d=$('ekle-durum');d.textContent=t;d.className=hata?'uyari':'alt'}
+  function ekleBitti(){EKLE.x=null;$('ekle-btn').disabled=false;$('ekle-vazgec').hidden=true;$('ekle-cubuk-kap').hidden=true}
+  function ekleBasla(f){
+    if($('ekle-btn').disabled)return; // süren bir ekleme var
+    $('ekle-btn').disabled=true;ekleDurum('“'+f.name+'” denetleniyor…');
+    f.slice(0,80).arrayBuffer().then(function(b){ // önce küçük bir denetim: yanlış dosya, yer yok ya da zaten var ise kopyalamaya hiç başlanmaz
+      var hex=[].map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('');
+      return api('kitap-ekle-denetle',{ad:f.name,boy:f.size,bas:hex})
+    }).then(function(r){
+      if(r.hata){ekleBitti();ekleDurum(r.hata,true);return}
+      var x=new XMLHttpRequest();EKLE.x=x;
+      x.open('POST','/api/kitap-ekle?ad='+encodeURIComponent(f.name));
+      x.upload.onprogress=function(ev){if(!ev.lengthComputable)return;var y=ev.loaded*100/ev.total;$('ekle-cubuk').style.width=y+'%';
+        ekleDurum(y>=100?'Kopyalandı; sağlaması denetleniyor…':'Kopyalanıyor: '+gb(ev.loaded/1048576)+' / '+gb(ev.total/1048576)+' (%'+Math.floor(y)+')')};
+      x.onload=function(){var c={};try{c=JSON.parse(x.responseText)}catch(h){}
+        ekleBitti();
+        if(x.status===200&&c.tamam){ekleDurum('“'+c.baslik+'” kütüphaneye eklendi ('+gb(c.boyut_mb)+', sağlaması doğrulandı). Arama dizini arka planda hazırlanıyor.');kitapYukle()}
+        else ekleDurum(c.hata||'Kitap eklenemedi.',true)};
+      x.onerror=function(){ekleBitti();ekleDurum('Kopyalama yarıda kesildi; kitap eklenmedi.',true)};
+      x.onabort=function(){ekleBitti();ekleDurum('Vazgeçildi; kitap eklenmedi.')};
+      $('ekle-vazgec').hidden=false;$('ekle-cubuk-kap').hidden=false;$('ekle-cubuk').style.width='0%';
+      x.send(f);
+    }).catch(function(){ekleBitti();ekleDurum('Dosya okunamadı ya da İmece yanıt vermedi; kitap eklenmedi.',true)});
+  }
+  $('ekle-btn').onclick=function(){$('ekle-dosya').value='';$('ekle-dosya').click()};
+  $('ekle-dosya').onchange=function(){var f=this.files&&this.files[0];if(f)ekleBasla(f)};
+  $('ekle-vazgec').onclick=function(){if(EKLE.x)EKLE.x.abort()};
+  window.addEventListener('beforeunload',function(ev){if(EKLE.x){ev.preventDefault();ev.returnValue=''}}); // kopyalama sürerken sayfa kapanmasın
+  api('durum').then(function(d){if(d.yerel===false)$('ekle-kart').hidden=true}).catch(function(){});
+
+  /* ---- Yer imleri ve geçmiş ---- */
+  function listeCiz(){
+    var y=oku('imece-yerimi',[]),g=oku('imece-gecmis',[]);
+    function li(x,sil){return '<div class="liste-li"><a href="#" data-ac="'+e(x.kitap)+'" data-yol="'+e(x.yol)+'">'+e(x.baslik||x.yol)+'</a>'+(sil?'<button data-sil="'+e(x.kitap+'|'+x.yol)+'" title="Kaldır">✕</button>':'')+'</div>'}
+    $('yerimleri').innerHTML=y.length?y.map(function(x){return li(x,true)}).join(''):'Henüz yok. Okurken ☆ düğmesine bas.';
+    $('gecmis').innerHTML=g.length?g.slice(0,15).map(function(x){return li(x)}).join(''):'Henüz yok.';
+  }
+  document.addEventListener('click',function(ev){var t=ev.target.closest('[data-sil]');if(!t)return;var y=oku('imece-yerimi',[]).filter(function(x){return x.kitap+'|'+x.yol!==t.dataset.sil});yaz('imece-yerimi',y);listeCiz()});
+  listeCiz();
+
+  // Adres çubuğundan ya da bir bağlantıdan başka bölüme (#paketler gibi) geçilirse o bölümü aç.
+  window.addEventListener('hashchange',function(){var id=location.hash.slice(1),s=id&&document.getElementById(id);if(s&&s.tagName==='SECTION'&&!s.classList.contains('aktif'))git(id)});
+  git((location.hash||'').slice(1)&&document.getElementById(location.hash.slice(1))?location.hash.slice(1):'simdi');
+})();
+</script>
+<script src="oyunlar.js"></script>
+<script src="dil-en.js"></script>
+<script src="dil.js"></script>
+</body>
+</html>

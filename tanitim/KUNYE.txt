@@ -1,0 +1,61 @@
+İMECE · SOSYAL MEDYA VE TANITIM VİDEOSU
+
+Paylaşmak için gorseller klasöründen bir JPG seçip metinler klasöründeki aynı numaralı TXT ile eşleştirin. Alternatif metinler dosyasında erişilebilir açıklamalar bulunur.
+
+01–05 Afet hazırlığı
+06–10 İnternetsiz kütüphane
+11–15 Gönüllü çağrısı
+
+Video iki biçimde sunulur: yatay 16:9 ve dikey 9:16. İkisinde de Türkçe seslendirme ve görüntüye işlenmiş Türkçe altyazı bulunur. Ayrı SRT dosyası düzenleme ve altyazı aktarımı içindir. Ayrı MP3 yalnızca seslendirmeyi içerir.
+
+Metin dayanağı: İmece README.md ve TANITIM.md. Rehberler uzman onayı bekliyor. Android uygulaması henüz yayımlanmadı. Telefonla okuma, aynı yerel ağdaki bir bilgisayarda açık olan İmece üzerinden sağlanır.
+
+Kampanya fotoğrafları bu çalışma için yapay zekâyla üretilmiş canlandırmalardır. Gönüllü ve uzman rolleri temsili portrelerle anlatılmıştır. Videolar fotoğrafları, hareketli yazıları ve aşağıdaki eserin gerçek röprodüksiyonunu bir araya getirir.
+
+Osman Hamdi Bey, Kaplumbağa Terbiyecisi, 1906. Pera Müzesi koleksiyonu.
+Röprodüksiyon: Google Art Project / Wikimedia Commons. Commons dosya sayfasında kamu malı (PD-Art) olarak işaretlidir.
+https://commons.wikimedia.org/wiki/File:Osman_Hamdi_Bey_-_The_Tortoise_Trainer_-_Google_Art_Project.jpg
+
+Tasarım yazı tipleri: Barlow Condensed, Noto Sans ve Open Sans. Barlow Condensed ile Noto Sans, SIL Open Font License 1.1 altında yayımlanmıştır.
+https://github.com/google/fonts/tree/main/ofl/barlowcondensed
+https://fonts.google.com/noto/specimen/Noto+Sans
+https://fonts.google.com/specimen/Open+Sans
+
+İMECE TANITIM FİLMİ — SESLENDİRME KÜNYESİ
+
+Anlatım Türkçe yapay sesle gerçekleştirildi. Ahenk Cep’in f022 sesi
+bir metin tarifinden tasarlanmıştır. Metin yerel bilgisayarda işlendi.
+
+Model
+  Ahenk Cep, Ahenk (ozgurguler). Model ağırlıkları CC BY 4.0.
+  https://huggingface.co/ozgurguler/ahenk-cep-tr/blob/f8782a9b237fee68587ce91ba802dfbb2f1513bb/README.md
+  https://github.com/ozguradmin/ahenk-turkish-tts
+  https://huggingface.co/ozgurguler/ahenk-tts-tr
+
+Eğitim kaynakları
+  Alania Turkish Synthetic Speech ve Alania Turkish Domain Text, PatientDesk AI.
+  Ahenk model kartı, eğitimde kullanılan kaynakları CC BY 4.0 olarak
+  belirtir. Alania ses arşivinin kendi kartı “cc-by” ve “voices” bölümleri
+  için CC BY 4.0, Vikipedi okuma bölümü için CC BY-SA 4.0 belirtir.
+  Alania Turkish Domain Text CC BY 4.0 lisanslıdır.
+  https://huggingface.co/datasets/cloud0day3/alania-synthetic-speech-tr
+  https://huggingface.co/datasets/cloud0day3/alania-domain-text-tr
+  https://creativecommons.org/licenses/by/4.0/deed.tr
+
+Taban ve yerel sentez
+  EMA Lightning, canberkkkkkk. Taban model ve motor Apache 2.0 lisanslıdır.
+  Ahenk Cep ONNX modeli CPU’da 48 kHz, doğal Türkçe anlatım üslubuyla çalıştırıldı.
+  trnorm ile yazılı metin konuşma biçimine çevrildi. Wi-Fi ve Android için
+  Türkçe okunuş kullanıldı. Altyazıda özgün yazım korundu. Cümleler ayrı
+  sentezlendi ve duraklamalarla altı sahneye yerleştirildi. Sesin düşük
+  frekansları filtrelendi, düzeyi dengelendi. Müzik kullanılmadı.
+  https://huggingface.co/canberkkkkkk/ema-lightning
+  https://github.com/ozguradmin/ahenk-turkish-tts/blob/a27c48e65cf4dcee553f52ede6aa3c8227c8586a/tts/small/web_pipeline.py
+  https://ffmpeg.org/
+
+Paylaşım için kısa atıf
+  “Türkçe yapay ses: Ahenk Cep, Ahenk, CC BY 4.0. Alania veri kümeleri:
+  PatientDesk AI. Taban: EMA Lightning, Apache 2.0.”
+  Model ve lisans bağlantılarını paylaşım açıklamasında verebilirsin.
+
+Bu künye, ses modelinin ve kaynaklarının lisanslarını belirtir.

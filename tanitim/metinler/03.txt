@@ -1,0 +1,1 @@
+Afet çantana bir flash bellek koyacaksan önce içindekileri açmayı dene. İmece’de Ayarlar’dan “Flash diske kur”u seç. Ardından belleği bir Windows bilgisayara takıp Imece-Ac’ye çift tıkla.

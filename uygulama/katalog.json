@@ -1,0 +1,800 @@
+{
+ "ad": "İmece",
+ "surum": "0.19",
+ "aciklama": "İmece içerik listesi. Türkçe içerik öncelikli; İngilizce paketler dil seçimiyle eklenir.",
+ "profiller": {
+  "mini": "Telefon ya da 16 GB flash için. En çok okunan 50.000 Vikipedi maddesi (resimli), sözlük, afet ve sağlık el kitapları, Türk ressamları, Bach.",
+  "standart": "64 GB disk ya da kutu için. Türkçe Vikipedi'nin tamamı (resimli), ders kitapları, deneyler, teknik ve tarım kaynakları, resim galerileri, klasik müzik.",
+  "tam": "256 GB ve üstü için. Standart'a ek olarak İngilizce Vikipedi (resimli), kitap arşivleri, soru-cevap arşivleri ve bütün galeriler."
+ },
+ "kategoriler": [
+  {
+   "id": "hayatta-kalma",
+   "ad": "Hayatta kalma ve afet"
+  },
+  {
+   "id": "saglik",
+   "ad": "Sağlık ve ilk yardım"
+  },
+  {
+   "id": "genel-tr",
+   "ad": "Genel bilgi (Türkçe)"
+  },
+  {
+   "id": "genel-en",
+   "ad": "Genel bilgi (İngilizce)"
+  },
+  {
+   "id": "teknik",
+   "ad": "Tamir, teknik, radyo, enerji"
+  },
+  {
+   "id": "tarim-gida",
+   "ad": "Tarım, gıda, doğa"
+  },
+  {
+   "id": "egitim",
+   "ad": "Eğitim ve çocuklar"
+  },
+  {
+   "id": "harita",
+   "ad": "Haritalar"
+  },
+  {
+   "id": "uygulama",
+   "ad": "Telefon uygulamaları"
+  },
+  {
+   "id": "sanat",
+   "ad": "Sanat: resim galerileri"
+  },
+  {
+   "id": "muzik",
+   "ad": "Müzik"
+  }
+ ],
+ "icerikler": [
+  {
+   "id": "wikipedia-tr-nopic",
+   "kategori": "genel-tr",
+   "baslik": "Türkçe Vikipedi (resimsiz; yalnızca yer darsa)",
+   "tur": "kiwix",
+   "kiwix_ad": "wikipedia_tr_all",
+   "dil": "tr",
+   "tahmini_mb": 3500,
+   "lisans": "CC BY-SA",
+   "profiller": [],
+   "flavour": "nopic"
+  },
+  {
+   "id": "wikipedia-tr-top",
+   "kategori": "genel-tr",
+   "baslik": "Türkçe Vikipedi: en çok okunan 50.000 madde (resimli)",
+   "tur": "kiwix",
+   "kiwix_ad": "wikipedia_tr_top",
+   "flavour": "maxi",
+   "dil": "tr",
+   "tahmini_mb": 1672,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "mini"
+   ]
+  },
+  {
+   "id": "wikipedia-tr",
+   "kategori": "genel-tr",
+   "baslik": "Türkçe Vikipedi: tamamı (resimli)",
+   "tur": "kiwix",
+   "kiwix_ad": "wikipedia_tr_all",
+   "dil": "tr",
+   "tahmini_mb": 8495,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "standart",
+    "tam"
+   ],
+   "flavour": "maxi"
+  },
+  {
+   "id": "wiktionary-tr",
+   "kategori": "genel-tr",
+   "baslik": "Türkçe Vikisözlük",
+   "tur": "kiwix",
+   "kiwix_ad": "wiktionary_tr_all",
+   "dil": "tr",
+   "tahmini_mb": 775,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "mini",
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "wikibooks-tr",
+   "kategori": "egitim",
+   "baslik": "Türkçe Vikikitap: ders ve kılavuz kitapları",
+   "tur": "kiwix",
+   "kiwix_ad": "wikibooks_tr_all",
+   "dil": "tr",
+   "tahmini_mb": null,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "wikiquote-tr",
+   "kategori": "genel-tr",
+   "baslik": "Türkçe Vikisöz: sözler ve atasözleri",
+   "tur": "kiwix",
+   "kiwix_ad": "wikiquote_tr_all",
+   "dil": "tr",
+   "tahmini_mb": null,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "wikisource-tr",
+   "kategori": "genel-tr",
+   "baslik": "Türkçe Vikikaynak: kamu malı metinler",
+   "tur": "kiwix",
+   "kiwix_ad": "wikisource_tr_all",
+   "dil": "tr",
+   "tahmini_mb": 65,
+   "lisans": "CC BY-SA / kamu malı",
+   "profiller": [
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "wikinews-tr",
+   "kategori": "genel-tr",
+   "baslik": "Türkçe Vikihaber arşivi",
+   "tur": "kiwix",
+   "kiwix_ad": "wikinews_tr_all",
+   "dil": "tr",
+   "tahmini_mb": null,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "tam"
+   ]
+  },
+  {
+   "id": "wikiversity-tr",
+   "kategori": "egitim",
+   "baslik": "Türkçe Vikiversite",
+   "tur": "kiwix",
+   "kiwix_ad": "wikiversity_tr_all",
+   "dil": "tr",
+   "tahmini_mb": null,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "tam"
+   ]
+  },
+  {
+   "id": "phet-tr",
+   "kategori": "egitim",
+   "baslik": "PhET fen ve matematik simülasyonları (Türkçe)",
+   "tur": "kiwix",
+   "kiwix_ad": "phet_tr_all",
+   "dil": "tr",
+   "tahmini_mb": null,
+   "lisans": "CC BY",
+   "profiller": [
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "muzik-chopin",
+   "kategori": "muzik",
+   "baslik": "Chopin: bütün eserleri (Musopen kayıtları)",
+   "tur": "archive",
+   "arsiv_id": "musopen-chopin",
+   "uzanti": [
+    ".mp3"
+   ],
+   "dil": "-",
+   "tahmini_mb": 500,
+   "lisans": "CC0 (kamu malı)",
+   "profiller": [
+    "standart",
+    "tam"
+   ],
+   "not": "104 parça"
+  },
+  {
+   "id": "osm-turkiye",
+   "kategori": "harita",
+   "baslik": "Türkiye OpenStreetMap ham verisi (.osm.pbf)",
+   "tur": "url",
+   "url": "https://download.geofabrik.de/europe/turkey-latest.osm.pbf",
+   "dosya": "turkey-latest.osm.pbf",
+   "dil": "-",
+   "tahmini_mb": null,
+   "lisans": "ODbL (OpenStreetMap katkıcıları)",
+   "profiller": [
+    "standart",
+    "tam"
+   ],
+   "not": "Ham veri; telefonda Organic Maps veya OsmAnd ile Türkiye haritasını uygulama içinden ayrıca indir."
+  },
+  {
+   "id": "organic-maps",
+   "kategori": "uygulama",
+   "baslik": "Organic Maps (Android, çevrimdışı harita ve navigasyon)",
+   "tur": "elle",
+   "url": "https://organicmaps.app",
+   "lisans": "Apache 2.0",
+   "profiller": [
+    "mini",
+    "standart",
+    "tam"
+   ],
+   "not": "APK'yı sitesinden ya da F-Droid'den al, Türkiye haritasını uygulama içinden indir."
+  },
+  {
+   "id": "post-disaster",
+   "kategori": "hayatta-kalma",
+   "baslik": "Afet sonrası rehber kütüphanesi · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "zimgit-post-disaster_en",
+   "dil": "en",
+   "tahmini_mb": 615,
+   "lisans": "Çeşitli açık lisanslar",
+   "profiller": [
+    "mini",
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "water",
+   "kategori": "hayatta-kalma",
+   "baslik": "Su arıtma ve su yönetimi · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "zimgit-water_en",
+   "dil": "en",
+   "tahmini_mb": 20,
+   "lisans": "Açık lisans",
+   "profiller": [
+    "mini",
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "knots",
+   "kategori": "hayatta-kalma",
+   "baslik": "Düğüm kütüphanesi · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "zimgit-knots_en",
+   "dil": "en",
+   "tahmini_mb": 27,
+   "lisans": "Açık lisans",
+   "profiller": [
+    "mini",
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "food-prep",
+   "kategori": "tarim-gida",
+   "baslik": "Gıda hazırlama ve saklama · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "zimgit-food-preparation_en",
+   "dil": "en",
+   "tahmini_mb": 93,
+   "lisans": "Açık lisans",
+   "profiller": [
+    "mini",
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "zimgit-medicine",
+   "kategori": "saglik",
+   "baslik": "Tıp el kitapları seçkisi · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "zimgit-medicine_en",
+   "dil": "en",
+   "tahmini_mb": 67,
+   "lisans": "Açık lisans",
+   "profiller": [
+    "mini",
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "mdwiki",
+   "kategori": "saglik",
+   "baslik": "MDWiki: hastalıklar, ilaçlar, tedaviler (İngilizce, büyük)",
+   "tur": "kiwix",
+   "kiwix_ad": "mdwiki_en_all",
+   "flavour": "maxi",
+   "dil": "en",
+   "tahmini_mb": 10000,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "wikipedia-en-simple",
+   "kategori": "genel-en",
+   "baslik": "Basit İngilizce Vikipedi · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "wikipedia_en_simple_all",
+   "flavour": "maxi",
+   "dil": "en",
+   "tahmini_mb": 3100,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "wikipedia-en",
+   "kategori": "genel-en",
+   "baslik": "İngilizce Vikipedi: tamamı (resimli, çok büyük) · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "wikipedia_en_all",
+   "flavour": "maxi",
+   "dil": "en",
+   "tahmini_mb": null,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "tam"
+   ]
+  },
+  {
+   "id": "wikivoyage-en",
+   "kategori": "genel-en",
+   "baslik": "Wikivoyage: dünya coğrafyası ve seyahat · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "wikivoyage_en_all",
+   "flavour": "maxi",
+   "dil": "en",
+   "tahmini_mb": 1100,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "tam"
+   ]
+  },
+  {
+   "id": "wikibooks-en",
+   "kategori": "genel-en",
+   "baslik": "Wikibooks: ders kitapları · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "wikibooks_en_all",
+   "flavour": "maxi",
+   "dil": "en",
+   "tahmini_mb": 4520,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "tam"
+   ]
+  },
+  {
+   "id": "appropedia",
+   "kategori": "teknik",
+   "baslik": "Appropedia: uygun teknoloji, permakültür, kendin yap · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "appropedia_en_all",
+   "flavour": "maxi",
+   "dil": "en",
+   "tahmini_mb": 555,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "energypedia",
+   "kategori": "teknik",
+   "baslik": "Energypedia: güneş, rüzgâr, enerji erişimi · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "energypedia_en_all",
+   "flavour": "maxi",
+   "dil": "en",
+   "tahmini_mb": 763,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "se-ham",
+   "kategori": "teknik",
+   "baslik": "Amatör radyo soru-cevap (Stack Exchange) · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "ham.stackexchange.com_en_all",
+   "dil": "en",
+   "tahmini_mb": null,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "se-diy",
+   "kategori": "teknik",
+   "baslik": "Ev tamiri soru-cevap (Stack Exchange) · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "diy.stackexchange.com_en_all",
+   "dil": "en",
+   "tahmini_mb": null,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "tam"
+   ]
+  },
+  {
+   "id": "se-mechanics",
+   "kategori": "teknik",
+   "baslik": "Araç bakım ve tamir soru-cevap · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "mechanics.stackexchange.com_en_all",
+   "dil": "en",
+   "tahmini_mb": null,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "tam"
+   ]
+  },
+  {
+   "id": "se-electronics",
+   "kategori": "teknik",
+   "baslik": "Elektronik soru-cevap · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "electronics.stackexchange.com_en_all",
+   "dil": "en",
+   "tahmini_mb": null,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "tam"
+   ]
+  },
+  {
+   "id": "superuser",
+   "kategori": "teknik",
+   "baslik": "Bilgisayar sorun giderme (Super User) · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "superuser.com_en_all",
+   "dil": "en",
+   "tahmini_mb": 3700,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "tam"
+   ]
+  },
+  {
+   "id": "se-gardening",
+   "kategori": "tarim-gida",
+   "baslik": "Bahçe ve bitki yetiştirme soru-cevap · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "gardening.stackexchange.com_en_all",
+   "dil": "en",
+   "tahmini_mb": null,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "gutenberg-agri",
+   "kategori": "tarim-gida",
+   "baslik": "Gutenberg: tarım ve kırsal yaşam kitapları · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "gutenberg_en_lcc-s",
+   "dil": "en",
+   "tahmini_mb": 4200,
+   "lisans": "Kamu malı",
+   "profiller": [
+    "tam"
+   ]
+  },
+  {
+   "id": "phet",
+   "kategori": "egitim",
+   "baslik": "PhET fen ve matematik simülasyonları · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "phet_en_all",
+   "dil": "en",
+   "tahmini_mb": 102,
+   "lisans": "CC BY",
+   "profiller": [
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "vikidia-en",
+   "kategori": "egitim",
+   "baslik": "Vikidia: çocuk ansiklopedisi · EN",
+   "tur": "kiwix",
+   "kiwix_ad": "vikidia_en_all",
+   "dil": "en",
+   "tahmini_mb": 66,
+   "lisans": "CC BY-SA",
+   "profiller": [
+    "standart",
+    "tam"
+   ]
+  },
+  {
+   "id": "muzik-bach-goldberg",
+   "kategori": "muzik",
+   "baslik": "Bach: Goldberg Varyasyonları (piyano: Kimiko Ishizaka)",
+   "tur": "archive",
+   "arsiv_id": "The_Open_Goldberg_Variations-11823",
+   "uzanti": [
+    ".mp3"
+   ],
+   "dil": "-",
+   "tahmini_mb": 126,
+   "lisans": "CC0 (kamu malı)",
+   "profiller": [
+    "mini",
+    "standart",
+    "tam"
+   ],
+   "not": "32 parça"
+  },
+  {
+   "id": "muzik-musopen-libre",
+   "kategori": "muzik",
+   "baslik": "Beethoven ve öbür besteciler: senfoni ve oda müziği (Musopen)",
+   "tur": "archive",
+   "arsiv_id": "Musopen-Libre",
+   "uzanti": [
+    ".mp3"
+   ],
+   "dil": "-",
+   "tahmini_mb": 205,
+   "lisans": "CC BY-SA 3.0 (Musopen)",
+   "profiller": [
+    "standart",
+    "tam"
+   ],
+   "not": "13 parça"
+  },
+  {
+   "id": "sanat-osman-hamdi",
+   "kategori": "sanat",
+   "baslik": "Osman Hamdi Bey: tablolar",
+   "tur": "commons",
+   "commons_kategori": "Paintings by Osman Hamdi Bey",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 3,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "mini",
+    "standart",
+    "tam"
+   ],
+   "not": "yaklaşık 5 eser"
+  },
+  {
+   "id": "sanat-seker-ahmed",
+   "kategori": "sanat",
+   "baslik": "Şeker Ahmed Paşa: tablolar",
+   "tur": "commons",
+   "commons_kategori": "Şeker Ahmed Pasha",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 6,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "mini",
+    "standart",
+    "tam"
+   ],
+   "not": "yaklaşık 13 eser"
+  },
+  {
+   "id": "sanat-hoca-ali-riza",
+   "kategori": "sanat",
+   "baslik": "Hoca Ali Rıza: tablolar ve desenler",
+   "tur": "commons",
+   "commons_kategori": "Paintings by Hoca Ali Rıza",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 14,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "mini",
+    "standart",
+    "tam"
+   ],
+   "not": "yaklaşık 32 eser"
+  },
+  {
+   "id": "sanat-osmanli-minyatur",
+   "kategori": "sanat",
+   "baslik": "Osmanlı minyatürleri",
+   "tur": "commons",
+   "commons_kategori": "Ottoman miniatures",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 18,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "standart",
+    "tam"
+   ],
+   "not": "yaklaşık 40 eser"
+  },
+  {
+   "id": "sanat-zonaro",
+   "kategori": "sanat",
+   "baslik": "Fausto Zonaro: İstanbul ve Osmanlı tabloları",
+   "tur": "commons",
+   "commons_kategori": "Paintings by Fausto Zonaro",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 18,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "standart",
+    "tam"
+   ],
+   "not": "yaklaşık 39 eser"
+  },
+  {
+   "id": "sanat-ayvazovski",
+   "kategori": "sanat",
+   "baslik": "İvan Ayvazovski: deniz tabloları",
+   "tur": "commons",
+   "commons_kategori": "Paintings by Ivan Aivazovsky",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 18,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "standart",
+    "tam"
+   ],
+   "not": "yaklaşık 40 eser"
+  },
+  {
+   "id": "sanat-van-gogh",
+   "kategori": "sanat",
+   "baslik": "Vincent van Gogh: tablolar",
+   "tur": "commons",
+   "commons_kategori": "Paintings by Vincent van Gogh",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 10,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "standart",
+    "tam"
+   ],
+   "not": "yaklaşık 22 eser"
+  },
+  {
+   "id": "sanat-rembrandt",
+   "kategori": "sanat",
+   "baslik": "Rembrandt: tablolar",
+   "tur": "commons",
+   "commons_kategori": "Paintings by Rembrandt",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 18,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "standart",
+    "tam"
+   ],
+   "not": "yaklaşık 40 eser"
+  },
+  {
+   "id": "sanat-hokusai",
+   "kategori": "sanat",
+   "baslik": "Hokusai: Japon resim sanatı",
+   "tur": "commons",
+   "commons_kategori": "Paintings by Katsushika Hokusai",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 18,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "tam"
+   ],
+   "not": "yaklaşık 40 eser"
+  },
+  {
+   "id": "sanat-friedrich",
+   "kategori": "sanat",
+   "baslik": "Caspar David Friedrich: doğa tabloları",
+   "tur": "commons",
+   "commons_kategori": "Paintings by Caspar David Friedrich",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 18,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "tam"
+   ],
+   "not": "yaklaşık 40 eser"
+  },
+  {
+   "id": "sanat-botticelli",
+   "kategori": "sanat",
+   "baslik": "Sandro Botticelli: Rönesans tabloları",
+   "tur": "commons",
+   "commons_kategori": "Paintings by Sandro Botticelli",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 18,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "tam"
+   ],
+   "not": "yaklaşık 40 eser"
+  },
+  {
+   "id": "sanat-goya",
+   "kategori": "sanat",
+   "baslik": "Francisco Goya: tablolar",
+   "tur": "commons",
+   "commons_kategori": "Paintings by Francisco de Goya",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 11,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "tam"
+   ],
+   "not": "yaklaşık 24 eser"
+  },
+  {
+   "id": "sanat-durer",
+   "kategori": "sanat",
+   "baslik": "Albrecht Dürer: tablolar",
+   "tur": "commons",
+   "commons_kategori": "Paintings by Albrecht Dürer",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 5,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "tam"
+   ],
+   "not": "yaklaşık 11 eser"
+  },
+  {
+   "id": "sanat-gerome",
+   "kategori": "sanat",
+   "baslik": "Jean-Léon Gérôme: Doğu tabloları",
+   "tur": "commons",
+   "commons_kategori": "Paintings by Jean-Léon Gérôme",
+   "en_cok": 40,
+   "dil": "-",
+   "tahmini_mb": 4,
+   "lisans": "Kamu malı (Wikimedia Commons)",
+   "profiller": [
+    "tam"
+   ],
+   "not": "yaklaşık 8 eser"
+  }
+ ]
+}

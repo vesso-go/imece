@@ -1,0 +1,1 @@
+Aradığın kitap yan masadaki bilgisayarda olabilir. İki bilgisayarda da İmece açıksa aynı yerel ağda kitabı birinden diğerine kopyalayabilirsin. Bunun için internet gerekmez.

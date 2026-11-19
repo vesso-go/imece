@@ -1,0 +1,16 @@
+# Imece - Raspberry Pi / Linux servis dosyasi. DENENMEDI: bir Pi uzerinde hic calistirilmadi.
+# kur.sh bu dosyayi /etc/systemd/system/imece.service olarak kopyalar.
+[Unit]
+Description=Imece cevrimdisi arsiv
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=imece
+WorkingDirectory=/opt/imece
+ExecStart=/usr/bin/python3 /opt/imece/imece.py --ag --tarayici-acma
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
