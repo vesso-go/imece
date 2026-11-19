@@ -1,0 +1,26 @@
+name: Hata bildirimi
+description: İmece'de bir şey çalışmadı ya da beklediğin gibi davranmadı.
+title: "[Hata] "
+labels: ["hata"]
+body:
+  - type: input
+    id: surum
+    attributes:
+      label: İmece sürümü
+      placeholder: "Ayarlar → Hakkında'da yazar. Örn. 0.19"
+  - type: dropdown
+    id: cihaz
+    attributes:
+      label: Cihaz
+      options: ["Windows 11", "Windows 10", "macOS", "Linux", "Raspberry Pi", "Telefon (aynı ağdan)", "Diğer"]
+    validations: { required: true }
+  - type: textarea
+    id: adimlar
+    attributes:
+      label: Ne yaptın, ne oldu?
+      description: Adım adım yaz. Ekran görüntüsü varsa buraya sürükle.
+    validations: { required: true }
+  - type: textarea
+    id: beklenen
+    attributes:
+      label: Ne olmasını bekliyordun?
