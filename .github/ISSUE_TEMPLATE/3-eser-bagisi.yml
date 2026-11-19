@@ -1,0 +1,33 @@
+name: Eser bağışı
+description: Faydalı bir eserini İmece'de ücretsiz okunsun diye bağışlamak istiyorsun.
+title: "[Bağış] "
+labels: ["eser-bagisi"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Önce [ESER-BAGISI.md](https://github.com/vesso-go/imece/blob/main/ESER-BAGISI.md) dosyasını oku.
+        **Dosyanın kendisini buraya ekleme:** bu sayfa herkese açıktır. İzin belgesinden sonra dosyayı özel bir yoldan isteriz.
+  - type: input
+    id: eser
+    attributes:
+      label: Eserin adı
+    validations: { required: true }
+  - type: dropdown
+    id: tur
+    attributes:
+      label: Türü
+      options: ["Kitap / rehber", "Görsel / çizim / fotoğraf", "Ses / müzik", "Video", "Eğitim materyali", "Diğer"]
+  - type: textarea
+    id: aciklama
+    attributes:
+      label: Kısa açıklama
+      description: Ne anlatıyor, kimin işine yarar?
+    validations: { required: true }
+  - type: checkboxes
+    id: hak
+    attributes:
+      label: Hak sahipliği
+      options:
+        - label: Bu eserin hak sahibi benim ya da hak sahibi adına izin vermeye yetkiliyim.
+          required: true
